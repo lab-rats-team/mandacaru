@@ -12,9 +12,9 @@ A engine usada para o desenvolvimento é Unity (atualmente Unity 2019.3.4f) com 
 
 A técnica de arte do jogo é *pixel art* lembrando jogos retrô, segue alguns *concept arts*
 
-![Logo (escrito TLZD-13) e fundo em movimento](img/menu-inicial.gif)
+![Logo (escrito TLZD-13) e fundo em movimento](Imgs/menu-inicial.gif)
 
-![Rosto em pixel art](img/rosto-personagem.gif) ![Modelo da arma](img/modelo-arma.gif)
+![Rosto em pixel art](Imgs/rosto-personagem.gif) ![Modelo da arma](Imgs/modelo-arma.gif)
 
 ## Instalação
 
