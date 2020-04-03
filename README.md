@@ -17,8 +17,3 @@ A técnica de arte do jogo é *pixel art*, lembrando jogos retrô. Segue alguns 
 ## Instalação
 
 Para implantar o projeto em máquina local, é necessário abrir o projeto no [Unity](https://unity3d.com/pt/get-unity/download) (versão 2019.3.4f em diante).
-
-## Organização
-
-A convenção de nomes das branches para protótipos descartáveis é `proto/nome`, sendo que *nome* deve descrever o tipo de implementação do protótipo. Além dos protótipos, há a branch `master`, que contém as *releases* do projeto, a `develop`, que contém o estado atual do conjunto de ideias já prototipadas e aprovadas, e outras.
-
