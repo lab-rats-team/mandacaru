@@ -8,7 +8,7 @@ public class JumpScript : MonoBehaviour {
     public bool debugMode;
     public Collider2D playerCollider;
     [Range(0, 20)]   public float jumpUpVelocity;
-    [Range(0, 1000)] public int jumpRequestDuration;
+    [Range(0,  1)]	 public float jumpRequestDuration;
     [Range(1, 10)]   public float fallMultiplier;
     [Range(1, 10)]   public float lowJumpMultiplier;
 
@@ -27,14 +27,15 @@ public class JumpScript : MonoBehaviour {
         rb = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
         groundLayerIndex = LayerMask.NameToLayer("Foreground");
-    }
+		Debug.Log("jrd: " + jumpRequestDuration);
+	}
     
     // Chamado todo frame
     void Update() {
         if (Input.GetButtonDown("Jump")) {
             jumpRequest = true;
             jumpRequestTimer = jumpRequestDuration;
-            if (debugMode) Debug.Log("Jump");
+            if (debugMode) Debug.Log("Jump " + jumpRequestTimer);
         }
         if (jumpRequest) {
             jumpRequestTimer -= Time.deltaTime;
@@ -63,7 +64,7 @@ public class JumpScript : MonoBehaviour {
             rb.velocity -= new Vector2(0, rb.velocity.y);
             rb.velocity += Vector2.up * jumpUpVelocity;
             jumpRequest = false;
-            if (debugMode) Debug.Log("Jumped");
+            if (debugMode) Debug.Log("Jumped with " + jumpRequestTimer + "s left");
         }
 
         if (rb.velocity.y < 0) {
