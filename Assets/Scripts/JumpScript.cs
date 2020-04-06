@@ -9,8 +9,8 @@ public class JumpScript : MonoBehaviour {
     public Collider2D playerCollider;
     [Range(0, 20)]   public float jumpUpVelocity;
     [Range(0,  1)]	 public float jumpRequestDuration;
-    [Range(1, 10)]   public float fallMultiplier;
-    [Range(1, 10)]   public float lowJumpMultiplier;
+    [Range(0, 15)]   public float floatyFallMultiplier;
+    [Range(0, 15)]   public float fallMultiplier;
 
     // Atributos que recebem valor dinamicamente
     private LayerMask groundLayerIndex;
@@ -20,14 +20,14 @@ public class JumpScript : MonoBehaviour {
     // Atributos de controle
     private bool jumpRequest;
     private float jumpRequestTimer;
-    private const float EXTRA_HEIGHT = 0.1f;
+	private bool holdingJump;
+    private const float EXTRA_HEIGHT = 0.05f;
 
     // Chamado ao instanciar o Player
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
         groundLayerIndex = LayerMask.NameToLayer("Foreground");
-		Debug.Log("jrd: " + jumpRequestDuration);
 	}
     
     // Chamado todo frame
@@ -35,7 +35,7 @@ public class JumpScript : MonoBehaviour {
         if (Input.GetButtonDown("Jump")) {
             jumpRequest = true;
             jumpRequestTimer = jumpRequestDuration;
-            if (debugMode) Debug.Log("Jump " + jumpRequestTimer);
+            if (debugMode) Debug.Log("Jump");
         }
         if (jumpRequest) {
             jumpRequestTimer -= Time.deltaTime;
@@ -45,9 +45,11 @@ public class JumpScript : MonoBehaviour {
             }
         }
 
-        //animator.SetFloat("y_speed", rb.velocity.y);
+		holdingJump = Input.GetButton("Jump");
 
-        if (debugMode) {
+		//animator.SetFloat("y_speed", rb.velocity.y);
+
+		if (debugMode) {
             Vector2 extraH = new Vector2(0f, EXTRA_HEIGHT);
             Debug.DrawLine(playerCollider.bounds.min, new Vector2(playerCollider.bounds.max.x, playerCollider.bounds.min.y), new Color(255, 2, 2));
             Debug.DrawLine(playerCollider.bounds.min, (Vector2)playerCollider.bounds.min - extraH);
@@ -64,13 +66,15 @@ public class JumpScript : MonoBehaviour {
             rb.velocity -= new Vector2(0, rb.velocity.y);
             rb.velocity += Vector2.up * jumpUpVelocity;
             jumpRequest = false;
-            if (debugMode) Debug.Log("Jumped with " + jumpRequestTimer + "s left");
+            if (debugMode) Debug.Log("Jumped");
         }
 
-        if (rb.velocity.y < 0) {
+		if (rb.velocity.y < 0 && holdingJump) {
+			rb.velocity += Vector2.up * Physics2D.gravity.y * (floatyFallMultiplier - 1) * Time.deltaTime;
+		} else if (rb.velocity.y < 0) {
             rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
-        } else if (rb.velocity.y > 0 && !Input.GetButton("Jump")) {
-            rb.velocity += Vector2.up * Physics2D.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;
+        } else if (rb.velocity.y > 0 && !holdingJump) {
+            rb.velocity += Vector2.up * Physics2D.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
     }
 
