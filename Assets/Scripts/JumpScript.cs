@@ -78,7 +78,7 @@ public class JumpScript : MonoBehaviour {
         }
     }
 
-    private bool IsGrounded() {
+    public bool IsGrounded() {
         Collider2D collider = Physics2D.OverlapArea(playerCollider.bounds.min + new Vector3(1f, 0f, 0f),
                 new Vector2(playerCollider.bounds.max.x - 1f, playerCollider.bounds.min.y - EXTRA_HEIGHT), 1 << groundLayerIndex);
 
