@@ -15,7 +15,7 @@ public class JumpScript : MonoBehaviour {
     // Atributos que recebem valor dinamicamente
     private LayerMask groundLayerIndex;
     private Rigidbody2D rb;
-    //private Animator animator;
+    private Animator animator;
 
     // Atributos de controle
     private bool jumpRequest;
@@ -26,7 +26,7 @@ public class JumpScript : MonoBehaviour {
     // Chamado ao instanciar o Player
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
         groundLayerIndex = LayerMask.NameToLayer("Foreground");
 	}
     
@@ -47,7 +47,7 @@ public class JumpScript : MonoBehaviour {
 
 		holdingJump = Input.GetButton("Jump");
 
-		//animator.SetFloat("y_speed", rb.velocity.y);
+		animator.SetFloat("ySpeed", rb.velocity.y);
 
 		if (debugMode) {
             Vector2 extraH = new Vector2(0f, EXTRA_HEIGHT);

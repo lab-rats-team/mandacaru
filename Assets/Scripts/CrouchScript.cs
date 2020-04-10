@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class CrouchScript : MonoBehaviour {
 
+	private BoxCollider2D boxColl;
 	private JumpScript jumpScript;
 	private PlayerMovement movementScript;
-	private BoxCollider2D boxColl;
 	private Rigidbody2D rb;
+	private Animator animator;
 
-	private static Vector2 DEFAULT_COLLIDER_SIZE = new Vector2(1.174623f, 2.741882f);
-	private static Vector2 DEFAULT_COLLIDER_OFFSET = new Vector2(-0.01909447f, 0.02948105f);
+	private static readonly Vector2 DEFAULT_COLLIDER_SIZE = new Vector2(0.35f, 0.65f);
+	private static readonly Vector2 DEFAULT_COLLIDER_OFFSET = new Vector2(0.0f, 0.33f);
 
-	public float sizeBoxX = 1.02f;
-	public float sizeBoxY = 1.17f;
+	public float sizeBoxX = 0.3f;
+	public float sizeBoxY = 0.45f;
 	public float offsetBoxX = 0f;
-	public float offsetBoxY = -0.76f;
+	public float offsetBoxY = 0.23f;
 
 	// Start is called before the first frame update
 	void Awake() {
-		rb = GetComponent<Rigidbody2D>();
 		boxColl = GetComponent<BoxCollider2D>();
 		jumpScript = GetComponent<JumpScript>();
 		movementScript = GetComponent<PlayerMovement>();
+		rb = GetComponent<Rigidbody2D>();
+		animator = GetComponent<Animator>();
 	}
 
     // Update is called once per frame
@@ -33,12 +35,14 @@ public class CrouchScript : MonoBehaviour {
 			boxColl.offset = new Vector2(offsetBoxX, offsetBoxY);
 			jumpScript.enabled = false;
 			movementScript.enabled = false;
+			animator.SetBool("crouching", true);
 		}
 		else if (Input.GetKeyUp(KeyCode.S)) {
 			boxColl.size = DEFAULT_COLLIDER_SIZE;
 			boxColl.offset = DEFAULT_COLLIDER_OFFSET;
 			jumpScript.enabled = true;
 			movementScript.enabled = true;
+			animator.SetBool("crouching", false);
 		}
 	}
 

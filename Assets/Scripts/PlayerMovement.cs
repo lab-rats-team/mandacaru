@@ -8,16 +8,19 @@ public class PlayerMovement : MonoBehaviour {
 
 	private Rigidbody2D rb;
 	private SpriteRenderer sr;
+	private Animator animator;
 	private float xVelocity;
 
 	// Start is called before the first frame update
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
+		animator = GetComponent<Animator>();
 	}
 
     // Update is called once per frame
     void Update() {
+		animator.SetFloat("xSpeed", xVelocity < 0 ? -xVelocity : xVelocity);
 		xVelocity = Input.GetKey(KeyCode.A) ? -1 : (Input.GetKey(KeyCode.D) ? 1 : 0);
 		sr.flipX = xVelocity < 0 || (sr.flipX && xVelocity == 0);
     }
