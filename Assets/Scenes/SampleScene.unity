@@ -697,6 +697,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4459d3fbc529ebe4c99569c4ffe7ecfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dashForce: 15
+  dashDuration: 0.3
   sizeBoxX: 0.3
   sizeBoxY: 0.45
   offsetBoxX: 0

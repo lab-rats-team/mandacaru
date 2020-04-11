@@ -21,7 +21,7 @@ public class JumpScript : MonoBehaviour {
     private bool jumpRequest;
     private float jumpRequestTimer;
 	private bool holdingJump;
-    private const float EXTRA_HEIGHT = 0.05f;
+	private const float EXTRA_HEIGHT = 0.05f;
 
     // Chamado ao instanciar o Player
     void Awake() {
@@ -79,8 +79,8 @@ public class JumpScript : MonoBehaviour {
     }
 
     public bool IsGrounded() {
-        Collider2D collider = Physics2D.OverlapArea(playerCollider.bounds.min + new Vector3(1f, 0f, 0f),
-                new Vector2(playerCollider.bounds.max.x - 1f, playerCollider.bounds.min.y - EXTRA_HEIGHT), 1 << groundLayerIndex);
+        Collider2D collider = Physics2D.OverlapArea(playerCollider.bounds.min + new Vector3(0.1f, 0f, 0f),
+                new Vector2(playerCollider.bounds.max.x - 0.1f, playerCollider.bounds.min.y - EXTRA_HEIGHT), 1 << groundLayerIndex);
 
         return collider != null;
     }
