@@ -556,6 +556,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugMode: 0
   playerCollider: {fileID: 802498547}
+  jumpKey: 273
   jumpUpVelocity: 18
   jumpRequestDuration: 0.14
   floatyFallMultiplier: 0

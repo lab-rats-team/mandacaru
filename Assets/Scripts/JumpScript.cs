@@ -7,6 +7,7 @@ public class JumpScript : MonoBehaviour {
     // Atributos alteráveis pelo Unity
     public bool debugMode;
     public Collider2D playerCollider;
+	public KeyCode jumpKey;
     [Range(0, 20)]   public float jumpUpVelocity;
     [Range(0,  1)]	 public float jumpRequestDuration;
     [Range(0, 15)]   public float floatyFallMultiplier;
@@ -32,7 +33,7 @@ public class JumpScript : MonoBehaviour {
     
     // Chamado todo frame
     void Update() {
-        if (Input.GetButtonDown("Jump")) {
+        if (Input.GetKeyDown(jumpKey)) {
             jumpRequest = true;
             jumpRequestTimer = jumpRequestDuration;
             if (debugMode) Debug.Log("Jump");
@@ -45,7 +46,7 @@ public class JumpScript : MonoBehaviour {
             }
         }
 
-		holdingJump = Input.GetButton("Jump");
+		holdingJump = Input.GetKey(jumpKey);
 
 		animator.SetFloat("ySpeed", rb.velocity.y);
 
