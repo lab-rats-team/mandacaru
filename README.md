@@ -12,7 +12,11 @@ A técnica de arte do jogo é *pixel art*, lembrando jogos retrô. Segue alguns 
 
 ![Logo (escrito TLZD-13) e fundo em movimento](imgs/menu-inicial.gif)
 
-![Rosto em pixel art](imgs/rosto-personagem.gif) ![Modelo da arma](imgs/modelo-arma.gif)
+![Rosto em pixel art](imgs/rosto-personagem.png) ![Modelo da arma](imgs/modelo-arma.gif)
+
+![Concept caverna vermelha](imgs/caverna-1.png)
+
+![Concept caverna marrom](imgs/caverna-2.png)
 
 ## Instalação
 
