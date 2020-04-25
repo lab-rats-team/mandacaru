@@ -30,6 +30,3 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 }
-/*
-eraMenorQueZero | eMenorQueZero
-	 */

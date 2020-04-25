@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 1344745551789388455}
   - component: {fileID: 3931809512210708392}
   - component: {fileID: 3931809512210708387}
-  m_Layer: 20
-  m_Name: Inimigo
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Layer: 16
+  m_Name: Mole
+  m_TagString: Enemy
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -97,14 +97,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae40d11b64ef094cb7cffe9e009b280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidade: {x: 2.001, y: 0}
-  velocidadeAumentada: {x: 0.24, y: 0}
-  distanciaAtack: 3
-  anime: {fileID: 3931809512210708387}
-  sizeBoxX: 0.5987514
-  sizeBoxY: 0.3276178
-  offsetBoxX: -0.02241823
-  offsetBoxY: -0.002517678
+  regularSpeed: 3
+  attackSpeedMultiplier: 2
+  attackDistance: 7
+  anim: {fileID: 3931809512210708387}
+  regularSizeBox: {x: 0.5987514, y: 0.3276178}
+  regularOffsetBox: {x: -0.02241823, y: -0.002517678}
+  attackSizeBox: {x: 0.297572, y: 0.4825935}
+  attackOffsetBox: {x: 0.008284271, y: -0.006903768}
 --- !u!50 &1344745551789388455
 Rigidbody2D:
   serializedVersion: 4
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &3931809512210708392
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -138,8 +138,8 @@ BoxCollider2D:
   m_Material: {fileID: 6200000, guid: 7c3d95456856da24b9d5af8c1dca7aec, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.008284271, y: -0.006903768}
+  m_UsedByComposite: 1
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -150,7 +150,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.297572, y: 0.4825935}
+  m_Size: {x: 0.24, y: 0.48}
   m_EdgeRadius: 0
 --- !u!95 &3931809512210708387
 Animator:

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3461965040172828172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -19.02, y: 0.55, z: -2.9414062}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.1158, y: 1.1158, z: 1.1158}
   m_Children: []
   m_Father: {fileID: 0}
@@ -45,5 +45,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inimigoPrefab: {fileID: 1344745551789388452, guid: 6609bc4ed95c5ba48a800f615732cf2c,
     type: 3}
-  distanciaGeracao: 10.2
-  distanciaMaxima: 15.2
+  distanciaGeracao: 15
+  distanciaMaxima: 30
