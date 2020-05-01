@@ -9,13 +9,13 @@ public class EnemySpawner : MonoBehaviour {
 	public float distanciaMaxima = 15.2f;
 
 	private GameObject tempPrefab;
-	private GameObject player;
+	private Transform player;
 	private Transform transf;
 	private bool destroyed = true;
 
 	// Start is called before the first frame update
 	void Start() {
-		player = GameObject.FindWithTag("Player");
+		player = GameObject.FindWithTag("Player").transform;
 		transf = GetComponent<Transform>();
 	}
 
@@ -36,6 +36,6 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	private float distanceFromPlayer() {
-		return Vector3.Distance(transf.position, player.transform.position);
+		return Vector3.Distance(transf.position, player.position);
 	}
 }
