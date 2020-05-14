@@ -5,13 +5,11 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	public float speed;
-	public float timeToLookUp;
 
 	private Rigidbody2D rb;
 	private SpriteRenderer sr;
 	private Animator animator;
 	private float xVelocity;
-	private float timeHoldingUp;
 
 	// Awake is called before the first frame update
 	void Awake() {
@@ -20,24 +18,18 @@ public class PlayerMovement : MonoBehaviour {
 		animator = GetComponent<Animator>();
 	}
 
-    // Update is called once per frame
-    void Update() {
+	// Update is called once per frame
+	void Update() {
 		animator.SetFloat("xSpeed", xVelocity < 0 ? -xVelocity : xVelocity);
 		xVelocity = Input.GetKey(KeyCode.A) ? -1 : (Input.GetKey(KeyCode.D) ? 1 : 0);
 		sr.flipX = xVelocity < 0 || (sr.flipX && xVelocity == 0);
 
-		if (Input.GetAxis("Vertical") > 0 && Input.GetAxis("Horizontal") == 0) {
-			timeHoldingUp += Time.deltaTime;
+		if (Input.GetAxis("Vertical") > 0.5 && Input.GetAxis("Horizontal") == 0) {
+			animator.SetBool("lookingUp", true);
 		} else {
-			timeHoldingUp = 0;
 			animator.SetBool("lookingUp", false);
 		}
-
-		if (timeHoldingUp > timeToLookUp) {
-			//Move camera
-			animator.SetBool("lookingUp", true);
-		}
-    }
+	}
 
 	void FixedUpdate() {
 		rb.velocity = new Vector2(xVelocity * speed, rb.velocity.y);

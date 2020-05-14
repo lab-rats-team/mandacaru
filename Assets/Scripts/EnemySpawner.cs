@@ -19,23 +19,21 @@ public class EnemySpawner : MonoBehaviour {
 		transf = GetComponent<Transform>();
 	}
 
-    // Update is called once per frame
-    void Update(){
+	// Update is called once per frame
+	void Update(){
 
-		if (distanceFromPlayer() < distanciaGeracao && destroyed) {
+		if (Vector3.Distance(transf.position, player.position) < distanciaGeracao && destroyed) {
 			tempPrefab = Instantiate (inimigoPrefab) as GameObject;
 			tempPrefab.transform.parent = transf;
 			tempPrefab.transform.position = new Vector3(transf.position.x, transf.position.y, transf.position.z);
 			destroyed = false;
 		}
 
-		if (distanceFromPlayer() >= distanciaMaxima && !destroyed) {
-			Destroy(tempPrefab);
-			destroyed = true;
+		if(tempPrefab) {
+			if (Vector3.Distance(tempPrefab.transform.position, player.position) >= distanciaMaxima && !destroyed) {
+				Destroy(tempPrefab);
+				destroyed = true;
+			}
 		}
-	}
-
-	private float distanceFromPlayer() {
-		return Vector3.Distance(transf.position, player.position);
 	}
 }

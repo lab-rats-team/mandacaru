@@ -4,41 +4,53 @@ using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour {
 
-	public float cooldown;
-	public int damage;
-	public Transform attackPoint;
-	public float radius;
-	public Vector2 knockback;
-	public float attackDelay;
-	public KeyCode attackKey = KeyCode.Mouse1;
-	public MonoBehaviour movementScript;
+	public float cooldown = 0.4f;
+	public int damage = 20;
+	public Vector2 knockback = new Vector2(1f, 1f);
+	public float attackDelay = 0.14f;
+	public KeyCode attackKey = KeyCode.Mouse0;
+
+	private Transform attackPoint;
+	private Transform upAttackPoint;
+	private float radius = 0.28f;
+	private float upRadius = 0.2f;
 
 	private Transform player;
 	private Animator anim;
 	private SpriteRenderer sr;
 	private Rigidbody2D rb;
+	private MonoBehaviour movementScript;
 	private LayerMask enemyLayer;
 	private Vector2 knockbackDirection;
 	private float remainingCooldown;
 	private float xDistance;
 	private float yDistance;
+
 	private float attackRemainingDelay;
 	private bool attackRequest;
 
-    // Start is called before the first frame update
-    void Start() {
+	private float upAttackRemainingDelay;
+	private bool upAttackRequest;
+
+	void Awake() {
 		player = GetComponent<Transform>();
 		anim = GetComponent<Animator>();
 		sr = GetComponent<SpriteRenderer>();
 		rb = GetComponent<Rigidbody2D>();
+		movementScript = GetComponent<PlayerMovement>();
+		attackPoint = GameObject.Find("attack_point").transform;
+		upAttackPoint = GameObject.Find("up_attack_point").transform;
+	}
+
+	private void Start() {
 		enemyLayer = LayerMask.NameToLayer("Enemies");
 		xDistance = attackPoint.position.x - player.position.x;
 		yDistance = attackPoint.position.y - player.position.y;
 		attackRequest = false;
 	}
 
-    // Update is called once per frame
-    void Update() {
+	// Update is called once per frame
+	void Update() {
 
 		if (sr.flipX) {
 			attackPoint.position = player.position + Vector3.left*xDistance + Vector3.up*yDistance;
@@ -49,14 +61,21 @@ public class MeleeAttack : MonoBehaviour {
 		if (remainingCooldown <= 0) {
 
 			if (Input.GetKeyDown(attackKey)) {
-				attackRequest = true;
-				attackRemainingDelay = attackDelay;
-				anim.SetTrigger("attack");
-				bool isForLeft = attackPoint.position.x - player.position.x < 0;
-				knockbackDirection.Set(isForLeft ? -knockback.x : knockback.x, knockback.y);
+				if (anim.GetBool("lookingUp")) {
+					upAttackRequest = true;
+					upAttackRemainingDelay = attackDelay;
+					anim.SetTrigger("upAttack");
+					knockbackDirection.Set(0.0f, knockback.y);
+				} else {
+					attackRequest = true;
+					attackRemainingDelay = attackDelay;
+					anim.SetTrigger("attack");
+					bool isForLeft = attackPoint.position.x - player.position.x < 0;
+					knockbackDirection.Set(isForLeft ? -knockback.x : knockback.x, knockback.y);
+					rb.velocity = Vector2.zero;
+				}
 				remainingCooldown = cooldown;
 				movementScript.enabled = false;
-				rb.velocity = Vector2.zero;
 			}
 		} else {
 			remainingCooldown -= Time.deltaTime;
@@ -69,12 +88,31 @@ public class MeleeAttack : MonoBehaviour {
 					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection);
 				}
 				attackRequest = false;
-				movementScript.enabled = true;
+				movementScript.enabled = true;Debug.Log("Ativado por meleeAttack");
 			} else {
 				attackRemainingDelay -= Time.deltaTime;
 			}
 		}
 
-    }
+		if (upAttackRequest) {
+			if (attackRemainingDelay <= 0) {
+				Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(upAttackPoint.position, upRadius, 1 << enemyLayer);
+				foreach (Collider2D enemy in enemiesHit) {
+					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection);
+				}
+				attackRequest = false;
+				movementScript.enabled = true; Debug.Log("Ativado por meleeAttack");
+			} else {
+				attackRemainingDelay -= Time.deltaTime;
+			}
+		}
+
+	}
+	
+	void OnDrawGizmosSelected() {
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere(attackPoint.position, radius);
+		Gizmos.DrawWireSphere(upAttackPoint.position, upRadius);
+	}
 
 }

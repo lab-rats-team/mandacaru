@@ -34,8 +34,8 @@ public class CrouchScript : MonoBehaviour {
 		animator = GetComponent<Animator>();
 	}
 
-    // Update is called once per frame
-    void Update(){
+	// Update is called once per frame
+	void Update() {
 		if (Input.GetKey(KeyCode.S) && !crouching && jumpScript.IsGrounded() && !dashing) {
 			rb.velocity = new Vector2(0.0f, rb.velocity.y);
 			boxColl.size = new Vector2(sizeBoxX, sizeBoxY);

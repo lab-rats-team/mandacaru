@@ -11,8 +11,8 @@ public class MoleBehaviour : MonoBehaviour {
 	public float regularSpeed;
 	public float attackSpeedMultiplier;
 	public float attackDistance;
-	public Vector2 regularSizeBox = new Vector2(0.24f, 0.48f);
-	public Vector2 regularOffsetBox = new Vector2(0f, 0f);
+	public int attackDamage;
+	public Vector2 attackKnockback = new Vector2(1f, 1f);
 	public Vector2 attackSizeBox = new Vector2(0.5f, 0.25f);
 	public Vector2 attackOffsetBox = new Vector2(0f, 0f);
 
@@ -41,12 +41,10 @@ public class MoleBehaviour : MonoBehaviour {
 		speed = regularSpeed;
 	}
 
-    // Update is called once per frame
-    void Update() {
+	// Update is called once per frame
+	void Update() {
 
 		pDistance = playerDistance();
-
-		//if (pDistance > 
 
 		if (pDistance < attackDistance && !attacking) {
 			speed *= attackSpeedMultiplier;
@@ -95,6 +93,15 @@ public class MoleBehaviour : MonoBehaviour {
 		if (speed < 0)
 			return Physics2D.Raycast(leftOrigin, Vector2.left, 0.2f, 1 << groundLayerIndex);
 		return Physics2D.Raycast(rightOrigin, Vector2.right, 0.2f, 1 << groundLayerIndex);
+	}
+
+	void OnTriggerEnter2D(Collider2D collider) {
+		if (collider.gameObject.CompareTag("Player")) {
+			GameObject player = collider.gameObject;
+			float horDist = player.transform.position.x - transform.position.x;
+			Vector2 knockback = new Vector2(horDist > 0 ? attackKnockback.x : -attackKnockback.x, attackKnockback.y);
+			player.GetComponent<Damageable>().TakeDamage(attackDamage, knockback);
+		}
 	}
 
 }
