@@ -69,7 +69,8 @@ public class CrouchScript : MonoBehaviour {
 
 	private void SetCrouching(bool isCrouching) {
 		crouching = isCrouching;
-		jumpScript.enabled = movementScript.enabled = !crouching;
+		jumpScript.enabled = !crouching;
+		rb.constraints = crouching ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
 		animator.SetBool("crouching", crouching);
 	}
 

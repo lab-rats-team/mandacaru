@@ -100,7 +100,7 @@ public class MoleBehaviour : MonoBehaviour {
 			GameObject player = collider.gameObject;
 			float horDist = player.transform.position.x - transform.position.x;
 			Vector2 knockback = new Vector2(horDist > 0 ? attackKnockback.x : -attackKnockback.x, attackKnockback.y);
-			player.GetComponent<Damageable>().TakeDamage(attackDamage, knockback);
+			player.GetComponent<Damageable>().TakeDamage(attackDamage, knockback, boxColl);
 		}
 	}
 

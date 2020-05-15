@@ -123,13 +123,8 @@ MonoBehaviour:
   dyingAnimDuration: 0.8
   dazedTime: 1
   movementScript: {fileID: 1344745551789388454}
-  intangibleTime: 0
-  layer1:
-    serializedVersion: 2
-    m_Bits: 0
-  layer2:
-    serializedVersion: 2
-    m_Bits: 0
+  invulnerableDuration: 0.8
+  thisCollider: {fileID: 3931809512210708392}
 --- !u!50 &1344745551789388455
 Rigidbody2D:
   serializedVersion: 4

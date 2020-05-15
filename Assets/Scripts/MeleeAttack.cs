@@ -20,6 +20,7 @@ public class MeleeAttack : MonoBehaviour {
 	private SpriteRenderer sr;
 	private Rigidbody2D rb;
 	private MonoBehaviour movementScript;
+	private new Collider2D collider;
 	private LayerMask enemyLayer;
 	private Vector2 knockbackDirection;
 	private float remainingCooldown;
@@ -32,17 +33,16 @@ public class MeleeAttack : MonoBehaviour {
 	private float upAttackRemainingDelay;
 	private bool upAttackRequest;
 
-	void Awake() {
+	private void Start() {
 		player = GetComponent<Transform>();
 		anim = GetComponent<Animator>();
 		sr = GetComponent<SpriteRenderer>();
 		rb = GetComponent<Rigidbody2D>();
+		collider = GetComponent<BoxCollider2D>();
 		movementScript = GetComponent<PlayerMovement>();
+		if (!player || !anim || !sr || !rb || !collider || !movementScript) Debug.Log("AAAAAA");
 		attackPoint = GameObject.Find("attack_point").transform;
 		upAttackPoint = GameObject.Find("up_attack_point").transform;
-	}
-
-	private void Start() {
 		enemyLayer = LayerMask.NameToLayer("Enemies");
 		xDistance = attackPoint.position.x - player.position.x;
 		yDistance = attackPoint.position.y - player.position.y;
@@ -81,14 +81,18 @@ public class MeleeAttack : MonoBehaviour {
 			remainingCooldown -= Time.deltaTime;
 		}
 
+	}
+
+	private void FixedUpdate() {
+
 		if (attackRequest) {
 			if (attackRemainingDelay <= 0) {
 				Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, radius, 1 << enemyLayer);
 				foreach (Collider2D enemy in enemiesHit) {
-					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection);
+					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection, collider);
 				}
 				attackRequest = false;
-				movementScript.enabled = true;Debug.Log("Ativado por meleeAttack");
+				movementScript.enabled = true;
 			} else {
 				attackRemainingDelay -= Time.deltaTime;
 			}
@@ -98,17 +102,17 @@ public class MeleeAttack : MonoBehaviour {
 			if (attackRemainingDelay <= 0) {
 				Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(upAttackPoint.position, upRadius, 1 << enemyLayer);
 				foreach (Collider2D enemy in enemiesHit) {
-					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection);
+					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection, collider);
 				}
 				attackRequest = false;
-				movementScript.enabled = true; Debug.Log("Ativado por meleeAttack");
+				movementScript.enabled = true;
 			} else {
 				attackRemainingDelay -= Time.deltaTime;
 			}
 		}
 
 	}
-	
+
 	void OnDrawGizmosSelected() {
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere(attackPoint.position, radius);

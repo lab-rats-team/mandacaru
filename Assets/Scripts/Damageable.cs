@@ -9,7 +9,8 @@ public class Damageable : MonoBehaviour {
 	public float dyingAnimDuration;
 	public float dazedTime;
 	public MonoBehaviour movementScript;
-	public float intangibleTime;
+	public float invulnerableDuration;
+	public Collider2D thisCollider;
 
 	private LayerMask playerLayer;
 	private LayerMask enemiesLayer;
@@ -34,30 +35,37 @@ public class Damageable : MonoBehaviour {
 		} else {
 			dazedRemainingTime -= Time.deltaTime;
 		}
-
-		if (intangibleRemainingTime > 0) {
-			intangibleRemainingTime -= Time.deltaTime;
-			if (intangibleRemainingTime <= 0)
-				Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, false);
-		}
 	}
 
-	public void TakeDamage(int damage, Vector2 knockback) {
+	public void TakeDamage(int damage, Vector2 knockback, Collider2D collider) {
 		if (movementScript) {
 			movementScript.enabled = false;
 			dazedRemainingTime = dazedTime;
+			StartCoroutine(MakeInvulnerable(invulnerableDuration));
 		}
-		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, true);
-		intangibleRemainingTime = intangibleTime;
+
 		anim.SetTrigger("damage");
 		rb.velocity = Vector2.zero;
 		rb.AddForce(knockback * knockbackMultiplier, ForceMode2D.Impulse);
 		hp -= damage;
 		if (hp <= 0) {
-			anim.SetTrigger("Die");
-			movementScript.enabled = false;
-			Destroy(gameObject, dyingAnimDuration);
+			StartCoroutine(Die(collider));
 		}
+	}
+
+	private IEnumerator MakeInvulnerable(float time) {
+		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, true);
+		yield return new WaitForSeconds(time);
+		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, false);
+	}
+
+	private IEnumerator Die(Collider2D collider) {
+		Physics2D.IgnoreCollision(thisCollider, collider, true);
+		Debug.Log(thisCollider.gameObject.name + " and " + collider.gameObject.name + " dont collide");
+		anim.SetTrigger("Die");
+		movementScript.enabled = false;
+		yield return new WaitForSeconds(dyingAnimDuration);
+		Destroy(gameObject, dyingAnimDuration);
 	}
 
 }

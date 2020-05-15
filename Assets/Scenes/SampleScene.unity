@@ -579,7 +579,8 @@ MonoBehaviour:
   dyingAnimDuration: 0
   dazedTime: 0.8
   movementScript: {fileID: 802498551}
-  intangibleTime: 2
+  invulnerableDuration: 0
+  thisCollider: {fileID: 802498547}
 --- !u!1 &907274751
 GameObject:
   m_ObjectHideFlags: 0
@@ -7761,7 +7762,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1740612694}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2ee1561d73a0b6409f0853c79f25d7c, type: 3}
   m_Name: 
@@ -7769,7 +7770,7 @@ MonoBehaviour:
   cooldown: 0.4
   damage: 20
   knockback: {x: 1, y: 1}
-  attackDelay: 0.14
+  attackDelay: 0
   attackKey: 324
 --- !u!4 &1740612696
 Transform:
