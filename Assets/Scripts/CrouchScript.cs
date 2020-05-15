@@ -49,6 +49,7 @@ public class CrouchScript : MonoBehaviour {
 		}
 
 		if (crouching && Input.GetKeyDown(jumpScript.jumpKey)) {
+			rb.velocity = Vector2.zero;
 			rb.AddForce((sr.flipX ? Vector2.left : Vector2.right) * dashForce, ForceMode2D.Impulse);
 			dashRemainingTime = dashDuration;
 			crouching = false;
