@@ -34,8 +34,8 @@ public class CrouchScript : MonoBehaviour {
 		animator = GetComponent<Animator>();
 	}
 
-    // Update is called once per frame
-    void Update(){
+	// Update is called once per frame
+	void Update() {
 		if (Input.GetKey(KeyCode.S) && !crouching && jumpScript.IsGrounded() && !dashing) {
 			rb.velocity = new Vector2(0.0f, rb.velocity.y);
 			boxColl.size = new Vector2(sizeBoxX, sizeBoxY);
@@ -49,6 +49,7 @@ public class CrouchScript : MonoBehaviour {
 		}
 
 		if (crouching && Input.GetKeyDown(jumpScript.jumpKey)) {
+			rb.velocity = Vector2.zero;
 			rb.AddForce((sr.flipX ? Vector2.left : Vector2.right) * dashForce, ForceMode2D.Impulse);
 			dashRemainingTime = dashDuration;
 			crouching = false;
@@ -69,7 +70,8 @@ public class CrouchScript : MonoBehaviour {
 
 	private void SetCrouching(bool isCrouching) {
 		crouching = isCrouching;
-		jumpScript.enabled = movementScript.enabled = !crouching;
+		jumpScript.enabled = !crouching;
+		rb.constraints = crouching ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
 		animator.SetBool("crouching", crouching);
 	}
 

@@ -3,7 +3,10 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Mole
+  - Weapon
   layers:
   - Default
   - TransparentFX
@@ -21,7 +24,7 @@ TagManager:
   - Foreground
   - Objects
   - 
-  - 
+  - Enemies
   - 
   - 
   - Player
@@ -49,6 +52,9 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 1093415851
+    locked: 0
+  - name: Enemies
+    uniqueID: 1034019497
     locked: 0
   - name: Player
     uniqueID: 1713754385
