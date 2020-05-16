@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7818134370856991731}
   - component: {fileID: 6696587547483110778}
   m_Layer: 16
-  m_Name: Mole 1
+  m_Name: Mole
   m_TagString: Enemy
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   attackSpeedMultiplier: 2
   attackDistance: 2
   attackDamage: 10
-  attackKnockback: {x: 3, y: 4.5}
+  attackKnockback: {x: 3, y: 4.2}
   attackSizeBox: {x: 0.5, y: 0.3}
   attackOffsetBox: {x: 0, y: 0.32}
   physicsCollider: {fileID: 6696587547483110769}
@@ -121,12 +121,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 20
-  knockbackMultiplier: {x: 0.2, y: 0.3}
-  dyingAnimDuration: 0.8
+  knockbackMultiplier: {x: 0.14, y: 0.3}
+  dyingAnimDuration: 1
   dazedTime: 1
-  movementScript: {fileID: 8707401998471510143}
+  movementScripts:
+  - {fileID: 8707401998471510143}
+  colliders:
+  - {fileID: 6696587547483110769}
+  - {fileID: 7818134370856991731}
   invulnerableDuration: 0.8
-  thisCollider: {fileID: 6696587547483110769}
+  blink: 0
+  blinkDuration: 0
 --- !u!50 &8707401998471510142
 Rigidbody2D:
   serializedVersion: 4

@@ -5129,10 +5129,14 @@ MonoBehaviour:
   knockbackMultiplier: {x: 1, y: 1}
   dyingAnimDuration: 0
   dazedTime: 0.8
-  movementScript: {fileID: 802498551}
+  movementScripts:
+  - {fileID: 802498551}
+  - {fileID: 802498546}
+  - {fileID: 802498552}
+  colliders:
+  - {fileID: 802498547}
   invulnerableDuration: 2.4
-  thisCollider: {fileID: 802498547}
-  blinkTimes: 6
+  blink: 1
   blinkDuration: 0.12
 --- !u!1 &907274751
 GameObject:
@@ -5400,37 +5404,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1548075538
+--- !u!1001 &1419222040
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6696587547483110769, guid: d72b679b81461474690fc53b25a962b9,
+    - target: {fileID: 6851477381158155764, guid: d72b679b81461474690fc53b25a962b9,
         type: 3}
-      propertyPath: m_Size.x
-      value: 0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696587547483110769, guid: d72b679b81461474690fc53b25a962b9,
-        type: 3}
-      propertyPath: m_Offset.y
-      value: 0.31574732
-      objectReference: {fileID: 0}
-    - target: {fileID: 6696587547483110769, guid: d72b679b81461474690fc53b25a962b9,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.48850533
+      propertyPath: blink
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8707401998471510113, guid: d72b679b81461474690fc53b25a962b9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8
+      value: 9.111
       objectReference: {fileID: 0}
     - target: {fileID: 8707401998471510113, guid: d72b679b81461474690fc53b25a962b9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.35
+      value: 1.625
       objectReference: {fileID: 0}
     - target: {fileID: 8707401998471510113, guid: d72b679b81461474690fc53b25a962b9,
         type: 3}
@@ -5485,7 +5479,7 @@ PrefabInstance:
     - target: {fileID: 8707401998471510142, guid: d72b679b81461474690fc53b25a962b9,
         type: 3}
       propertyPath: m_Mass
-      value: 0.19540215
+      value: 0.192
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d72b679b81461474690fc53b25a962b9, type: 3}

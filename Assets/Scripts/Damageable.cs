@@ -8,10 +8,10 @@ public class Damageable : MonoBehaviour {
 	public Vector2 knockbackMultiplier;
 	public float dyingAnimDuration;
 	public float dazedTime;
-	public MonoBehaviour movementScript;
+	public MonoBehaviour[] movementScripts;
+	public Collider2D[] colliders;
 	public float invulnerableDuration;
-	public Collider2D thisCollider;
-	public int blinkTimes;
+	public bool blink;
 	public float blinkDuration;
 
 
@@ -19,10 +19,11 @@ public class Damageable : MonoBehaviour {
 	private LayerMask enemiesLayer;
 	private Animator anim;
 	private Rigidbody2D rb;
-	private SpriteRenderer renderer;
+	private new SpriteRenderer renderer;
 	private float dazedRemainingTime;
 	private float intangibleRemainingTime;
 	private bool isDazed;
+	private bool dying;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -32,23 +33,30 @@ public class Damageable : MonoBehaviour {
 		playerLayer = LayerMask.NameToLayer("Player");
 		enemiesLayer = LayerMask.NameToLayer("Enemies");
 		isDazed = false;
+		dying = false;
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if (dazedRemainingTime <= 0 && isDazed) {
-			if (movementScript && !movementScript.enabled && isDazed) {
-				movementScript.enabled = true;
-				isDazed = false;
+		if (isDazed && !dying) {
+			if (dazedRemainingTime <= 0) {
+				if (movementScripts.Length > 0) {
+					foreach (MonoBehaviour script in movementScripts) {
+						script.enabled = true;
+					}
+					isDazed = false;
+				}
+			} else {
+				dazedRemainingTime -= Time.deltaTime;
 			}
-		} else {
-			dazedRemainingTime -= Time.deltaTime;
 		}
 	}
 
 	public void TakeDamage(int damage, Vector2 knockback, Collider2D collider) {
-		if (movementScript) {
-			movementScript.enabled = false;
+		if (movementScripts.Length > 0) {
+			foreach (MonoBehaviour script in movementScripts) {
+				script.enabled = false;
+			}
 			dazedRemainingTime = dazedTime;
 			isDazed = true;
 			StartCoroutine(MakeInvulnerable(invulnerableDuration));
@@ -59,31 +67,38 @@ public class Damageable : MonoBehaviour {
 		rb.AddForce(knockback * knockbackMultiplier, ForceMode2D.Impulse);
 		hp -= damage;
 		if (hp <= 0) {
+			dying = true;
 			StartCoroutine(Die(collider));
 		}
 	}
 
 	private IEnumerator MakeInvulnerable(float time) {
 		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, true);
-		StartCoroutine(Blink());
+		if (blink)
+			StartCoroutine(Blink());
 		yield return new WaitForSeconds(time);
 		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, false);
 	}
  
 	private IEnumerator Blink() {
-		for (int i = 0; i < blinkTimes; i++) {
+		float endTime = Time.time + invulnerableDuration;
+		while (Time.time < endTime) {
 			renderer.enabled = false;
 			yield return new WaitForSeconds(blinkDuration);
 			renderer.enabled = true;
-			yield return new WaitForSeconds(blinkDuration*2);
+			yield return new WaitForSeconds(blinkDuration * 2);
 		}
 	}
 
-	private IEnumerator Die(Collider2D collider) {
-		Physics2D.IgnoreCollision(thisCollider, collider, true);
-		Debug.Log(thisCollider.gameObject.name + " and " + collider.gameObject.name + " dont collide");
+	private IEnumerator Die(Collider2D otherCollider) {
+		foreach (Collider2D thisCollider in colliders) {
+			Physics2D.IgnoreCollision(thisCollider, otherCollider, true);
+			Debug.Log(thisCollider.gameObject.name + " and " + otherCollider.gameObject.name + " dont collide");
+		}
 		anim.SetTrigger("Die");
-		movementScript.enabled = false;
+		foreach (MonoBehaviour script in movementScripts) {
+			script.enabled = false;
+		}
 		yield return new WaitForSeconds(dyingAnimDuration);
 		Destroy(gameObject, dyingAnimDuration);
 	}
