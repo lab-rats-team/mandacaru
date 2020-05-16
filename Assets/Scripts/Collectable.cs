@@ -37,7 +37,7 @@ public class Collectable : MonoBehaviour {
 			script.enabled = false;
 		}
 		playerRb = player.GetComponent<Rigidbody2D>();
-		playerRb.constraints = RigidbodyConstraints2D.FreezePositionX;
+		playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
 
 		yield return new WaitForSeconds(time);
 
@@ -45,6 +45,7 @@ public class Collectable : MonoBehaviour {
 		foreach (MonoBehaviour script in scripts) {
 			script.enabled = true;
 		}
+		playerRb.velocity = new Vector2(0f, -1f);
 		playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
 		Destroy(gameObject);
 	}

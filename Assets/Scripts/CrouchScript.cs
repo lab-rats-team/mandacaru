@@ -10,12 +10,10 @@ public class CrouchScript : MonoBehaviour {
 	private Rigidbody2D rb;
 	private SpriteRenderer sr;
 	private Animator animator;
+	private Vector2 defaultColliderSize;
+	private Vector2 defaultColliderOffset;
 	private bool crouching = false;
 	private bool dashing = false;
-	private float dashRemainingTime;
-
-	private static readonly Vector2 DEFAULT_COLLIDER_SIZE = new Vector2(0.35f, 0.65f);
-	private static readonly Vector2 DEFAULT_COLLIDER_OFFSET = new Vector2(0.0f, 0.33f);
 
 	public float dashForce;
 	public float dashDuration;
@@ -27,6 +25,8 @@ public class CrouchScript : MonoBehaviour {
 	// Start is called before the first frame update
 	void Awake() {
 		boxColl = GetComponent<BoxCollider2D>();
+		defaultColliderSize = boxColl.bounds.size;
+		defaultColliderOffset = boxColl.offset;
 		jumpScript = GetComponent<JumpScript>();
 		movementScript = GetComponent<PlayerMovement>();
 		rb = GetComponent<Rigidbody2D>();
@@ -41,37 +41,40 @@ public class CrouchScript : MonoBehaviour {
 			boxColl.size = new Vector2(sizeBoxX, sizeBoxY);
 			boxColl.offset = new Vector2(offsetBoxX, offsetBoxY);
 			SetCrouching(true);
-		}
-		else if (Input.GetKeyUp(KeyCode.S) && crouching) {
-			boxColl.size = DEFAULT_COLLIDER_SIZE;
-			boxColl.offset = DEFAULT_COLLIDER_OFFSET;
+		} else if (crouching && !Input.GetKey(KeyCode.S)) {
+			boxColl.size = defaultColliderSize;
+			boxColl.offset = defaultColliderOffset;
 			SetCrouching(false);
 		}
-
+		
 		if (crouching && Input.GetKeyDown(jumpScript.jumpKey)) {
-			rb.velocity = Vector2.zero;
-			rb.AddForce((sr.flipX ? Vector2.left : Vector2.right) * dashForce, ForceMode2D.Impulse);
-			dashRemainingTime = dashDuration;
-			crouching = false;
-			dashing = true;
-			animator.SetBool("dashing", true);
-		} else if (dashing) {
-			dashRemainingTime -= Time.deltaTime;
-			if (dashRemainingTime <= 0) {
-				rb.velocity = new Vector2(0f, rb.velocity.y);
-				dashing = false;
-				animator.SetBool("dashing", false);
-				boxColl.size = DEFAULT_COLLIDER_SIZE;
-				boxColl.offset = DEFAULT_COLLIDER_OFFSET;
-				SetCrouching(false);
-			}
+			StartCoroutine("Dash");
 		}
+	}
+	
+	public void InterruptDash() {
+		StopCoroutine("Dash");
+		rb.velocity = Vector2.zero;
+		dashing = false;
+		animator.SetBool("dashing", false);
+		SetCrouching(false);
+		boxColl.size = defaultColliderSize;
+		boxColl.offset = defaultColliderOffset;
+	}
+	
+	private IEnumerator Dash() {
+		rb.AddForce((sr.flipX ? Vector2.left : Vector2.right) * dashForce, ForceMode2D.Impulse);
+		crouching = false;
+		dashing = true;
+		animator.SetBool("dashing", true);
+		
+		yield return new WaitForSeconds(dashDuration);
+		InterruptDash();
 	}
 
 	private void SetCrouching(bool isCrouching) {
 		crouching = isCrouching;
-		jumpScript.enabled = !crouching;
-		rb.constraints = crouching ? RigidbodyConstraints2D.FreezeAll : RigidbodyConstraints2D.FreezeRotation;
+		jumpScript.enabled = movementScript.enabled = !crouching;
 		animator.SetBool("crouching", crouching);
 	}
 
