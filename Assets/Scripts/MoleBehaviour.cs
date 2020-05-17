@@ -13,15 +13,16 @@ public class MoleBehaviour : MonoBehaviour {
 	public float attackDistance;
 	public int attackDamage;
 	public Vector2 attackKnockback = new Vector2(1f, 1f);
-	public Vector2 attackSizeBox = new Vector2(0.5f, 0.25f);
-	public Vector2 attackOffsetBox = new Vector2(0f, 0f);
+	public Vector2 attackSizeBox = new Vector2(0.5f, 0.35f);
+	public Vector2 attackOffsetBox = new Vector2(0f, 0.32f);
+	public BoxCollider2D physicsCollider;
+	public BoxCollider2D triggerCollider;
 
 	private SpriteRenderer sr;
 	private Rigidbody2D rb;
 	private Animator anim;
 	private Transform transf;
 	private Transform player;
-	private BoxCollider2D boxColl;
 	private LayerMask groundLayerIndex;
 	private float speed;
 	private double pDistance;
@@ -34,7 +35,6 @@ public class MoleBehaviour : MonoBehaviour {
 		anim = GetComponent<Animator>();
 		transf = GetComponent<Transform>();
 		player = GameObject.Find("Player").transform;
-		boxColl = GetComponent<BoxCollider2D>();
 		groundLayerIndex = LayerMask.NameToLayer("Foreground");
 		sr = GetComponent<SpriteRenderer>();
 
@@ -48,8 +48,8 @@ public class MoleBehaviour : MonoBehaviour {
 
 		if (pDistance < attackDistance && !attacking) {
 			speed *= attackSpeedMultiplier;
-			boxColl.size = attackSizeBox;
-			boxColl.offset = attackOffsetBox;
+			physicsCollider.size = attackSizeBox;
+			physicsCollider.offset = attackOffsetBox;
 			attacking = true;
 		}
 
@@ -80,16 +80,16 @@ public class MoleBehaviour : MonoBehaviour {
 	}
 
 	private bool reachBorder() {
-		Vector2 leftBottom = boxColl.bounds.min;
-		Vector2 rightBottom = new Vector2(boxColl.bounds.max.x, boxColl.bounds.min.y);
+		Vector2 leftBottom = physicsCollider.bounds.min;
+		Vector2 rightBottom = new Vector2(physicsCollider.bounds.max.x, physicsCollider.bounds.min.y);
 		if (speed < 0)
 			return !Physics2D.Raycast(leftBottom, Vector2.down, 0.2f, 1 << groundLayerIndex);
 		return !Physics2D.Raycast(rightBottom, Vector2.down, 0.2f, 1 << groundLayerIndex);
 	}
 
 	private bool reachWall() {
-		Vector2 rightOrigin = new Vector2(boxColl.bounds.max.x, boxColl.bounds.center.y);
-		Vector2 leftOrigin = new Vector2(boxColl.bounds.min.x, boxColl.bounds.center.y);
+		Vector2 rightOrigin = new Vector2(physicsCollider.bounds.max.x, physicsCollider.bounds.center.y);
+		Vector2 leftOrigin = new Vector2(physicsCollider.bounds.min.x, physicsCollider.bounds.center.y);
 		if (speed < 0)
 			return Physics2D.Raycast(leftOrigin, Vector2.left, 0.2f, 1 << groundLayerIndex);
 		return Physics2D.Raycast(rightOrigin, Vector2.right, 0.2f, 1 << groundLayerIndex);
@@ -100,7 +100,7 @@ public class MoleBehaviour : MonoBehaviour {
 			GameObject player = collider.gameObject;
 			float horDist = player.transform.position.x - transform.position.x;
 			Vector2 knockback = new Vector2(horDist > 0 ? attackKnockback.x : -attackKnockback.x, attackKnockback.y);
-			player.GetComponent<Damageable>().TakeDamage(attackDamage, knockback, boxColl);
+			player.GetComponent<Damageable>().TakeDamage(attackDamage, knockback, physicsCollider);
 		}
 	}
 
