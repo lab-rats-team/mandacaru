@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4928149178113383265}
   - component: {fileID: 4928149178113383264}
   m_Layer: 0
-  m_Name: Spawn  1
+  m_Name: Spawner
   m_TagString: Untagged
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -46,4 +46,4 @@ MonoBehaviour:
   inimigoPrefab: {fileID: 1344745551789388452, guid: 6609bc4ed95c5ba48a800f615732cf2c,
     type: 3}
   distanciaGeracao: 5
-  distanciaMaxima: 15
+  distanciaMaxima: 12

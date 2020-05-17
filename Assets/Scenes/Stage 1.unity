@@ -91898,9 +91898,15 @@ MonoBehaviour:
   knockbackMultiplier: {x: 1, y: 1}
   dyingAnimDuration: 0
   dazedTime: 0.8
-  movementScript: {fileID: 1884341052}
-  invulnerableDuration: 0
-  thisCollider: {fileID: 1884341053}
+  movementScripts:
+  - {fileID: 1884341052}
+  - {fileID: 1884341051}
+  - {fileID: 1884341050}
+  colliders:
+  - {fileID: 1884341053}
+  invulnerableDuration: 2.4
+  blink: 1
+  blinkDuration: 0.2
 --- !u!114 &1884341050
 MonoBehaviour:
   m_ObjectHideFlags: 0
