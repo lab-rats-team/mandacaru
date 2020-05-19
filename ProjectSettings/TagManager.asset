@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Mole
   - Weapon
+  - Virtual Camera
   layers:
   - Default
   - TransparentFX
