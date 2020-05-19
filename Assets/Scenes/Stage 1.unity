@@ -455,7 +455,7 @@ GameObject:
   - component: {fileID: 1028832993}
   m_Layer: 13
   m_Name: Tilemap_Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92213,8 +92213,8 @@ GameObject:
   - component: {fileID: 1884341052}
   - component: {fileID: 1884341051}
   - component: {fileID: 1884341050}
-  - component: {fileID: 1884341058}
   - component: {fileID: 1884341049}
+  - component: {fileID: 1884341058}
   m_Layer: 19
   m_Name: Player
   m_TagString: Player
@@ -92455,7 +92455,7 @@ GameObject:
   - component: {fileID: 1911015193}
   m_Layer: 13
   m_Name: Foreground_Grid
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

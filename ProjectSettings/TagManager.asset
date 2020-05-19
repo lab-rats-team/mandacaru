@@ -8,6 +8,7 @@ TagManager:
   - Mole
   - Weapon
   - Virtual Camera
+  - Ground
   layers:
   - Default
   - TransparentFX

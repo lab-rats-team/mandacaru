@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8633053350564825826}
   - component: {fileID: 8857229495238070235}
   - component: {fileID: -5372532042941038648}
+  - component: {fileID: 2423694795816848}
   m_Layer: 16
   m_Name: Green Cham Projectile
   m_TagString: Enemy
@@ -120,3 +121,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2423694795816848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7469874880845426460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 941b54a8ba4e4dd42b4fd8adaeedff56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collideWithTags:
+  - Ground
