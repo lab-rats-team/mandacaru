@@ -25,7 +25,7 @@ public class PlayerCollisionHandler : MonoBehaviour {
 			damageScript.TakeDamage(damage, new Vector2(xDirection * defaultKnockback.x, defaultKnockback.y), collider);
 
 		} else if (collider.gameObject.CompareTag("Enemy")) {
-			float horDist = gameObject.transform.position.x - transform.position.x;
+			float horDist = transform.position.x - collider.gameObject.transform.position.x;
 			Vector2 knockback = new Vector2(horDist > 0 ? defaultKnockback.x : -defaultKnockback.x, defaultKnockback.y);
 			damageScript.TakeDamage(damage, knockback, collider.gameObject.GetComponent<BoxCollider2D>());
 		}
