@@ -5127,7 +5127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 10
   knockbackMultiplier: {x: 1, y: 1}
-  dyingAnimDuration: 0
+  dyingAnimDuration: 1
   dazedTime: 0.8
   movementScripts:
   - {fileID: 802498551}
@@ -5195,6 +5195,7 @@ GameObject:
   - component: {fileID: 1118835050}
   - component: {fileID: 1118835049}
   - component: {fileID: 1118835051}
+  - component: {fileID: 1118835052}
   m_Layer: 14
   m_Name: Jemmy
   m_TagString: Untagged
@@ -5330,6 +5331,25 @@ MonoBehaviour:
     type: 2}
   component: {fileID: 1740612695}
   delay: 1
+--- !u!95 &1118835052
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1118835046}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 52b672fa24ee6274da8987485f108123, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1154854020
 GameObject:
   m_ObjectHideFlags: 0
