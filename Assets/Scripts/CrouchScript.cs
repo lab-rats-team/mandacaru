@@ -21,6 +21,8 @@ public class CrouchScript : MonoBehaviour {
 	public float sizeBoxY = 0.45f;
 	public float offsetBoxX = 0f;
 	public float offsetBoxY = 0.23f;
+	public Vector2 dashCollSize = new Vector2(0.5f, 0.4f);
+	public Vector2 dashCollOffset = new Vector2(0.0227f, 0.196f);
 
 	// Start is called before the first frame update
 	void Awake() {
@@ -67,6 +69,8 @@ public class CrouchScript : MonoBehaviour {
 		crouching = false;
 		dashing = true;
 		animator.SetBool("dashing", true);
+		boxColl.size = dashCollSize;
+		boxColl.offset = dashCollOffset;
 		
 		yield return new WaitForSeconds(dashDuration);
 		InterruptDash();
