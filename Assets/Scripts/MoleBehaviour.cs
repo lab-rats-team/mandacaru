@@ -12,7 +12,6 @@ public class MoleBehaviour : MonoBehaviour {
 	public float attackSpeedMultiplier;
 	public float attackDistance;
 	public int attackDamage;
-	public Vector2 attackKnockback = new Vector2(1f, 1f);
 	public Vector2 attackSizeBox = new Vector2(0.5f, 0.35f);
 	public Vector2 attackOffsetBox = new Vector2(0f, 0.32f);
 	public BoxCollider2D physicsCollider;
@@ -93,15 +92,6 @@ public class MoleBehaviour : MonoBehaviour {
 		if (speed < 0)
 			return Physics2D.Raycast(leftOrigin, Vector2.left, 0.2f, 1 << groundLayerIndex);
 		return Physics2D.Raycast(rightOrigin, Vector2.right, 0.2f, 1 << groundLayerIndex);
-	}
-
-	void OnTriggerEnter2D(Collider2D collider) {
-		if (collider.gameObject.CompareTag("Player")) {
-			GameObject player = collider.gameObject;
-			float horDist = player.transform.position.x - transform.position.x;
-			Vector2 knockback = new Vector2(horDist > 0 ? attackKnockback.x : -attackKnockback.x, attackKnockback.y);
-			player.GetComponent<Damageable>().TakeDamage(attackDamage, knockback, physicsCollider);
-		}
 	}
 
 }

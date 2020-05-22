@@ -11,7 +11,9 @@ public class Collectable : MonoBehaviour {
 	private SpriteRenderer sr;
 	private GameObject player;
 	private MonoBehaviour[] scripts;
-	Rigidbody2D playerRb;
+	private Rigidbody2D playerRb;
+	private Damageable damageable;
+	private int newSize;
 
 	void Awake() {
 		sr = GetComponent<SpriteRenderer>();
@@ -28,6 +30,12 @@ public class Collectable : MonoBehaviour {
 			Animator playerAnimator = collision.gameObject.GetComponent<Animator>();
 			playerAnimator.runtimeAnimatorController = jemmyAnimatorController;
 			sr.forceRenderingOff = true;
+
+			// Fazer "Damageable" reconhecer o novo script para desativá-lo ao tomar dano
+			damageable = collision.gameObject.GetComponent<Damageable>();
+			newSize = damageable.movementScripts.Length + 1;
+			System.Array.Resize<MonoBehaviour>(ref damageable.movementScripts, newSize);
+
 			StartCoroutine(FreezePlayer(delay));
 		}
 	}
@@ -42,6 +50,7 @@ public class Collectable : MonoBehaviour {
 		yield return new WaitForSeconds(time);
 
 		player.AddComponent(component.GetType());
+		damageable.movementScripts[newSize - 1] = (MonoBehaviour) player.GetComponent(component.GetType());
 		foreach (MonoBehaviour script in scripts) {
 			script.enabled = true;
 		}

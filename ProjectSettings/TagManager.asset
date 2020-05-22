@@ -9,6 +9,8 @@ TagManager:
   - Weapon
   - Virtual Camera
   - Ground
+  - Projectile
+  - Spikes
   layers:
   - Default
   - TransparentFX
@@ -32,7 +34,7 @@ TagManager:
   - Player
   - 
   - 
-  - 
+  - Spikes
   - 
   - 
   - 
@@ -60,4 +62,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 1713754385
+    locked: 0
+  - name: Spikes
+    uniqueID: 1272683805
     locked: 0
