@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Damageable : MonoBehaviour {
 
@@ -101,6 +102,7 @@ public class Damageable : MonoBehaviour {
 			script.enabled = false;
 		}
 		yield return new WaitForSeconds(dyingAnimDuration);
+		if (gameObject.CompareTag("Player")) SceneManager.LoadScene("Stage 1");
 		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, false);
 		Destroy(gameObject);
 	}

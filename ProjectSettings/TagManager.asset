@@ -10,6 +10,7 @@ TagManager:
   - Virtual Camera
   - Ground
   - Projectile
+  - Spikes
   layers:
   - Default
   - TransparentFX
@@ -33,7 +34,7 @@ TagManager:
   - Player
   - 
   - 
-  - 
+  - Spikes
   - 
   - 
   - 

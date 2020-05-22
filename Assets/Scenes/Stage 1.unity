@@ -282,9 +282,10 @@ GameObject:
   - component: {fileID: 850102706}
   - component: {fileID: 850102705}
   - component: {fileID: 850102704}
-  m_Layer: 16
+  - component: {fileID: 850102707}
+  m_Layer: 22
   m_Name: Tilemap_Enemies
-  m_TagString: Enemy
+  m_TagString: Spikes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1580,6 +1581,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &850102707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 850102702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca93f7753ec9c3a44afcdde320f12aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1028832991
 GameObject:
   m_ObjectHideFlags: 0
@@ -90807,7 +90820,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1244291842}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.07694767, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1674094051}
@@ -91146,6 +91159,7 @@ GameObject:
   - component: {fileID: 1884341050}
   - component: {fileID: 1884341049}
   - component: {fileID: 1884341058}
+  - component: {fileID: 1884341059}
   m_Layer: 19
   m_Name: Player
   m_TagString: Player
@@ -91197,6 +91211,8 @@ MonoBehaviour:
   sizeBoxY: 0.45
   offsetBoxX: 0
   offsetBoxY: 0.23
+  dashCollSize: {x: 0.5, y: 0.3722854}
+  dashCollOffset: {x: 0.0227, y: 0.1866386}
 --- !u!114 &1884341051
 MonoBehaviour:
   m_ObjectHideFlags: 0
