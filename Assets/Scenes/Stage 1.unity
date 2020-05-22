@@ -91491,7 +91491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 100
   knockbackMultiplier: {x: 1, y: 1}
-  dyingAnimDuration: 0
+  dyingAnimDuration: 2
   dazedTime: 0.8
   movementScripts:
   - {fileID: 1884341052}
