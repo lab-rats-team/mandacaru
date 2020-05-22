@@ -10,6 +10,7 @@ public class Damageable : MonoBehaviour {
 	public float dazedTime;
 	public MonoBehaviour[] movementScripts;
 	public Collider2D[] colliders;
+	public float drag;
 	public float invulnerableDuration;
 	public bool blink;
 	public float blinkDuration;
@@ -21,7 +22,6 @@ public class Damageable : MonoBehaviour {
 	private Rigidbody2D rb;
 	private new SpriteRenderer renderer;
 	private float dazedRemainingTime;
-	private float intangibleRemainingTime;
 	private bool isDazed;
 	private bool dying;
 
@@ -45,6 +45,7 @@ public class Damageable : MonoBehaviour {
 						script.enabled = true;
 					}
 					isDazed = false;
+					rb.drag = 0f;
 				}
 			} else {
 				dazedRemainingTime -= Time.deltaTime;
@@ -64,6 +65,7 @@ public class Damageable : MonoBehaviour {
 
 		anim.SetTrigger("damage");
 		rb.velocity = Vector2.zero;
+		rb.drag = drag;
 		rb.AddForce(knockback * knockbackMultiplier, ForceMode2D.Impulse);
 		hp -= damage;
 		if (hp <= 0) {
@@ -93,14 +95,14 @@ public class Damageable : MonoBehaviour {
 	private IEnumerator Die(Collider2D otherCollider) {
 		foreach (Collider2D thisCollider in colliders) {
 			Physics2D.IgnoreCollision(thisCollider, otherCollider, true);
-			Debug.Log(thisCollider.gameObject.name + " and " + otherCollider.gameObject.name + " dont collide");
 		}
 		anim.SetTrigger("Die");
 		foreach (MonoBehaviour script in movementScripts) {
 			script.enabled = false;
 		}
 		yield return new WaitForSeconds(dyingAnimDuration);
-		Destroy(gameObject, dyingAnimDuration);
+		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, false);
+		Destroy(gameObject);
 	}
 
 }

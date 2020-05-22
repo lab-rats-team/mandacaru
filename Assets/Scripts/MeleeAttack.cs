@@ -40,7 +40,7 @@ public class MeleeAttack : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		collider = GetComponent<BoxCollider2D>();
 		movementScript = GetComponent<PlayerMovement>();
-		if (!player || !anim || !sr || !rb || !collider || !movementScript) Debug.Log("AAAAAA");
+		
 		attackPoint = GameObject.Find("attack_point").transform;
 		upAttackPoint = GameObject.Find("up_attack_point").transform;
 		enemyLayer = LayerMask.NameToLayer("Enemies");

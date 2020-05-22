@@ -16,12 +16,9 @@ public class PlayerCollisionHandler : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D collider) {
+		Debug.Log(collider.gameObject.name);
 		if (collider.gameObject.CompareTag("Projectile")) {
-			ContactPoint2D[] points = new ContactPoint2D[6];
-			collider.GetContacts(points);
-			float xDirection = points[0].normal.x;
-			if (xDirection == 0f)
-				xDirection = sr.flipX ? 1f : -1f;
+			float xDirection = sr.flipX ? 1f : -1f;
 			damageScript.TakeDamage(damage, new Vector2(xDirection * defaultKnockback.x, defaultKnockback.y), collider);
 
 		} else if (collider.gameObject.CompareTag("Enemy")) {
