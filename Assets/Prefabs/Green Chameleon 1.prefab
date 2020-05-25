@@ -194,7 +194,7 @@ MonoBehaviour:
   projectile: {fileID: 7469874880845426460, guid: 8b25a345a5407264db9bd5f9e53213ab,
     type: 3}
   projectileSpeed: 2
-  fireRate: 1.5
+  fireRate: 2
   projectileOriginSpawn: {x: -0.267, y: -0.042, z: 0}
   initialDelay: 1
 --- !u!114 &4377140418369806175

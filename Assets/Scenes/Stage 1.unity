@@ -1151,7 +1151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564782569}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28.479551, y: -4.167378, z: -10}
+  m_LocalPosition: {x: 36.82, y: -8.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1778,7 +1778,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714055635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.359999, y: -4.52, z: -10}
+  m_LocalPosition: {x: 36.82, y: -8.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 370536847}
@@ -1828,7 +1828,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af10227ae0e6ad84986ee9cd4a2586b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inimigoPrefab: {fileID: 3759814226651162041, guid: f4e3f28bac1f317499cf8b4889143a26,
+  inimigoPrefab: {fileID: 1633829086800713705, guid: a7fca46fd484a8d41b6378dbd6a71e30,
     type: 3}
   distanciaGeracao: 10.2
   distanciaMaxima: 15.2
@@ -90917,7 +90917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1884341048}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.46, y: -5.02, z: 0}
+  m_LocalPosition: {x: 36.72, y: -9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1912857584}
