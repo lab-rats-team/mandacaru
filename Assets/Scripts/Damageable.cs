@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour {
 
+	public UnityEvent onTakeDamage;
 	public int hp;
 	public Vector2 knockbackMultiplier;
 	public float dyingAnimDuration;
@@ -55,6 +57,7 @@ public class Damageable : MonoBehaviour {
 	}
 
 	public void TakeDamage(int damage, Vector2 knockback, Collider2D collider) {
+		if(onTakeDamage != null) onTakeDamage.Invoke();
 		if (movementScripts.Length > 0) {
 			foreach (MonoBehaviour script in movementScripts) {
 				script.enabled = false;
