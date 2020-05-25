@@ -23,6 +23,7 @@ public class MoleBehaviour : MonoBehaviour {
 	private Transform transf;
 	private Transform player;
 	private LayerMask groundLayerIndex;
+	private LayerMask damageableObjLayer;
 	private float speed;
 	private double pDistance;
 	private bool attacking;
@@ -35,6 +36,7 @@ public class MoleBehaviour : MonoBehaviour {
 		transf = GetComponent<Transform>();
 		player = GameObject.Find("Player").transform;
 		groundLayerIndex = LayerMask.NameToLayer("Foreground");
+		damageableObjLayer = LayerMask.NameToLayer("DamageableObjects");
 		sr = GetComponent<SpriteRenderer>();
 
 		speed = regularSpeed;
@@ -82,16 +84,16 @@ public class MoleBehaviour : MonoBehaviour {
 		Vector2 leftBottom = physicsCollider.bounds.min;
 		Vector2 rightBottom = new Vector2(physicsCollider.bounds.max.x, physicsCollider.bounds.min.y);
 		if (speed < 0)
-			return !Physics2D.Raycast(leftBottom, Vector2.down, 0.2f, 1 << groundLayerIndex);
-		return !Physics2D.Raycast(rightBottom, Vector2.down, 0.2f, 1 << groundLayerIndex);
+			return !Physics2D.Raycast(leftBottom, Vector2.down, 0.2f, (1 << groundLayerIndex)|(1 << damageableObjLayer));
+		return !Physics2D.Raycast(rightBottom, Vector2.down, 0.2f, (1 << groundLayerIndex) | (1 << damageableObjLayer));
 	}
 
 	private bool reachWall() {
 		Vector2 rightOrigin = new Vector2(physicsCollider.bounds.max.x, physicsCollider.bounds.center.y);
 		Vector2 leftOrigin = new Vector2(physicsCollider.bounds.min.x, physicsCollider.bounds.center.y);
 		if (speed < 0)
-			return Physics2D.Raycast(leftOrigin, Vector2.left, 0.2f, 1 << groundLayerIndex);
-		return Physics2D.Raycast(rightOrigin, Vector2.right, 0.2f, 1 << groundLayerIndex);
+			return Physics2D.Raycast(leftOrigin, Vector2.left, 0.2f, (1 << groundLayerIndex) | (1 << damageableObjLayer));
+		return Physics2D.Raycast(rightOrigin, Vector2.right, 0.2f, (1 << groundLayerIndex) | (1 << damageableObjLayer));
 	}
 
 }
