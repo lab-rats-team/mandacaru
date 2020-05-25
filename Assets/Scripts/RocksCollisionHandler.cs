@@ -12,11 +12,13 @@ public class RocksCollisionHandler : MonoBehaviour
 	private SpriteRenderer sr;
 	private Animator anim;
 	private BoxCollider2D boxColl;
+	private Rigidbody2D rb;
 
 	public void Awake() {
 		sr = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
 		boxColl = GetComponent<BoxCollider2D>();
+		rb = GetComponent<Rigidbody2D>();
 		currentSprite = 0;
 	}
 
@@ -24,6 +26,7 @@ public class RocksCollisionHandler : MonoBehaviour
 		currentSprite++;
 		anim.SetTrigger("break");
 		if (currentSprite == breakPoint) {
+			rb.constraints = RigidbodyConstraints2D.FreezeAll;
 			boxColl.enabled = false;
 		}
 	}
@@ -40,7 +43,7 @@ public class RocksCollisionHandler : MonoBehaviour
 		float startTime = Time.time;
 		float endTime = startTime + fadeTime;
 		while (Time.time < endTime) {
-			sr.color = new Color(1f, 1f, 1f, (Time.time - startTime) / fadeTime);
+			sr.color = new Color(1f, 1f, 1f, 1-((Time.time - startTime) / fadeTime));
 			yield return new WaitForEndOfFrame();
 		}
 	}

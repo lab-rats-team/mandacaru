@@ -22,6 +22,7 @@ public class MeleeAttack : MonoBehaviour {
 	private MonoBehaviour movementScript;
 	private new Collider2D collider;
 	private LayerMask enemyLayer;
+	private LayerMask damageableObjLayer;
 	private Vector2 knockbackDirection;
 	private float remainingCooldown;
 	private float xDistance;
@@ -44,6 +45,8 @@ public class MeleeAttack : MonoBehaviour {
 		attackPoint = GameObject.Find("attack_point").transform;
 		upAttackPoint = GameObject.Find("up_attack_point").transform;
 		enemyLayer = LayerMask.NameToLayer("Enemies");
+		damageableObjLayer = LayerMask.NameToLayer("DamageableObjects");
+
 		xDistance = attackPoint.position.x - player.position.x;
 		yDistance = attackPoint.position.y - player.position.y;
 		attackRequest = false;
@@ -87,7 +90,7 @@ public class MeleeAttack : MonoBehaviour {
 
 		if (attackRequest) {
 			if (attackRemainingDelay <= 0) {
-				Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, radius, 1 << enemyLayer);
+				Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(attackPoint.position, radius, (1 << enemyLayer) | (1 << damageableObjLayer));
 				foreach (Collider2D enemy in enemiesHit) {
 					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection, collider);
 				}
@@ -100,7 +103,7 @@ public class MeleeAttack : MonoBehaviour {
 
 		if (upAttackRequest) {
 			if (attackRemainingDelay <= 0) {
-				Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(upAttackPoint.position, upRadius, 1 << enemyLayer);
+				Collider2D[] enemiesHit = Physics2D.OverlapCircleAll(upAttackPoint.position, upRadius, (1 << enemyLayer) | (1 << damageableObjLayer));
 				foreach (Collider2D enemy in enemiesHit) {
 					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection, collider);
 				}
