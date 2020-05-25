@@ -17,6 +17,7 @@ public class ChameleonBehaviour : MonoBehaviour {
 	void Start() {
 		sr = GetComponent<SpriteRenderer>();
 		anim = GetComponent<Animator>();
+		if (sr.flipX) projectileOriginSpawn.x = -projectileOriginSpawn.x;
 		InvokeRepeating("Shoot", initialDelay, fireRate);
 	}
 

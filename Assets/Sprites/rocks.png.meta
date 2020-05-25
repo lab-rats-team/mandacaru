@@ -1,36 +1,33 @@
 fileFormatVersion: 2
-guid: 69a0beecc46c69947a7661ce2632f8d0
+guid: 1b7b0e7979db7e44e933c899d0e384c8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 896739943601042934
-    second: toupeira-morte_0
+      213: -2705597995764985619
+    second: rocks_0
   - first:
-      213: 4734229444352478840
-    second: toupeira-morte_1
+      213: 8032301891362702160
+    second: rocks_1
   - first:
-      213: -5183949618156557611
-    second: toupeira-morte_2
+      213: -1916236507332333500
+    second: rocks_2
   - first:
-      213: -823818523152022767
-    second: toupeira-morte_3
+      213: -3327394054111465296
+    second: rocks_3
   - first:
-      213: 5487770978372029506
-    second: toupeira-morte_4
+      213: -4801779533427383079
+    second: rocks_4
   - first:
-      213: 7966571949011080534
-    second: toupeira-morte_5
+      213: 7298283456765205186
+    second: rocks_5
   - first:
-      213: -3020832382556605456
-    second: toupeira-morte_6
+      213: 6121542324556834107
+    second: rocks_6
   - first:
-      213: -6915511319571877592
-    second: toupeira-morte_7
-  - first:
-      213: 9039274624432687784
-    second: toupeira-morte_8
+      213: 7099062288176452497
+    second: rocks_7
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -84,6 +81,7 @@ TextureImporter:
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  applyGammaDecoding: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -109,194 +107,185 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: toupeira-morte_0
+      name: rocks_0
       rect:
         serializedVersion: 2
         x: 0
         y: 128
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6f57e324a3cd17c00800000000000000
-      internalID: 896739943601042934
+      spriteID: de05b6d25f8c37ad0800000000000000
+      internalID: -2705597995764985619
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toupeira-morte_1
+      name: rocks_1
       rect:
         serializedVersion: 2
         x: 64
         y: 128
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87e03dbb89c53b140800000000000000
-      internalID: 4734229444352478840
+      spriteID: 0534f536308787f60800000000000000
+      internalID: 8032301891362702160
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toupeira-morte_2
+      name: rocks_2
       rect:
         serializedVersion: 2
         x: 128
         y: 128
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5daa14cb949ee08b0800000000000000
-      internalID: -5183949618156557611
+      spriteID: 44032da9c092865e0800000000000000
+      internalID: -1916236507332333500
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toupeira-morte_3
+      name: rocks_3
       rect:
         serializedVersion: 2
         x: 0
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11303200b653194f0800000000000000
-      internalID: -823818523152022767
+      spriteID: 0b070f0bcb8b2d1d0800000000000000
+      internalID: -3327394054111465296
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toupeira-morte_4
+      name: rocks_4
       rect:
         serializedVersion: 2
         x: 64
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.52}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24c009e11aa782c40800000000000000
-      internalID: 5487770978372029506
+      spriteID: 9d4e15c84f6ac5db0800000000000000
+      internalID: -4801779533427383079
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toupeira-morte_5
+      name: rocks_5
       rect:
         serializedVersion: 2
         x: 128
         y: 64
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.53}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 655956a9af2fe8e60800000000000000
-      internalID: 7966571949011080534
+      spriteID: 2ca999ec226b84560800000000000000
+      internalID: 7298283456765205186
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toupeira-morte_6
+      name: rocks_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.54}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0f377bff3f8d316d0800000000000000
-      internalID: -3020832382556605456
+      spriteID: b35aab49f4614f450800000000000000
+      internalID: 6121542324556834107
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: toupeira-morte_7
+      name: rocks_7
       rect:
         serializedVersion: 2
         x: 64
         y: 0
         width: 64
         height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.54}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 821b9b4481b2700a0800000000000000
-      internalID: -6915511319571877592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: toupeira-morte_8
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8aa4388f064f17d70800000000000000
-      internalID: 9039274624432687784
+      spriteID: 1931125e98fe48260800000000000000
+      internalID: 7099062288176452497
       vertices: []
       indices: 
       edges: []
