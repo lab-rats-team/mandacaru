@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: cave_background_pattern
+  m_Name: entrancecave_tileset_3
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 67fe582b66b676b4697b03454a6ac622, type: 3}
+  m_Sprite: {fileID: 4224035196081254483, guid: f942f700286ecdb44a36576df418065b,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
