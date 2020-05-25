@@ -7,7 +7,7 @@ public class Coletável : MonoBehaviour
 	private BoxCollider2D hitbox;
 	private int counter = 0;
 
-	public int total;
+	public int total = 4;
 
 	
 
@@ -15,7 +15,6 @@ public class Coletável : MonoBehaviour
     void Start()
     {
 		hitbox = gameObject.GetComponent<BoxCollider2D>();
-		total = 4;
 	}
 
     // Update is called once per frame
