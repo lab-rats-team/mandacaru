@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8707401998471510141}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.6799755, y: -32026.443, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 3.3036}
   m_Children: []
   m_Father: {fileID: 0}
@@ -99,11 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae40d11b64ef094cb7cffe9e009b280, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  regularSpeed: 0.6
-  attackSpeedMultiplier: 2
+  regularSpeed: 0.4
+  attackSpeedMultiplier: 1.8
   attackDistance: 2
   attackDamage: 10
-  attackKnockback: {x: 3, y: 4.2}
   attackSizeBox: {x: 0.5, y: 0.3}
   attackOffsetBox: {x: 0, y: 0.32}
   physicsCollider: {fileID: 6696587547483110769}
@@ -120,7 +119,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29cb3e6011653c4a83c9865c3f73ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 20
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  hp: 1
   knockbackMultiplier: {x: 0.14, y: 0.3}
   dyingAnimDuration: 1
   dazedTime: 1
@@ -129,9 +131,11 @@ MonoBehaviour:
   colliders:
   - {fileID: 6696587547483110769}
   - {fileID: 7818134370856991731}
+  drag: 0.6
   invulnerableDuration: 0.8
   blink: 0
   blinkDuration: 0
+  fadeTime: 1
 --- !u!50 &8707401998471510142
 Rigidbody2D:
   serializedVersion: 4

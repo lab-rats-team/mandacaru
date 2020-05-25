@@ -37,7 +37,7 @@ AnimationClip:
     - time: 0.5833333
       value: {fileID: 7099062288176452497, guid: 1b7b0e7979db7e44e933c899d0e384c8,
         type: 3}
-    - time: 4.0333333
+    - time: 5.0333333
       value: {fileID: 7099062288176452497, guid: 1b7b0e7979db7e44e933c899d0e384c8,
         type: 3}
     attribute: m_Sprite
@@ -71,7 +71,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4.05
+    m_StopTime: 5.05
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -91,14 +91,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.6333333
-    functionName: OnAnimationStart
+  - time: 0.5833333
+    functionName: OnBreak
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 4.0333333
+  - time: 4
     functionName: OnAnimationEnd
     data: 
     objectReferenceParameter: {fileID: 0}

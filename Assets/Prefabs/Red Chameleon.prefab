@@ -210,16 +210,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b29cb3e6011653c4a83c9865c3f73ac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onTakeDamage:
+    m_PersistentCalls:
+      m_Calls: []
   hp: 100
   knockbackMultiplier: {x: 2.4, y: 2.8}
-  dyingAnimDuration: 0
-  dazedTime: 0.5
-  movementScripts:
-  - {fileID: 1036945674253880725}
+  dyingAnimDuration: 1.33
+  dazedTime: 0.33
+  movementScripts: []
   colliders:
   - {fileID: -560597586524047789}
   - {fileID: -6882823316424532750}
-  drag: 4.5
-  invulnerableDuration: 0.5
+  drag: 6
+  invulnerableDuration: 0.33
   blink: 0
-  blinkDuration: 0.05
+  blinkDuration: 0
+  fadeTime: 1.2

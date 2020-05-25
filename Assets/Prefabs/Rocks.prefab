@@ -156,6 +156,7 @@ MonoBehaviour:
   invulnerableDuration: 0
   blink: 0
   blinkDuration: 0
+  fadeTime: 1.5
 --- !u!61 &8515770742329104777
 BoxCollider2D:
   m_ObjectHideFlags: 0

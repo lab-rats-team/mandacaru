@@ -9,13 +9,13 @@ public class RocksCollisionHandler : MonoBehaviour
 	public float fadeTime;
 
 	private int currentSprite;
-	private SpriteRenderer sr;
+	private Damageable dmgScript;
 	private Animator anim;
 	private BoxCollider2D boxColl;
 	private Rigidbody2D rb;
 
 	public void Awake() {
-		sr = GetComponent<SpriteRenderer>();
+		dmgScript = GetComponent<Damageable>();
 		anim = GetComponent<Animator>();
 		boxColl = GetComponent<BoxCollider2D>();
 		rb = GetComponent<Rigidbody2D>();
@@ -31,21 +31,12 @@ public class RocksCollisionHandler : MonoBehaviour
 		}
 	}
 
+	public void OnBreak() {
+		StartCoroutine(dmgScript.FadeSprite());
+	}
+
 	public void OnAnimationEnd() {
 		Destroy(gameObject);
-	}
-
-	public void OnAnimationStart() {
-		StartCoroutine("FadeSprite");
-	}
-
-	private IEnumerator FadeSprite() {
-		float startTime = Time.time;
-		float endTime = startTime + fadeTime;
-		while (Time.time < endTime) {
-			sr.color = new Color(1f, 1f, 1f, 1-((Time.time - startTime) / fadeTime));
-			yield return new WaitForEndOfFrame();
-		}
 	}
 
 }

@@ -17,6 +17,7 @@ public class Damageable : MonoBehaviour {
 	public float invulnerableDuration;
 	public bool blink;
 	public float blinkDuration;
+	public float fadeTime;
 
 
 	private LayerMask playerLayer;
@@ -104,10 +105,21 @@ public class Damageable : MonoBehaviour {
 		foreach (MonoBehaviour script in movementScripts) {
 			script.enabled = false;
 		}
+		StartCoroutine("FadeSprite");
 		yield return new WaitForSeconds(dyingAnimDuration);
 		if (gameObject.CompareTag("Player")) SceneManager.LoadScene("Stage 1");
 		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, false);
 		Destroy(gameObject);
+	}
+
+	public IEnumerator FadeSprite() {
+		yield return new WaitForSeconds(0.3f);
+		float startTime = Time.time;
+		float endTime = startTime + fadeTime;
+		while (Time.time < endTime) {
+			renderer.color = new Color(1f, 1f, 1f, 1 - ((Time.time - startTime) / fadeTime));
+			yield return new WaitForEndOfFrame();
+		}
 	}
 
 }
