@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Projectile
   - Spikes
+  - Collectable
   layers:
   - Default
   - TransparentFX
