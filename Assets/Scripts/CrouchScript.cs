@@ -10,10 +10,12 @@ public class CrouchScript : MonoBehaviour {
 	private Rigidbody2D rb;
 	private SpriteRenderer sr;
 	private Animator animator;
+	private LayerMask foregroundLayer;
 	private Vector2 defaultColliderSize;
 	private Vector2 defaultColliderOffset;
 	private bool crouching = false;
 	private bool dashing = false;
+	private bool endDashWhenPossible = false;
 
 	public float dashForce;
 	public float dashDuration;
@@ -34,6 +36,7 @@ public class CrouchScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
+		foregroundLayer = LayerMask.NameToLayer("Foreground");
 	}
 
 	// Update is called once per frame
@@ -52,9 +55,18 @@ public class CrouchScript : MonoBehaviour {
 		if (crouching && Input.GetKeyDown(jumpScript.jumpKey)) {
 			StartCoroutine("Dash");
 		}
+
+		if (endDashWhenPossible) {
+			InterruptDash();
+		}
 	}
 	
 	public void InterruptDash() {
+		if (!IsThereRoom()) {
+			endDashWhenPossible = true;
+			return;
+		}
+		endDashWhenPossible = false;
 		StopCoroutine("Dash");
 		rb.velocity = Vector2.zero;
 		dashing = false;
@@ -80,6 +92,13 @@ public class CrouchScript : MonoBehaviour {
 		crouching = isCrouching;
 		jumpScript.enabled = movementScript.enabled = !crouching;
 		animator.SetBool("crouching", crouching);
+	}
+
+	private bool IsThereRoom() {
+		Vector2 pointA = new Vector2(boxColl.bounds.min.x, boxColl.bounds.max.y + (sizeBoxY - dashCollSize.y));
+		Vector2 pointB = boxColl.bounds.max;
+		Collider2D coll = Physics2D.OverlapArea(pointA, pointB, 1 << foregroundLayer);
+		return coll == null;
 	}
 
 }
