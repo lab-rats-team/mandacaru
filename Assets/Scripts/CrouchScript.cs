@@ -10,10 +10,13 @@ public class CrouchScript : MonoBehaviour {
 	private Rigidbody2D rb;
 	private SpriteRenderer sr;
 	private Animator animator;
+	private LayerMask foregroundLayer;
 	private Vector2 defaultColliderSize;
 	private Vector2 defaultColliderOffset;
 	private bool crouching = false;
 	private bool dashing = false;
+	private bool endDashWhenPossible = false;
+	private float heightDifference;
 
 	public float dashForce;
 	public float dashDuration;
@@ -23,6 +26,7 @@ public class CrouchScript : MonoBehaviour {
 	public float offsetBoxY = 0.23f;
 	public Vector2 dashCollSize = new Vector2(0.5f, 0.4f);
 	public Vector2 dashCollOffset = new Vector2(0.0227f, 0.196f);
+	public float gettingUpXMargin = 0.1f;
 
 	// Start is called before the first frame update
 	void Awake() {
@@ -34,6 +38,8 @@ public class CrouchScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
+		foregroundLayer = LayerMask.NameToLayer("Foreground");
+		heightDifference = sizeBoxY - dashCollSize.y;
 	}
 
 	// Update is called once per frame
@@ -52,9 +58,18 @@ public class CrouchScript : MonoBehaviour {
 		if (crouching && Input.GetKeyDown(jumpScript.jumpKey)) {
 			StartCoroutine("Dash");
 		}
+
+		if (endDashWhenPossible) {
+			InterruptDash();
+		}
 	}
 	
 	public void InterruptDash() {
+		if (!IsThereRoom()) {
+			endDashWhenPossible = true;
+			return;
+		}
+		endDashWhenPossible = false;
 		StopCoroutine("Dash");
 		rb.velocity = Vector2.zero;
 		dashing = false;
@@ -80,6 +95,13 @@ public class CrouchScript : MonoBehaviour {
 		crouching = isCrouching;
 		jumpScript.enabled = movementScript.enabled = !crouching;
 		animator.SetBool("crouching", crouching);
+	}
+
+	private bool IsThereRoom() {
+		Vector2 pointA = new Vector2(boxColl.bounds.min.x + gettingUpXMargin, boxColl.bounds.max.y + heightDifference);
+		Vector2 pointB = new Vector2(boxColl.bounds.max.x - gettingUpXMargin, boxColl.bounds.max.y);
+		Collider2D coll = Physics2D.OverlapArea(pointA, pointB, 1 << foregroundLayer);
+		return coll == null;
 	}
 
 }
