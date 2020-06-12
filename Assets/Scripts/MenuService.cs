@@ -17,13 +17,13 @@ public class MenuService : MonoBehaviour {
 		try {
 			popUps[popUpIdx].SetActive(true);
 		} catch (IndexOutOfRangeException e) {
-			Debug.Log("Falha ao tentar abrir pop-up com index inválido");
+			Debug.LogError("Falha ao tentar abrir pop-up com index inválido: " + e.Message);
 		}
 	}
 
     public void Quit() => Application.Quit();
 
-	private void CloseAllPopUps() {
+	public void CloseAllPopUps() {
 		foreach (GameObject popUp in popUps) {
 			popUp.SetActive(false);
 		}
