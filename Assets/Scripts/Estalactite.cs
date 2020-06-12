@@ -8,31 +8,24 @@ public class Estalactite : MonoBehaviour
 	private Rigidbody2D rb;
 	private Animator anim;
 
-	//private float pos;
-	//public bool fixa = false;
+	private float dyingAnimDuration = 0.5f;
 
-	
+
 	void Start(){
 		rb = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
 		transform = GetComponent<Transform>();
-		//pos = transform.position.y;
 	}
 
     void Update(){
-
-		/*if (fixa){
-			 transform.position = new Vector2(transform.position.x, pos);
-
-		 }*/
-
 	}
 
-	void OnTriggerEnter2D(Collider2D col){
-        if (col.tag == "Ground")
-        {
-			Debug.Log("bateuuuu");
+	private IEnumerator OnTriggerEnter2D(Collider2D col){
+        if (col.tag == "Ground" || col.tag == "Player"){
+
 			anim.SetTrigger("Destroi");
+			yield return new WaitForSeconds(dyingAnimDuration);
+			Destroy(gameObject);
 		}
 	}
 }
