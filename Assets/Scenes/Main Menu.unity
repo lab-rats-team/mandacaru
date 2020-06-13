@@ -603,6 +603,8 @@ MonoBehaviour:
   winCircle: {fileID: 487047435}
   emptyCircle: {fileID: 21300000, guid: d4b97a1961c968e428355cf588d10721, type: 3}
   filledCircle: {fileID: 21300000, guid: 616347c89fa84c54e8a01c00abe9bd0d, type: 3}
+  mscSlider: {fileID: 592594008}
+  sfxSlider: {fileID: 737077976}
 --- !u!4 &252427250
 Transform:
   m_ObjectHideFlags: 0
@@ -3385,7 +3387,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 252427249}
-        m_MethodName: setFullscreen
+        m_MethodName: SetFullscreenUI
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3593,6 +3595,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 252427249}
         m_MethodName: CloseAllPopUps
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252427249}
+        m_MethodName: UpdateConfigUI
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5336,7 +5349,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 252427249}
-        m_MethodName: Quit
+        m_MethodName: SaveConfigs
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 252427249}
+        m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7871,7 +7895,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 252427249}
-        m_MethodName: setEnglish
+        m_MethodName: SetEnglishUI
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8377,7 +8401,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 252427249}
-        m_MethodName: setEnglish
+        m_MethodName: SetEnglishUI
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8889,7 +8913,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 252427249}
-        m_MethodName: setFullscreen
+        m_MethodName: SetFullscreenUI
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
