@@ -25,12 +25,12 @@ public class MenuService : MonoBehaviour {
 	public Slider mscSlider;
 	public Slider sfxSlider;
 
-	private Configs currentConfigs;
+	private ConfigsModel currentConfigs;
 
 	public void Start() {
 		CloseAllPopUps();
-		currentConfigs = new Configs(false, true, 0.5f, 0.5f); // temporário
-		UpdateConfigUI();
+		currentConfigs = new ConfigsModel(false, true, 0.5f, 0.5f); // temporário
+		//UpdateConfigUI();
 	}
 
 	public void OpenPopUp(int popUpIdx) {
@@ -41,7 +41,7 @@ public class MenuService : MonoBehaviour {
 			Debug.LogError("Falha ao tentar abrir pop-up com index inválido: " + e.Message);
 		}
 	}
-
+	//
     public void Quit() => Application.Quit();
 
 	public void CloseAllPopUps() {
@@ -51,7 +51,6 @@ public class MenuService : MonoBehaviour {
 	}
 
 	public void SetEnglishUI(bool english) {
-		// chamar tradutor
 		ptCircle.GetComponent<Image>().sprite =  english ? emptyCircle : filledCircle;
 		enCircle.GetComponent<Image>().sprite = !english ? emptyCircle : filledCircle;
 	}
@@ -61,8 +60,8 @@ public class MenuService : MonoBehaviour {
 		fsCircle.GetComponent<Image>().sprite = !fullscreen ? emptyCircle : filledCircle;
 	}
 
-	public Configs GetConfigsFromUI() {
-		Configs cfg = new Configs();
+	public ConfigsModel GetConfigs() {
+		ConfigsModel cfg = new ConfigsModel();
 		cfg.SetEnglish(enCircle.GetComponent<Image>().sprite == filledCircle);
 		cfg.SetFullscreen(fsCircle.GetComponent<Image>().sprite == filledCircle);
 		cfg.SetMusicVol(mscSlider.value);
@@ -70,17 +69,11 @@ public class MenuService : MonoBehaviour {
 		return cfg;
 	}
 
-	public void UpdateConfigUI() {
-		SetEnglishUI(currentConfigs.GetEnglish());
-		SetFullscreenUI(currentConfigs.GetFullscreen());
-		mscSlider.value = currentConfigs.GetMusicVol();
-		sfxSlider.value = currentConfigs.GetSfxVol();
-	}
-
-	public void SaveConfigs() {
-		Configs cfg = GetConfigsFromUI();
-		// setar janela e volumes
-		currentConfigs = cfg;
+	public void UpdateConfigUI(ConfigsModel cfg) {
+		SetEnglishUI(cfg.GetEnglish());
+		SetFullscreenUI(cfg.GetFullscreen());
+		mscSlider.value = cfg.GetMusicVol();
+		sfxSlider.value = cfg.GetSfxVol();
 	}
 
 }
