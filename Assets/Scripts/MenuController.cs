@@ -13,6 +13,8 @@ public class MenuController : MonoBehaviour {
 		currentConfigs = new ConfigsModel(false, true, 0.5f, 0.5f); // temporário
 		view.UpdateConfigs(currentConfigs);
 		ApplyFullScreen(PlayerPrefs.GetInt("fullscreen") == 1);
+
+		AudioManager.instance.Play("introduction");
 	}
 
 	public void SaveConfigs() {
