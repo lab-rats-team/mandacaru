@@ -9,6 +9,9 @@ public class AudioManager : MonoBehaviour {
 
 	public Sound[] sounds;
 
+	private float globalSfxVolume;
+	private float globalMusicVolume;
+
 	void Awake () {
 
 		if (instance == null)
@@ -24,8 +27,8 @@ public class AudioManager : MonoBehaviour {
 			s.source = gameObject.AddComponent<AudioSource>();
 			s.source.clip = s.clip;
 			s.source.volume = s.volume;
-			s.source.minDistance = s.minDistance;
-			s.source.maxDistance = s.maxDistance;
+			//s.source.minDistance = s.minDistance;
+			//s.source.maxDistance = s.maxDistance;
 			s.source.loop = s.loop;
 		}
 	}
@@ -34,8 +37,24 @@ public class AudioManager : MonoBehaviour {
 		Sound s = Array.Find(sounds, sound => sound.name == soundName);
 		if (s == null)
 			Debug.LogWarning("Clipe de áudio \"" + soundName + "\" não encontrado.");
-		else
+		else {
+			s.source.volume = s.volume * (s.type == SoundType.Music ? globalMusicVolume : globalSfxVolume);
+			Debug.Log("Name = " + s.name + " and volume = " + s.source.volume);
 			s.source.Play();
+		}
 	}
 
+	public void UpdateSoundsVolume(float mscVol, float sfxVol) {
+		globalMusicVolume = mscVol;
+		globalSfxVolume = sfxVol;
+		foreach (Sound s in sounds) 
+			s.source.volume = s.volume * (s.type == SoundType.Music ? globalMusicVolume : globalSfxVolume);
+	}
+
+}
+
+[System.Serializable]
+public enum SoundType {
+	Music,
+	Sfx
 }

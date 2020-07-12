@@ -6922,10 +6922,9 @@ MonoBehaviour:
   sounds:
   - name: introduction
     clip: {fileID: 8300000, guid: 541a1f7be92ee9b44838d3e5067c926c, type: 3}
+    type: 0
     source: {fileID: 0}
-    volume: 0.5
-    minDistance: 0
-    maxDistance: 0
+    volume: 1
     loop: 1
 --- !u!4 &1328067307
 Transform:
