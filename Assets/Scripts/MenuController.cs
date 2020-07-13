@@ -23,16 +23,22 @@ public class MenuController : MonoBehaviour {
 		ApplyFullScreen(PlayerPrefs.GetInt("fullscreen") == 1);
 		AudioManager.instance.UpdateSoundsVolume(currentConfigs.GetMusicVol(), currentConfigs.GetSfxVol());
 		AudioManager.instance.Play("introduction");
+		LanguageManager.instance.LoadLanguage(currentConfigs.GetEnglish() ? "en" : "pt");
 	}
 
 	public void SaveConfigs() {
 		ConfigsModel cfg = view.GetConfigs();
 		ApplyFullScreen(cfg.GetFullscreen());
-		PlayerPrefs.SetInt("fullscreen", cfg.GetFullscreen() ? 1 : 0);
 		AudioManager.instance.UpdateSoundsVolume(cfg.GetMusicVol(), cfg.GetSfxVol());
-		// setar idioma
-		currentConfigs = cfg;
+		LanguageManager.instance.LoadLanguage(cfg.GetEnglish() ? "en" : "pt");
+
+		PlayerPrefs.SetInt("fullscreen", cfg.GetFullscreen() ? 1 : 0);
+		PlayerPrefs.SetFloat("musicVol", cfg.GetMusicVol());
+		PlayerPrefs.SetFloat("sfxVol", cfg.GetSfxVol());
+		PlayerPrefs.SetInt("english", cfg.GetEnglish() ? 1 : 0);
 		PlayerPrefs.Save();
+
+		currentConfigs = cfg;
 	}
 
 	public void Quit() => Application.Quit();

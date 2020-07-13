@@ -39,7 +39,6 @@ public class AudioManager : MonoBehaviour {
 			Debug.LogWarning("Clipe de áudio \"" + soundName + "\" não encontrado.");
 		else {
 			s.source.volume = s.volume * (s.type == SoundType.Music ? globalMusicVolume : globalSfxVolume);
-			Debug.Log("Name = " + s.name + " and volume = " + s.source.volume);
 			s.source.Play();
 		}
 	}

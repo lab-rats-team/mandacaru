@@ -1,0 +1,26 @@
+# Raiz do menu principal
+ROOT_CONTINUE=continuar
+ROOT_NEW=novo jogo
+# Pop-up para sair do jogo
+EXIT_TITLE=confirmação
+EXIT_TEXT=tem certeza que deseja fechar o jogo?
+EXIT_CANCEL=cancelar
+EXIT_QUIT=confirmar
+# Pop-up de configurações
+SETT_TITLE=configurações
+SETT_LANGUAGE=idioma
+SETT_SCREEN=tela
+SETT_FULL=cheia
+SETT_WINDOW=janela
+SETT_MUSIC=música
+SETT_SFX=efeitos
+SETT_CANCEL=cancelar
+SETT_SAVE=salvar
+# Pop-up de novo jogo
+NEWG_TITLE=novo jogo
+NEWG_BACK=voltar
+NEWG_DELETE=deletar
+# Pop-up de continuar
+CONT_TITLE=continuar
+CONT_BACK=voltar
+CONT_DELETE=deletar
