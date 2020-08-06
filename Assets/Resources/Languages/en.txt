@@ -1,4 +1,4 @@
-# Raiz do menu principal
+﻿# Raiz do menu principal
 ROOT_CONTINUE=continue
 ROOT_NEW=new game
 # Pop-up para sair do jogo
@@ -24,3 +24,6 @@ NEWG_DELETE=delete
 CONT_TITLE=continue
 CONT_BACK=back
 CONT_DELETE=delete
+# Pop-up de deletar
+DELETE_TITLE=delete
+DELETE_CANCEL=cancel

@@ -7,7 +7,13 @@ public class SaveModel {
 	// pode guardar coisas coletadas, segredos descobertos, estatísticas... etc
 
 	public SaveModel() {
-
+		levelId = 1;
 	}
+
+	public int GetLevelId() { return levelId; }
+
+	public int GetCheckpointId() { return checkpointId; }
+
+	public int GetPlayerHp() { return playerHp; }
 
 }

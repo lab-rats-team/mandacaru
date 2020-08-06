@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
@@ -48,23 +49,43 @@ public class MenuController : MonoBehaviour {
 	}
 
 	public void CreateSave(int saveIdx) {
+		saves[saveIdx] = new SaveModel();
 		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin"); // Path.Combine coloca uma barra '/' ou contra-barra '\' entre as string dependendo da plataforma
 
 		BinaryFormatter formatter = new BinaryFormatter();
 		FileStream file = new FileStream(path, FileMode.Create);
-		formatter.Serialize(file, new SaveModel());
+		formatter.Serialize(file, saves[saveIdx]);
+		file.Close();
+		SceneManager.LoadScene(saves[saveIdx].GetLevelId());
+	}
+
+	public void EraseSave(int saveIdx) {
+		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin");
+		File.Delete(path);
+		saves[saveIdx] = null;
+		view.UpdateSaves(saves);
 	}
 
 	public SaveModel LoadSave(int saveIdx) {
-		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin"); // Path.Combine coloca uma barra '/' ou contra-barra '\' entre as string dependendo da plataforma
+		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin");
 		if (File.Exists(path)) {
 
 			BinaryFormatter formatter = new BinaryFormatter();
 			FileStream file = new FileStream(path, FileMode.Open);
 
-			return formatter.Deserialize(file) as SaveModel;
+			SaveModel save = formatter.Deserialize(file) as SaveModel;
+			file.Close();
+			return save;
 		}
 		return null;
+	}
+
+	public void ContinueGame(int saveIdx) {
+		if (saves[saveIdx] == null) {
+			Debug.LogError("Erro ao tentar entrar em jogo não salvo: slot " + (saveIdx + 1));
+		} else {
+			SceneManager.LoadScene(saves[saveIdx].GetLevelId());
+		}
 	}
 
 	public void Quit() => Application.Quit();

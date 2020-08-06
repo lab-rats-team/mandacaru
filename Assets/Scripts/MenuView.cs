@@ -66,17 +66,29 @@ public class MenuView : MonoBehaviour {
 	public void UpdateSaves(SaveModel[] saves) {
 		GameObject newGamePopUp = FindPopUp("NewGamePopUp");
 		GameObject continuePopUp = FindPopUp("ContinuePopUp");
+		GameObject deletePopUp = FindPopUp("DeletePopUp");
+		Color stdColor = new Color(0f, 0f, 0f);
+		Color disabledColor = new Color(.369f, .192f, .031f);
 		for (int i = 0; i < saves.Length; i++) {
 
 			Button ngButton =  newGamePopUp.transform.Find("Slot" + (i+1)).gameObject.GetComponent<Button>();
 			Button ctButton = continuePopUp.transform.Find("Slot" + (i+1)).gameObject.GetComponent<Button>();
+			Button delButton =  deletePopUp.transform.Find("Slot" + (i+1)).gameObject.GetComponent<Button>();
 
 			if (saves[i] == null) {
 				ngButton.interactable = true;
+				ngButton.GetComponentInChildren<TMPro.TMP_Text>().color = stdColor;
 				ctButton.interactable = false;
+				ctButton.GetComponentInChildren<TMPro.TMP_Text>().color = disabledColor;
+				delButton.interactable = false;
+				delButton.GetComponentInChildren<TMPro.TMP_Text>().color = disabledColor;
 			} else {
 				ngButton.interactable = false;
+				ngButton.GetComponentInChildren<TMPro.TMP_Text>().color = disabledColor;
 				ctButton.interactable = true;
+				ctButton.GetComponentInChildren<TMPro.TMP_Text>().color = stdColor;
+				delButton.interactable = true;
+				delButton.GetComponentInChildren<TMPro.TMP_Text>().color = stdColor;
 			}
 		}
 	}
