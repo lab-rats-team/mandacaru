@@ -1,11 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class MenuController : MonoBehaviour {
 
 	private MenuView view;
 	private ConfigsModel currentConfigs;
+	private SaveModel[] saves;
 
 	void Awake() {
 		view = gameObject.GetComponent<MenuView>();
@@ -15,11 +16,16 @@ public class MenuController : MonoBehaviour {
 		float music = PlayerPrefs.GetFloat("musicVol", 1f);
 		float sfx = PlayerPrefs.GetFloat("sfxVol", 1f);
 		currentConfigs = new ConfigsModel(english, fullscreen, music, sfx);
+
+		saves = new SaveModel[3];
+		for(int i = 0; i < saves.Length; i++)
+			saves[i] = LoadSave(i);
 	}
 
 	void Start() {
 		view.CloseAllPopUps();
 		view.UpdateConfigs(currentConfigs);
+		view.UpdateSaves(saves);
 		ApplyFullScreen(PlayerPrefs.GetInt("fullscreen") == 1);
 		AudioManager.instance.UpdateSoundsVolume(currentConfigs.GetMusicVol(), currentConfigs.GetSfxVol());
 		AudioManager.instance.Play("introduction");
@@ -39,6 +45,26 @@ public class MenuController : MonoBehaviour {
 		PlayerPrefs.Save();
 
 		currentConfigs = cfg;
+	}
+
+	public void CreateSave(int saveIdx) {
+		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin"); // Path.Combine coloca uma barra '/' ou contra-barra '\' entre as string dependendo da plataforma
+
+		BinaryFormatter formatter = new BinaryFormatter();
+		FileStream file = new FileStream(path, FileMode.Create);
+		formatter.Serialize(file, new SaveModel());
+	}
+
+	public SaveModel LoadSave(int saveIdx) {
+		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin"); // Path.Combine coloca uma barra '/' ou contra-barra '\' entre as string dependendo da plataforma
+		if (File.Exists(path)) {
+
+			BinaryFormatter formatter = new BinaryFormatter();
+			FileStream file = new FileStream(path, FileMode.Open);
+
+			return formatter.Deserialize(file) as SaveModel;
+		}
+		return null;
 	}
 
 	public void Quit() => Application.Quit();

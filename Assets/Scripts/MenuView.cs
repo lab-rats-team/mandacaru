@@ -63,4 +63,29 @@ public class MenuView : MonoBehaviour {
 		sfxSlider.value = cfg.GetSfxVol();
 	}
 
+	public void UpdateSaves(SaveModel[] saves) {
+		GameObject newGamePopUp = FindPopUp("NewGamePopUp");
+		GameObject continuePopUp = FindPopUp("ContinuePopUp");
+		for (int i = 0; i < saves.Length; i++) {
+
+			Button ngButton =  newGamePopUp.transform.Find("Slot" + (i+1)).gameObject.GetComponent<Button>();
+			Button ctButton = continuePopUp.transform.Find("Slot" + (i+1)).gameObject.GetComponent<Button>();
+
+			if (saves[i] == null) {
+				ngButton.interactable = true;
+				ctButton.interactable = false;
+			} else {
+				ngButton.interactable = false;
+				ctButton.interactable = true;
+			}
+		}
+	}
+
+	private GameObject FindPopUp(string name) {
+		foreach (GameObject popUp in popUps)
+			if (popUp.name == name) return popUp;
+
+		return null;
+	}
+
 }
