@@ -103,6 +103,7 @@ MonoBehaviour:
   attackSpeedMultiplier: 1.8
   attackDistance: 2
   attackDamage: 10
+  delay: 1.05
   attackSizeBox: {x: 0.5, y: 0.3}
   attackOffsetBox: {x: 0, y: 0.32}
   physicsCollider: {fileID: 6696587547483110769}

@@ -12,6 +12,7 @@ public class MoleBehaviour : MonoBehaviour {
 	public float attackSpeedMultiplier;
 	public float attackDistance;
 	public int attackDamage;
+	public float delay;
 	public Vector2 attackSizeBox = new Vector2(0.5f, 0.35f);
 	public Vector2 attackOffsetBox = new Vector2(0f, 0.32f);
 	public BoxCollider2D physicsCollider;
@@ -27,8 +28,9 @@ public class MoleBehaviour : MonoBehaviour {
 	private float speed;
 	private double pDistance;
 	private bool attacking;
+	private bool telegraphing;
 
-	
+
 	// Start is called before the first frame update
 	void Start() {
 		rb = GetComponent<Rigidbody2D>();
@@ -47,11 +49,9 @@ public class MoleBehaviour : MonoBehaviour {
 
 		pDistance = playerDistance();
 
-		if (pDistance < attackDistance && !attacking) {
-			speed *= attackSpeedMultiplier;
-			physicsCollider.size = attackSizeBox;
-			physicsCollider.offset = attackOffsetBox;
-			attacking = true;
+		if (pDistance < attackDistance && !attacking && !telegraphing) {
+			telegraphing = true;
+			StartCoroutine("delayedAttack");
 		}
 
 		if (attacking) {
@@ -94,6 +94,19 @@ public class MoleBehaviour : MonoBehaviour {
 		if (speed < 0)
 			return Physics2D.Raycast(leftOrigin, Vector2.left, 0.2f, (1 << groundLayerIndex) | (1 << damageableObjLayer));
 		return Physics2D.Raycast(rightOrigin, Vector2.right, 0.2f, (1 << groundLayerIndex) | (1 << damageableObjLayer));
+	}
+
+	private IEnumerator delayedAttack() {
+		speed = 0f;
+		sr.flipX = player.position.x > transf.position.x;
+		anim.speed = 0f;
+		yield return new WaitForSeconds(delay);
+		speed = regularSpeed * attackSpeedMultiplier;
+		physicsCollider.size = attackSizeBox;
+		physicsCollider.offset = attackOffsetBox;
+		anim.speed = 1f;
+		telegraphing = false;
+		attacking = true;
 	}
 
 }
