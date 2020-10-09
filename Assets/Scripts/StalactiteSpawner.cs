@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using UnityEngine;
 
-public class EstalactiteSpawner : MonoBehaviour
+public class StalactiteSpawner : MonoBehaviour
 {
 	public GameObject estalactite1Prefab;
 	public GameObject estalactite2Prefab;
