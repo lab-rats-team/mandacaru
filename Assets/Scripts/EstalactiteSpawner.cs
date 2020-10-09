@@ -30,14 +30,14 @@ public class EstalactiteSpawner : MonoBehaviour
 	private bool destroyed = true;
 	private Animator anim;
 
-	public ShakeCamera shake;
+	//public ShakeCamera shake;
 
 	// Start is called before the first frame update
 	void Start()  {
 		player = GameObject.FindWithTag("Player").transform;
 		transf = GetComponent<Transform>();
 		anim = GetComponent<Animator>();
-		ShakeCamera shake = gameObject.GetComponent<ShakeCamera>();
+		//ShakeCamera shake = gameObject.GetComponent<ShakeCamera>();
 	}
 
     // Update is called once per frame
@@ -46,7 +46,7 @@ public class EstalactiteSpawner : MonoBehaviour
 			anim.SetTrigger("Cai");
 			
 			///tremedeira
-			shake.TriggerShake();
+			//shake.TriggerShake();
 
 			tempestalactite1Prefab = Instantiate(estalactite1Prefab, estalactite1Transform.position, estalactite1Transform.rotation) as GameObject;
 			tempestalactite1Prefab.transform.parent = transf;
