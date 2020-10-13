@@ -90726,7 +90726,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   hp: 100
-  knockbackMultiplier: {x: 1, y: 1}
+  knockbackMultiplier: {x: 0.6, y: 1}
   dyingAnimDuration: 2
   dazedTime: 0.8
   movementScripts:
@@ -90735,7 +90735,7 @@ MonoBehaviour:
   - {fileID: 1884341050}
   colliders:
   - {fileID: 1884341053}
-  drag: 1.6
+  drag: 1.2
   invulnerableDuration: 2.4
   blink: 1
   blinkDuration: 0.2
