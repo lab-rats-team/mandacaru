@@ -8,10 +8,15 @@ public class CreditsManager : MonoBehaviour {
 	public float finalY;
 	public float rollTime;
 	
+	private float t0;
 	private float currentY;
+	
+	void Start() {
+		t0 = Time.time;
+	}
 
     void Update() {
-		float interpolation = Time.time/rollTime;
+		float interpolation = (Time.time - t0)/rollTime;
 		currentY = initialY + (finalY - initialY) * interpolation;
 		
 		Vector3 pos = credits.transform.position;
