@@ -16,7 +16,7 @@ public class Stalactite : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter2D(Collider2D col) {
-        if (col.CompareTag("Ground")) {
+        if (col.CompareTag("Ground")||col.CompareTag("Player")) {
 			StartCoroutine("Break");
 		}
 	}
