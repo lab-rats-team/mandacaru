@@ -1866,7 +1866,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1714516243}
         m_MethodName: SetFullscreenUI
         m_Mode: 6
         m_Arguments:
@@ -2336,7 +2336,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1714516243}
         m_MethodName: SetFullscreenUI
         m_Mode: 6
         m_Arguments:
@@ -3008,7 +3008,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: tem certeza que deseja fechar o jogo?
+  m_text: "tem certeza que deseja voltar ao menu principal? O progresso n\xE3o salvo
+    ser\xE1 perdido."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0563e0be781a441479d635fb3ac4d14d, type: 2}
   m_sharedMaterial: {fileID: -215997262311682991, guid: 0563e0be781a441479d635fb3ac4d14d,
@@ -3483,7 +3484,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1714516243}
         m_MethodName: SetEnglishUI
         m_Mode: 6
         m_Arguments:
@@ -93912,18 +93913,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1365282046}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1714516243}
-        m_MethodName: ReturnToMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1365282046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96126,6 +96116,18 @@ MonoBehaviour:
   - {fileID: 2133574980}
   - {fileID: 1739321511}
   - {fileID: 1389573267}
+  ptButton: {fileID: 573291961}
+  enButton: {fileID: 1892543313}
+  ptCircle: {fileID: 214366162}
+  enCircle: {fileID: 1499695664}
+  fsButton: {fileID: 270563941}
+  winButton: {fileID: 373868749}
+  fsCircle: {fileID: 355875731}
+  winCircle: {fileID: 1034103397}
+  emptyCircle: {fileID: 21300000, guid: d4b97a1961c968e428355cf588d10721, type: 3}
+  filledCircle: {fileID: 21300000, guid: 616347c89fa84c54e8a01c00abe9bd0d, type: 3}
+  mscSlider: {fileID: 1854034974}
+  sfxSlider: {fileID: 1294360626}
 --- !u!1 &1718302564
 GameObject:
   m_ObjectHideFlags: 0
@@ -96664,7 +96666,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1714516243}
         m_MethodName: SaveConfigs
         m_Mode: 1
         m_Arguments:
@@ -96675,15 +96677,15 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: CloseAllPopUps
-        m_Mode: 1
+      - m_Target: {fileID: 1714516243}
+        m_MethodName: OpenPopUp
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: PausePopUp
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1742897639
@@ -98035,7 +98037,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1714516243}
         m_MethodName: SetEnglishUI
         m_Mode: 6
         m_Arguments:
