@@ -39,3 +39,4 @@ PAUSE_RESUME=resume
 PAUSE_SETTINGS=settings
 PAUSE_MAINMENU=main menu
 PAUSE_EXIT=exit game
+MAIN_TEXT=are you sure you want to return to the main menu? Unsaved progress will be lost.

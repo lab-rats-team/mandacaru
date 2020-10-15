@@ -39,3 +39,4 @@ PAUSE_RESUME=resumir
 PAUSE_SETTINGS=configurações
 PAUSE_MAINMENU=menu principal
 PAUSE_EXIT=sair do jogo
+MAIN_TEXT=Tem certeza que deseja voltar ao menu principal? O progresso não salvo será perdido.

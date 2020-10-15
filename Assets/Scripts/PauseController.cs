@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseController : MonoBehaviour {
 	
@@ -10,16 +11,28 @@ public class PauseController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Escape)) {
 			if (Time.timeScale == 1f) {
 				Time.timeScale = 0f;
-				FindPopUp("PausePopUp").SetActive(true);
+				OpenPopUp("PausePopUp");
 			} else if (FindPopUp("PausePopUp").activeSelf) {
-				FindPopUp("PausePopUp").SetActive(false);
-				Time.timeScale = 1f;
+				Resume();
 			} else {
-				CloseAllPopUps();
-				FindPopUp("PausePopUp").SetActive(true);
+				OpenPopUp("PausePopUp");
 			}
 		}
     }
+	
+	public void Resume() {
+		CloseAllPopUps();
+		Time.timeScale = 1f;
+	}
+	
+	public void Exit() => Application.Quit();
+	
+	public void ReturnToMainMenu() => SceneManager.LoadScene(0);
+	
+	public void OpenPopUp(string popUpName) {
+		CloseAllPopUps();
+		FindPopUp(popUpName).SetActive(true);
+	}
 
 	public void CloseAllPopUps() {
 		foreach (GameObject popUp in popUps) {
