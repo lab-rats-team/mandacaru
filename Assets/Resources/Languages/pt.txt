@@ -27,3 +27,9 @@ CONT_DELETE=deletar
 # Pop-up de deletar
 DELETE_TITLE=deletar
 DELETE_CANCEL=cancelar
+# Créditos
+PROG_TITLE=programadores
+ART_TITLE=arte
+AUDIO_TITLE=audio
+ADVISOR_TITLE=orientador
+THANKS_TITLE=agradecimentos especiais
