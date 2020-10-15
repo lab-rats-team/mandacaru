@@ -33,3 +33,9 @@ ART_TITLE=art
 AUDIO_TITLE=audio
 ADVISOR_TITLE=advisor
 THANKS_TITLE=special thanks
+# Menu de pausa
+PAUSE_TITLE=pause menu
+PAUSE_RESUME=resume
+PAUSE_SETTINGS=settings
+PAUSE_MAINMENU=main menu
+PAUSE_EXIT=exit game
