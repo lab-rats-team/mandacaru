@@ -47,6 +47,8 @@ public class MenuController : MonoBehaviour {
 
 		currentConfigs = cfg;
 	}
+	
+	public void ResetConfigs() => view.UpdateConfigs(currentConfigs);
 
 	public void CreateSave(int saveIdx) {
 		saves[saveIdx] = new SaveModel();

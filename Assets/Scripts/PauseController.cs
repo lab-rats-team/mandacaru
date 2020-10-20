@@ -34,6 +34,7 @@ public class PauseController : MonoBehaviour {
 		currentConfigs = new ConfigsModel(english, fullscreen, music, sfx);
 		
 		UpdateConfigs(currentConfigs);
+		Resume();
 	}
 
     void Update() {

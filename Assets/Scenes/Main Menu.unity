@@ -286,7 +286,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: CreateSave
         m_Mode: 3
         m_Arguments:
@@ -1070,46 +1070,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 252427250}
-  - component: {fileID: 252427249}
-  - component: {fileID: 252427251}
   - component: {fileID: 252427252}
   m_Layer: 0
-  m_Name: MenuManager
+  m_Name: LanguageManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &252427249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252427248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9a95140fba540146b80d403eefac650, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popUps:
-  - {fileID: 1258016954}
-  - {fileID: 524744140}
-  - {fileID: 998514468}
-  - {fileID: 376940587}
-  - {fileID: 97829425}
-  ptButton: {fileID: 1918064059}
-  enButton: {fileID: 1937682480}
-  ptCircle: {fileID: 1799740770}
-  enCircle: {fileID: 2015228785}
-  fsButton: {fileID: 1049672122}
-  winButton: {fileID: 2066921594}
-  fsCircle: {fileID: 1015579190}
-  winCircle: {fileID: 487047435}
-  emptyCircle: {fileID: 21300000, guid: d4b97a1961c968e428355cf588d10721, type: 3}
-  filledCircle: {fileID: 21300000, guid: 616347c89fa84c54e8a01c00abe9bd0d, type: 3}
-  mscSlider: {fileID: 592594008}
-  sfxSlider: {fileID: 737077976}
 --- !u!4 &252427250
 Transform:
   m_ObjectHideFlags: 0
@@ -1124,18 +1092,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &252427251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252427248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 290aa346cf7dd7d4da9fe8e081659a1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &252427252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1316,7 +1272,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: EraseSave
         m_Mode: 3
         m_Arguments:
@@ -2044,7 +2000,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -2190,7 +2146,7 @@ RectTransform:
   - {fileID: 998514469}
   - {fileID: 97829426}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -2317,7 +2273,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 0}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -2695,7 +2651,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -2829,7 +2785,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -3043,7 +2999,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: EraseSave
         m_Mode: 3
         m_Arguments:
@@ -3357,7 +3313,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: OpenPopUp
         m_Mode: 3
         m_Arguments:
@@ -3956,7 +3912,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -4115,7 +4071,7 @@ Transform:
   - {fileID: 1330626886}
   - {fileID: 156433127}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &723639358
 GameObject:
@@ -5707,7 +5663,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: SetFullscreenUI
         m_Mode: 6
         m_Arguments:
@@ -5756,6 +5712,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1049672122}
   m_CullTransparentMesh: 0
+--- !u!1 &1052975024
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052975026}
+  - component: {fileID: 1052975027}
+  - component: {fileID: 1052975025}
+  m_Layer: 0
+  m_Name: MenuManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1052975025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052975024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a95140fba540146b80d403eefac650, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUps:
+  - {fileID: 1258016954}
+  - {fileID: 524744140}
+  - {fileID: 998514468}
+  - {fileID: 376940587}
+  - {fileID: 97829425}
+  ptButton: {fileID: 1918064059}
+  enButton: {fileID: 1937682480}
+  ptCircle: {fileID: 1799740770}
+  enCircle: {fileID: 2015228785}
+  fsButton: {fileID: 1049672122}
+  winButton: {fileID: 2066921594}
+  fsCircle: {fileID: 1015579190}
+  winCircle: {fileID: 487047435}
+  emptyCircle: {fileID: 21300000, guid: d4b97a1961c968e428355cf588d10721, type: 3}
+  filledCircle: {fileID: 21300000, guid: 616347c89fa84c54e8a01c00abe9bd0d, type: 3}
+  mscSlider: {fileID: 592594008}
+  sfxSlider: {fileID: 737077976}
+--- !u!4 &1052975026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052975024}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 373.05853, y: 201.83243, z: -58.860542}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1052975027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052975024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290aa346cf7dd7d4da9fe8e081659a1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1058085507
 GameObject:
   m_ObjectHideFlags: 0
@@ -6085,7 +6115,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -6096,8 +6126,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 252427249}
-        m_MethodName: UpdateConfigUI
+      - m_Target: {fileID: 1052975027}
+        m_MethodName: ResetConfigs
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6121,7 +6151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -6229,7 +6259,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -7359,7 +7389,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: EraseSave
         m_Mode: 3
         m_Arguments:
@@ -7836,7 +7866,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: ContinueGame
         m_Mode: 3
         m_Arguments:
@@ -8552,7 +8582,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1330626883
 GameObject:
@@ -8741,7 +8771,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: SaveConfigs
         m_Mode: 1
         m_Arguments:
@@ -8752,7 +8782,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -9606,7 +9636,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: ContinueGame
         m_Mode: 3
         m_Arguments:
@@ -10671,7 +10701,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: CreateSave
         m_Mode: 3
         m_Arguments:
@@ -10803,7 +10833,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -10935,7 +10965,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: ContinueGame
         m_Mode: 3
         m_Arguments:
@@ -11062,7 +11092,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1631525770
 GameObject:
@@ -11149,7 +11179,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: CloseAllPopUps
         m_Mode: 1
         m_Arguments:
@@ -11514,9 +11544,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
-        m_MethodName: CloseAllPopUps
-        m_Mode: 1
+      - m_Target: {fileID: 97829425}
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -11648,7 +11678,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: OpenPopUp
         m_Mode: 3
         m_Arguments:
@@ -11864,7 +11894,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: OpenPopUp
         m_Mode: 3
         m_Arguments:
@@ -11998,7 +12028,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 0}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -12377,17 +12407,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
-        m_MethodName: CloseAllPopUps
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 97829425}
         m_MethodName: SetActive
         m_Mode: 6
@@ -12605,7 +12624,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: SetEnglishUI
         m_Mode: 6
         m_Arguments:
@@ -12909,7 +12928,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 0}
         m_MethodName: OpenPopUp
         m_Mode: 3
         m_Arguments:
@@ -13122,7 +13141,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427251}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: CreateSave
         m_Mode: 3
         m_Arguments:
@@ -13256,7 +13275,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: SetEnglishUI
         m_Mode: 6
         m_Arguments:
@@ -13768,7 +13787,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 252427249}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: SetFullscreenUI
         m_Mode: 6
         m_Arguments:
