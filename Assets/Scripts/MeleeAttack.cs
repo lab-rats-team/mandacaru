@@ -52,7 +52,6 @@ public class MeleeAttack : MonoBehaviour {
 		attackRequest = false;
 	}
 
-	// Update is called once per frame
 	void Update() {
 
 		if (sr.flipX) {
@@ -114,6 +113,12 @@ public class MeleeAttack : MonoBehaviour {
 			}
 		}
 
+	}
+
+	void OnDisable() {
+		attackRequest = false;
+		upAttackRequest = false;
+		Debug.Log("Disabled");
 	}
 
 	void OnDrawGizmosSelected() {
