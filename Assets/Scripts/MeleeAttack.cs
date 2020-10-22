@@ -118,7 +118,6 @@ public class MeleeAttack : MonoBehaviour {
 	void OnDisable() {
 		attackRequest = false;
 		upAttackRequest = false;
-		Debug.Log("Disabled");
 	}
 
 	void OnDrawGizmosSelected() {
