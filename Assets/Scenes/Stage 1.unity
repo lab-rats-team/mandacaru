@@ -96972,6 +96972,7 @@ MonoBehaviour:
   damage: 20
   knockback: {x: 1, y: 1}
   attackDelay: 0
+  recoveryTime: 0.1
   attackKey: 324
 --- !u!4 &1808693415
 Transform:
