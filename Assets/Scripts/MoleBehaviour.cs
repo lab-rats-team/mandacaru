@@ -63,7 +63,8 @@ public class MoleBehaviour : MonoBehaviour {
 			speed = -speed;
 		}
 
-		sr.flipX = speed < 0;
+		if (!telegraphing)
+			sr.flipX = speed < 0;
 
 		//Animação
 		anim.SetBool("Run", attacking);
@@ -98,7 +99,7 @@ public class MoleBehaviour : MonoBehaviour {
 
 	private IEnumerator delayedAttack() {
 		speed = 0f;
-		sr.flipX = player.position.x > transf.position.x;
+		sr.flipX = player.position.x < transf.position.x;
 		anim.speed = 0f;
 		yield return new WaitForSeconds(delay);
 		speed = regularSpeed * attackSpeedMultiplier;
