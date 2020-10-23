@@ -11,6 +11,7 @@ public class MoleBehaviour : MonoBehaviour {
 	public float regularSpeed;
 	public float attackSpeedMultiplier;
 	public float attackDistance;
+	[Range(0, 1)] public float moleAgility;
 	public int attackDamage;
 	public float delay;
 	public Vector2 attackSizeBox = new Vector2(0.5f, 0.35f);
@@ -54,9 +55,8 @@ public class MoleBehaviour : MonoBehaviour {
 			StartCoroutine("delayedAttack");
 		}
 
-		if (attacking) {
-			float diff = player.position.x - transf.position.x;
-			if (diff / speed < 0) speed = -speed; // Faz toupeira seguir player
+		if (attacking && UnityEngine.Random.value < moleAgility) {
+			GoTowardsPlayer();
 		}
 
 		if ((reachBorder() || reachWall()) && !attacking) {
@@ -97,6 +97,11 @@ public class MoleBehaviour : MonoBehaviour {
 		return Physics2D.Raycast(rightOrigin, Vector2.right, 0.2f, (1 << groundLayerIndex) | (1 << damageableObjLayer));
 	}
 
+	private void GoTowardsPlayer() {
+		float diff = player.position.x - transf.position.x;
+		if (diff / speed < 0) speed = -speed;
+	}
+
 	private IEnumerator delayedAttack() {
 		speed = 0f;
 		sr.flipX = player.position.x < transf.position.x;
@@ -108,6 +113,7 @@ public class MoleBehaviour : MonoBehaviour {
 		anim.speed = 1f;
 		telegraphing = false;
 		attacking = true;
+		GoTowardsPlayer();
 	}
 
 }
