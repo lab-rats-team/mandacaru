@@ -36,6 +36,7 @@ public class MeleeAttack : MonoBehaviour {
 	private bool upAttackRequest;
 
 	private float recoveryRemainingTime;
+	private bool movementEnabled;
 
 	private void Start() {
 		player = GetComponent<Transform>();
@@ -53,6 +54,7 @@ public class MeleeAttack : MonoBehaviour {
 		xDistance = attackPoint.position.x - player.position.x;
 		yDistance = attackPoint.position.y - player.position.y;
 		attackRequest = false;
+		movementEnabled = true;
 	}
 
 	void Update() {
@@ -80,7 +82,7 @@ public class MeleeAttack : MonoBehaviour {
 					recoveryRemainingTime = recoveryTime;
 				}
 				remainingCooldown = cooldown;
-				movementScript.enabled = false;
+				movementScript.enabled = movementEnabled = false;
 			}
 
 		} else {
@@ -90,8 +92,8 @@ public class MeleeAttack : MonoBehaviour {
 		if (recoveryRemainingTime > 0) {
 			recoveryRemainingTime -= Time.deltaTime;
 			rb.velocity = Vector2.zero;
-		} else if (!movementScript.enabled) {
-			movementScript.enabled = true;
+		} else if (!movementScript.enabled && !movementEnabled) {
+			movementScript.enabled = movementEnabled = true;
 		}
 
 	}
@@ -119,7 +121,7 @@ public class MeleeAttack : MonoBehaviour {
 					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection, collider);
 				}
 				upAttackRequest = false;
-				movementScript.enabled = true;
+				movementScript.enabled = movementEnabled = true;
 			} else {
 				upAttackRemainingDelay -= Time.deltaTime;
 			}
