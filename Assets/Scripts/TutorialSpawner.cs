@@ -13,6 +13,7 @@ public class TutorialSpawner : MonoBehaviour {
 	private Transform transf;
 	private bool destroyed = true;
 
+
 	// Start is called before the first frame update
 	void Start() {
 		player = GameObject.FindWithTag("Player").transform;
@@ -35,5 +36,8 @@ public class TutorialSpawner : MonoBehaviour {
 				destroyed = true;
 			}
 		}
+	}
+	private void apareceUmaVez(){
+		Debug.Log("oi");
 	}
 }
