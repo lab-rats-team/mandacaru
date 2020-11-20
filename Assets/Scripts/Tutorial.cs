@@ -8,11 +8,14 @@ public class Tutorial : MonoBehaviour
     private Transform player;
 	private Transform transf;
     private GameObject tutorial;
+    public float distanciaTransparencia = 0.5f;
 
     private float startTime; 
 	private float time;
-    private float tempo;
 
+    private float tempo;//tempo em segundos 
+
+    public float divisorOpacidade = 600f;
     private float opacidadeControle = 1.0f;
     private SpriteRenderer sprite;	
 
@@ -29,9 +32,9 @@ public class Tutorial : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transf.position.x <= player.position.x){
+        if(transf.position.x + distanciaTransparencia <= player.position.x){
 			tempo = Time.time - startTime;
-            opacidadeControle -= (float)Math.Round(tempo)/6666f;
+            opacidadeControle -= (float)Math.Round(tempo)/divisorOpacidade;
             sprite.color = new Color(1f, 1f, 1f, opacidadeControle);
 		}
     } 

@@ -115,3 +115,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 106332810882a04469f8aadf5140afaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanciaTransparencia: 2
+  divisorOpacidade: 600
