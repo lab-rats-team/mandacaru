@@ -1,8 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour {
+public class TutorialSpawner : MonoBehaviour {
 
 	public GameObject inimigoPrefab;
 	public float distanciaGeracao = 10.2f;
@@ -12,6 +12,7 @@ public class EnemySpawner : MonoBehaviour {
 	private Transform player;
 	private Transform transf;
 	private bool destroyed = true;
+
 
 	// Start is called before the first frame update
 	void Start() {
@@ -36,5 +37,7 @@ public class EnemySpawner : MonoBehaviour {
 			}
 		}
 	}
-	
+	private void apareceUmaVez(){
+		Debug.Log("oi");
+	}
 }
