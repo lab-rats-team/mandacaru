@@ -48,7 +48,7 @@ public class HpBar : MonoBehaviour
 
 			}
 
-			var posicaoXVida = transform.position.x + (i*20);
+			var posicaoXVida = transform.position.x + (i*15);
 			var go =Instantiate(vida,new Vector3(posicaoXVida,transform.position.y,0), Quaternion.identity, this.transform) ;
 			pontosDeVida.Add(go);
 		}
