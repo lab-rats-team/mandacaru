@@ -36,7 +36,6 @@ public class JumpScript : MonoBehaviour {
 		if (Input.GetKeyDown(jumpKey)) {
 			jumpRequest = true;
 			jumpRequestTimer = jumpRequestDuration;
-			if (debugMode) Debug.Log("Jump");
 		}
 		if (jumpRequest) {
 			jumpRequestTimer -= Time.deltaTime;
@@ -67,7 +66,6 @@ public class JumpScript : MonoBehaviour {
 			rb.velocity -= new Vector2(0, rb.velocity.y);
 			rb.velocity += Vector2.up * jumpUpVelocity;
 			jumpRequest = false;
-			if (debugMode) Debug.Log("Jumped");
 		}
 
 		if (rb.velocity.y < 0 && holdingJump) {
@@ -80,8 +78,11 @@ public class JumpScript : MonoBehaviour {
 	}
 
 	public bool IsGrounded() {
-		Collider2D collider = Physics2D.OverlapArea(playerCollider.bounds.min + new Vector3(0.1f, 0f, 0f),
-				new Vector2(playerCollider.bounds.max.x - 0.1f, playerCollider.bounds.min.y - EXTRA_HEIGHT), 1 << groundLayerIndex);
+		Collider2D collider = Physics2D.OverlapArea(
+			playerCollider.bounds.min + new Vector3(0.01f, 0f, 0f),
+			new Vector2(playerCollider.bounds.max.x - 0.01f, playerCollider.bounds.min.y - EXTRA_HEIGHT),
+			1 << groundLayerIndex
+		);
 
 		return collider != null;
 	}

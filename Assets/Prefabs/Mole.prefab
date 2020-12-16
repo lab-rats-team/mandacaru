@@ -102,8 +102,9 @@ MonoBehaviour:
   regularSpeed: 0.5
   attackSpeedMultiplier: 1.8
   attackDistance: 2
+  moleAgility: 0.05
   attackDamage: 10
-  delay: 1.05
+  delay: 2.05
   attackSizeBox: {x: 0.5, y: 0.3}
   attackOffsetBox: {x: 0, y: 0.32}
   physicsCollider: {fileID: 6696587547483110769}
@@ -208,7 +209,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.35}
+  m_Size: {x: 0.5, y: 0.55}
   m_EdgeRadius: 0
 --- !u!95 &6696587547483110778
 Animator:

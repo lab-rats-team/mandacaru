@@ -8,6 +8,7 @@ public class MeleeAttack : MonoBehaviour {
 	public int damage = 20;
 	public Vector2 knockback = new Vector2(1f, 1f);
 	public float attackDelay = 0.14f;
+	public float recoveryTime = 0.185f;
 	public KeyCode attackKey = KeyCode.Mouse0;
 
 	private Transform attackPoint;
@@ -34,6 +35,9 @@ public class MeleeAttack : MonoBehaviour {
 	private float upAttackRemainingDelay;
 	private bool upAttackRequest;
 
+	private float recoveryRemainingTime;
+	private bool movementEnabled;
+
 	private void Start() {
 		player = GetComponent<Transform>();
 		anim = GetComponent<Animator>();
@@ -50,9 +54,9 @@ public class MeleeAttack : MonoBehaviour {
 		xDistance = attackPoint.position.x - player.position.x;
 		yDistance = attackPoint.position.y - player.position.y;
 		attackRequest = false;
+		movementEnabled = true;
 	}
 
-	// Update is called once per frame
 	void Update() {
 
 		if (sr.flipX) {
@@ -75,13 +79,21 @@ public class MeleeAttack : MonoBehaviour {
 					anim.SetTrigger("attack");
 					bool isForLeft = attackPoint.position.x - player.position.x < 0;
 					knockbackDirection.Set(isForLeft ? -knockback.x : knockback.x, knockback.y);
-					rb.velocity = Vector2.zero;
+					recoveryRemainingTime = recoveryTime;
 				}
 				remainingCooldown = cooldown;
-				movementScript.enabled = false;
+				movementScript.enabled = movementEnabled = false;
 			}
+
 		} else {
 			remainingCooldown -= Time.deltaTime;
+		}
+
+		if (recoveryRemainingTime > 0) {
+			recoveryRemainingTime -= Time.deltaTime;
+			rb.velocity = Vector2.zero;
+		} else if (!movementScript.enabled && !movementEnabled) {
+			movementScript.enabled = movementEnabled = true;
 		}
 
 	}
@@ -95,7 +107,8 @@ public class MeleeAttack : MonoBehaviour {
 					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection, collider);
 				}
 				attackRequest = false;
-				movementScript.enabled = true;
+				recoveryRemainingTime = recoveryTime;
+
 			} else {
 				attackRemainingDelay -= Time.deltaTime;
 			}
@@ -107,13 +120,18 @@ public class MeleeAttack : MonoBehaviour {
 				foreach (Collider2D enemy in enemiesHit) {
 					enemy.gameObject.GetComponent<Damageable>().TakeDamage(damage, knockbackDirection, collider);
 				}
-				attackRequest = false;
-				movementScript.enabled = true;
+				upAttackRequest = false;
+				movementScript.enabled = movementEnabled = true;
 			} else {
-				attackRemainingDelay -= Time.deltaTime;
+				upAttackRemainingDelay -= Time.deltaTime;
 			}
 		}
 
+	}
+
+	void OnDisable() {
+		attackRequest = false;
+		upAttackRequest = false;
 	}
 
 	void OnDrawGizmosSelected() {
