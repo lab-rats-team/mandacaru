@@ -65,10 +65,10 @@ public class AudioManager : MonoBehaviour {
 	}
 
 	private Sound GetNthMusic(int n) {
-		int i = 0;
+		int i = -1;
 		foreach (Sound s in sounds) {
-			if (i == n) return s;
 			if (s.type == SoundType.Music) i++;
+			if (i == n) return s;
 		}
 		return null;
 	}
