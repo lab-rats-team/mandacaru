@@ -30,6 +30,7 @@ public class Collectable : MonoBehaviour {
 			Animator playerAnimator = collision.gameObject.GetComponent<Animator>();
 			playerAnimator.runtimeAnimatorController = jemmyAnimatorController;
 			sr.forceRenderingOff = true;
+			AudioManager.instance.Play("pick-up");
 
 			// Fazer "Damageable" reconhecer o novo script para desativá-lo ao tomar dano
 			damageable = collision.gameObject.GetComponent<Damageable>();

@@ -29,7 +29,7 @@ public class MenuController : MonoBehaviour {
 		view.UpdateSaves(saves);
 		ApplyFullScreen(PlayerPrefs.GetInt("fullscreen") == 1);
 		AudioManager.instance.UpdateSoundsVolume(currentConfigs.GetMusicVol(), currentConfigs.GetSfxVol());
-		AudioManager.instance.Play("introduction");
+		//AudioManager.instance.Play("introduction");
 		LanguageManager.instance.LoadLanguage(currentConfigs.GetEnglish() ? "en" : "pt");
 	}
 
