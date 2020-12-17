@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour {
 			sound.source.Stop();
 		Sound sceneMusic = GetNthMusic(s.buildIndex);
 		if (sceneMusic == null) {
-			Debug.LogWarning("Quantidade de cenas maior que quantidade de m√∫sicas. A(s) √∫ltima(s) cena(s) pode(m) ficar sem m√∫sica.");
+			Debug.LogWarning("Quantidade de cenas maior que quantidade de m˙sicas. A(s) ˙ltima(s) cena(s) pode(m) ficar sem m˙sica.");
 			return;
 		}
 		Play(sceneMusic.name);
@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour {
 	public void Play(string soundName) {
 		Sound s = Array.Find(sounds, sound => sound.name == soundName);
 		if (s == null)
-			Debug.LogWarning("Clipe de √°udio \"" + soundName + "\" n√£o encontrado.");
+			Debug.LogWarning("Clipe de ·udio \"" + soundName + "\" n„o encontrado.");
 		else {
 			s.source.volume = s.volume * (s.type == SoundType.Music ? globalMusicVolume : globalSfxVolume);
 			s.source.Play();
