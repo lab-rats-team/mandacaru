@@ -8504,6 +8504,24 @@ MonoBehaviour:
     source: {fileID: 0}
     volume: 1
     loop: 1
+  - name: questions
+    clip: {fileID: 8300000, guid: 14893f94d0479574f86fd79e79c25ad9, type: 3}
+    type: 0
+    source: {fileID: 0}
+    volume: 1
+    loop: 1
+  - name: pick-up
+    clip: {fileID: 8300000, guid: 0b4fb45d7ca79d44983f61913d3a8b46, type: 3}
+    type: 1
+    source: {fileID: 0}
+    volume: 0.065
+    loop: 0
+  - name: credits
+    clip: {fileID: 8300000, guid: 313c2bc3a9782a144b4335538aba45ef, type: 3}
+    type: 0
+    source: {fileID: 0}
+    volume: 1
+    loop: 1
 --- !u!4 &1328067307
 Transform:
   m_ObjectHideFlags: 0
