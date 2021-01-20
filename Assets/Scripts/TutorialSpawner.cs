@@ -30,14 +30,12 @@ public class TutorialSpawner : MonoBehaviour {
 			destroyed = false;
 		}
 
-		if(tempPrefab) {
+		if (tempPrefab) {
 			if (Vector3.Distance(tempPrefab.transform.position, player.position) >= distanciaMaxima && !destroyed) {
 				Destroy(tempPrefab);
+				Destroy(gameObject);
 				destroyed = true;
 			}
 		}
-	}
-	private void apareceUmaVez(){
-		Debug.Log("oi");
 	}
 }

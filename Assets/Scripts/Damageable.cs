@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class Damageable : MonoBehaviour {
 
 	public UnityEvent onTakeDamage;
-	public int hp;
+	public int hp ;
 	public Vector2 knockbackMultiplier;
 	public float dyingAnimDuration;
 	public float dazedTime;
@@ -77,6 +77,7 @@ public class Damageable : MonoBehaviour {
 			dying = true;
 			StartCoroutine(Die(collider));
 		}
+
 	}
 
 	private IEnumerator MakeInvulnerable(float time) {
@@ -121,5 +122,6 @@ public class Damageable : MonoBehaviour {
 			yield return new WaitForEndOfFrame();
 		}
 	}
+
 
 }
