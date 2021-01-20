@@ -3,68 +3,64 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HpBar : MonoBehaviour
-{
+public class HpBar : MonoBehaviour {
+
 	public GameObject player;
+	public GameObject healthPoint;
+	public float distanceBetweenPoints;
 	[HideInInspector]
-	public int vidaMax;
+	public List<GameObject> healthPoints = new List<GameObject>();
 
-	private Damageable scriptDano;
-	private int vidaAtual;
+	private Damageable damageScript;
+	private int health;
+	private int startingHealth;
+
 	[SerializeField]
-	private Sprite vidaCheia;
+	private Sprite filledHealthPoint;
+
 	[SerializeField]
-	private Sprite vidaVazia;
-	[SerializeField]
-	private GameObject vida;
-	private List<GameObject> pontosDeVida = new List<GameObject>();
-    // Start is called before the first frame update
+	private Sprite emptyHealthPoint;
+
     
-	public void Awake()
-	{
-		scriptDano = player.GetComponent<Damageable>();
-		vidaMax = scriptDano.hp;
+	public void Start()	{
+		damageScript = player.GetComponent<Damageable>();
+		startingHealth = damageScript.hp;
+		health = damageScript.hp;
+		UpdateHealthPoints();
 	}
 
-	public void Update()
-	{
-		vidaAtual = scriptDano.hp;
-		AtualizaBarraDeVida(vidaMax,vidaAtual);
+	public void Update() {
+		if (health > damageScript.hp)
+			UpdateHealthPoints();
 	}
 
+	private void UpdateHealthPoints() {
+		health = damageScript.hp;
 
-	public void AtualizaBarraDeVida(int totalDeVidas, int vidaAtual)
-	{
-		ResetaLista();
-		for (int i = 0; i < totalDeVidas; i++)
-		{
-			if (vidaAtual <= i)
-			{
-				vida.GetComponent<Image>().sprite = vidaVazia;
-			}
-			else
-			{
-				vida.GetComponent<Image>().sprite = vidaCheia;
+		foreach (var hp in healthPoints) {
+			Destroy(hp);
+		}
 
+		for (int i = 0; i < startingHealth; i++) {
+			if (damageScript.hp <= i) {
+				healthPoint.GetComponent<Image>().sprite = emptyHealthPoint;
+			} else {
+				healthPoint.GetComponent<Image>().sprite = filledHealthPoint;
 			}
 
-			var posicaoXVida = transform.position.x + (i*15);
-			var go =Instantiate(vida,new Vector3(posicaoXVida,transform.position.y,0), Quaternion.identity, this.transform) ;
-			pontosDeVida.Add(go);
+			
+			float posicaoXVida = 31.79996f + (i*distanceBetweenPoints);
+			GameObject hp = Instantiate(
+				healthPoint,
+				Vector3.zero,
+				Quaternion.identity,
+				this.transform
+			);
+			RectTransform r = hp.GetComponent<RectTransform>();
+			r.anchoredPosition = new Vector2(31.79996f + (i*distanceBetweenPoints), -5f);
+			healthPoints.Add(hp);
 		}
-	}
 
-	public void ResetaLista()
-	{
-		foreach (var pontoDeVida in pontosDeVida)
-		{
-			Destroy(pontoDeVida);
-		}
-	}
-
-	public void PerdeVida(int dano)
-	{
-		vidaAtual -= dano;
 	}
 	
 }

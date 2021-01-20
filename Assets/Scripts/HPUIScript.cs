@@ -2,66 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HPUIScript : MonoBehaviour
-{
+public class HPUIScript : MonoBehaviour {
 
 	public GameObject player;
+	public float middleMinX;
 
-	[HideInInspector]
-	public int vidaMax;
-	private Damageable scriptDano;
-
-
-	[SerializeField]
-	private GameObject UiLeft;
+	private Damageable damageScript;
+	private HpBar hpScript;
 
 	[SerializeField]
-	private GameObject UiMidle;
+	private GameObject UiLeftSquare;
 
 	[SerializeField]
-	private GameObject UiRight;
+	private GameObject UiMiddleSquare;
 
-	public float positionXMidle;
-	public float positionXRight;
-	public float DistancePositionsXMidle;
-	public static readonly float RIGHT_MARGIN_X = 15.65f;
+	[SerializeField]
+	private GameObject UiRightSquare;
 
-	// Start is called before the first frame update
-	void Start()
-    {
-		scriptDano = player.GetComponent<Damageable>();
-		vidaMax = scriptDano.hp;
+	void Start() {
+		hpScript = GetComponentInChildren<HpBar>();
+		if (hpScript == null)
+			Debug.LogError("Erro: o script Hp Bar não foi encontrado nos filhos de " + gameObject.name);
+		damageScript = player.GetComponent<Damageable>();
 		UiHpBars();
-		
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-     
-    }
+	public void UiHpBars() {
 
-	public void UiHpBars()
-	{
+		float healthPointsWidth = hpScript.distanceBetweenPoints*hpScript.healthPoints.Count;
+		RectTransform middleRect = UiMiddleSquare.GetComponent<RectTransform>();
+		RectTransform rightRect = UiRightSquare.GetComponent<RectTransform>();
 
-		Instantiate(UiLeft, new Vector3(transform.position.x,transform.position.y,0),Quaternion.identity, this.transform);
-		float distUi = vidaMax - 3;
-		if (vidaMax > 1)
-		{
-			Instantiate(UiMidle, new Vector3(transform.position.x + positionXMidle, transform.position.y, 0), Quaternion.identity, this.transform);
+		middleRect.sizeDelta = new Vector2(healthPointsWidth, middleRect.sizeDelta.y);
+		middleRect.anchoredPosition =
+			new Vector2(middleMinX + middleRect.sizeDelta.x/2, middleRect.anchoredPosition.y);
+		rightRect.anchoredPosition =
+			new Vector2(middleMinX + middleRect.sizeDelta.x, rightRect.anchoredPosition.y);
 
-			if (distUi > 0)
-			{
-				for (int i = 0; i < distUi; i++)
-				{
-
-					Instantiate(UiMidle, new Vector3(transform.position.x + (positionXMidle + DistancePositionsXMidle * (i + 1)), transform.position.y, 0), Quaternion.identity, this.transform);
-
-				}
-			}
-			Instantiate(UiRight, new Vector3(transform.position.x + (positionXRight + (RIGHT_MARGIN_X * distUi)), transform.position.y, 0), Quaternion.identity, this.transform);
-		}
-		else Instantiate(UiRight, new Vector3(transform.position.x + (positionXRight + (RIGHT_MARGIN_X  * distUi) + 5), transform.position.y, 0), Quaternion.identity, this.transform);
 	}
-
 }
+
