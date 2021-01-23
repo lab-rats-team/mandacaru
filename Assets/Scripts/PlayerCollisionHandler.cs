@@ -17,10 +17,11 @@ public class PlayerCollisionHandler : MonoBehaviour {
 
 	private void OnTriggerEnter2D(Collider2D collider) {
 		switch (collider.gameObject.tag) {
-			case "Projectile":
-				float xDirection = sr.flipX ? 1f : -1f;
-				damageScript.TakeDamage(damage, new Vector2(xDirection * defaultKnockback.x, defaultKnockback.y), collider);
-				break;
+			// OBSOLETO: Os projéteis chamam TakeDamage por conta própria
+			// case "Projectile":
+				// float xDirection = sr.flipX ? 1f : -1f;
+				// damageScript.TakeDamage(damage, new Vector2(xDirection * defaultKnockback.x, defaultKnockback.y), collider);
+				// break;
 			case "Enemy":
 				float horDist = transform.position.x - collider.gameObject.transform.position.x;
 				Vector2 knockback = new Vector2(horDist > 0 ? defaultKnockback.x : -defaultKnockback.x, defaultKnockback.y);
