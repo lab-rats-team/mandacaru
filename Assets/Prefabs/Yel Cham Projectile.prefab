@@ -113,8 +113,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 941b54a8ba4e4dd42b4fd8adaeedff56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towardsLeft: 0
   collideWithTags:
   - Ground
+  - Player
+  knockback: {x: 0, y: 0}
 --- !u!50 &7054530545856476948
 Rigidbody2D:
   serializedVersion: 4
