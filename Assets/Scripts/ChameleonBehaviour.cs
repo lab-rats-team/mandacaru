@@ -30,4 +30,6 @@ public class ChameleonBehaviour : MonoBehaviour {
 		projectileinstance.GetComponent<Rigidbody2D>().velocity = projectileSpeed * (sr.flipX ? Vector2.right : Vector2.left);
 	}
 
+	public void RestoreHp() => GetComponent<Damageable>().hp = 100;
+
 }

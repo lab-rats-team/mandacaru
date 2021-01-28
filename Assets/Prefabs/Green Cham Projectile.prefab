@@ -137,4 +137,4 @@ MonoBehaviour:
   collideWithTags:
   - Ground
   - Player
-  knockback: {x: 0, y: 0}
+  knockback: {x: 0.6, y: 1}

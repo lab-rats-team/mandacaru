@@ -117,7 +117,7 @@ MonoBehaviour:
   collideWithTags:
   - Ground
   - Player
-  knockback: {x: 0, y: 0}
+  knockback: {x: 0.6, y: 2.5}
 --- !u!50 &7054530545856476948
 Rigidbody2D:
   serializedVersion: 4
