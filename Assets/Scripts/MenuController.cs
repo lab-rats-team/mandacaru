@@ -62,7 +62,7 @@ public class MenuController : MonoBehaviour {
 		if (saves[saveIdx] == null) {
 			Debug.LogError("Erro ao tentar entrar em jogo não salvo: slot " + (saveIdx + 1));
 		} else {
-			SaveLoader.instance.currentSave = saveIdx;
+			SaveLoader.instance.currentSaveIdx = saveIdx;
 			SceneManager.LoadScene(saves[saveIdx].GetLevelId());
 		}
 	}

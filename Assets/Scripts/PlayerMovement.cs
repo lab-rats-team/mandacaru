@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
@@ -11,14 +9,17 @@ public class PlayerMovement : MonoBehaviour {
 	private Animator animator;
 	private float xVelocity;
 
-	// Awake is called before the first frame update
 	void Awake() {
 		rb = GetComponent<Rigidbody2D>();
 		sr = GetComponent<SpriteRenderer>();
 		animator = GetComponent<Animator>();
 	}
 
-	// Update is called once per frame
+	void Start() {
+		transform.position = SaveLoader.instance.GetPlayerPosition();
+		GetComponent<Damageable>().hp = SaveLoader.instance.GetPlayerHp();
+	}
+
 	void Update() {
 		animator.SetFloat("xSpeed", xVelocity < 0 ? -xVelocity : xVelocity);
 		xVelocity = Input.GetKey(KeyCode.A) ? -1 : (Input.GetKey(KeyCode.D) ? 1 : 0);

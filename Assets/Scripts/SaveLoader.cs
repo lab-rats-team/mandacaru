@@ -5,10 +5,13 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 public class SaveLoader : MonoBehaviour {
 
+	public string[] ignoredScenes;
+
 	[HideInInspector]
 	static public SaveLoader instance;
 	[HideInInspector]
-	public int currentSave;
+	public int currentSaveIdx;
+	private SaveModel currentSave;
 
 	void Awake() {
 		if (instance == null) {
@@ -21,9 +24,10 @@ public class SaveLoader : MonoBehaviour {
 	}
 
 	private void OnSceneLoad(Scene scene, LoadSceneMode mode) {
-        Debug.Log("OnSceneLoaded: " + scene.name);
-        Debug.Log(mode);
-		Debug.Log("Loading save " + currentSave);
+		foreach(string s in ignoredScenes)
+			if(s == scene.name) return;
+
+		currentSave = LoadSave(currentSaveIdx);
 	}
 
 	public SaveModel CreateSave(int saveIdx) {
@@ -52,5 +56,25 @@ public class SaveLoader : MonoBehaviour {
 		}
 		return null;
 	}
+
+	public void UpdateSave(float x, float y, int hp) {
+		currentSave.SetPlayerX(x);
+		currentSave.SetPlayerY(y);
+		currentSave.SetPlayerHp(hp);
+		string path = Path.Combine(Application.persistentDataPath, "save" + currentSaveIdx + ".bin");
+		BinaryFormatter formatter = new BinaryFormatter();
+		FileStream file = new FileStream(path, FileMode.OpenOrCreate);
+		formatter.Serialize(file, currentSave);
+		file.Close();
+	}
+
+	public Vector3 GetPlayerPosition() {
+		float x = currentSave.GetPlayerX();
+		float y = currentSave.GetPlayerY();
+		float z = currentSave.GetPlayerZ();
+		return new Vector3(x, y, z);
+	}
+
+	public int GetPlayerHp() => currentSave.GetPlayerHp();
 
 }

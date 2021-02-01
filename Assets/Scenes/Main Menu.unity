@@ -2863,7 +2863,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c66ec94bb579584d8a5555d35c39136, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentSave: 0
+  ignoredScenes:
+  - Main Menu
+  - Credits
+  currentSaveIdx: 0
 --- !u!4 &517076073
 Transform:
   m_ObjectHideFlags: 0
