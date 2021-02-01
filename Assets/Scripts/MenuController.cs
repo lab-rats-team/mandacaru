@@ -1,7 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 
 public class MenuController : MonoBehaviour {
 
@@ -17,19 +15,18 @@ public class MenuController : MonoBehaviour {
 		float music = PlayerPrefs.GetFloat("musicVol", 1f);
 		float sfx = PlayerPrefs.GetFloat("sfxVol", 1f);
 		currentConfigs = new ConfigsModel(english, fullscreen, music, sfx);
-
-		saves = new SaveModel[3];
-		for(int i = 0; i < saves.Length; i++)
-			saves[i] = LoadSave(i);
 	}
 
 	void Start() {
+		saves = new SaveModel[3];
+		for(int i = 0; i < saves.Length; i++)
+			saves[i] = SaveLoader.instance.LoadSave(i);
+
 		view.CloseAllPopUps();
 		view.UpdateConfigs(currentConfigs);
 		view.UpdateSaves(saves);
 		ApplyFullScreen(PlayerPrefs.GetInt("fullscreen") == 1);
 		AudioManager.instance.UpdateSoundsVolume(currentConfigs.GetMusicVol(), currentConfigs.GetSfxVol());
-		//AudioManager.instance.Play("introduction");
 		LanguageManager.instance.LoadLanguage(currentConfigs.GetEnglish() ? "en" : "pt");
 	}
 
@@ -50,42 +47,22 @@ public class MenuController : MonoBehaviour {
 	
 	public void ResetConfigs() => view.UpdateConfigs(currentConfigs);
 
-	public void CreateSave(int saveIdx) {
-		saves[saveIdx] = new SaveModel();
-		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin"); // Path.Combine coloca uma barra '/' ou contra-barra '\' entre as string dependendo da plataforma
-
-		BinaryFormatter formatter = new BinaryFormatter();
-		FileStream file = new FileStream(path, FileMode.Create);
-		formatter.Serialize(file, saves[saveIdx]);
-		file.Close();
-		SceneManager.LoadScene(saves[saveIdx].GetLevelId());
-	}
-
-	public void EraseSave(int saveIdx) {
-		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin");
-		File.Delete(path);
+	public void DeleteSave(int saveIdx) {
+		SaveLoader.instance.EraseSave(saveIdx);
 		saves[saveIdx] = null;
 		view.UpdateSaves(saves);
 	}
 
-	public SaveModel LoadSave(int saveIdx) {
-		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin");
-		if (File.Exists(path)) {
-
-			BinaryFormatter formatter = new BinaryFormatter();
-			FileStream file = new FileStream(path, FileMode.Open);
-
-			SaveModel save = formatter.Deserialize(file) as SaveModel;
-			file.Close();
-			return save;
-		}
-		return null;
+	public void NewGame(int saveIdx) {
+		saves[saveIdx] = SaveLoader.instance.CreateSave(saveIdx);
+		ContinueGame(saveIdx);
 	}
 
 	public void ContinueGame(int saveIdx) {
 		if (saves[saveIdx] == null) {
 			Debug.LogError("Erro ao tentar entrar em jogo não salvo: slot " + (saveIdx + 1));
 		} else {
+			SaveLoader.instance.currentSave = saveIdx;
 			SceneManager.LoadScene(saves[saveIdx].GetLevelId());
 		}
 	}
