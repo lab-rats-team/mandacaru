@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Collectable : MonoBehaviour {
@@ -25,18 +24,30 @@ public class Collectable : MonoBehaviour {
 		scripts[2] = player.GetComponent<PlayerMovement>();
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.gameObject.CompareTag("Player")) {
-			Animator playerAnimator = collision.gameObject.GetComponent<Animator>();
+	void Start() {
+		if (SaveLoader.instance.IsCollectableCollected((int) Stage1Collectable.jemmy)) {
+			EquipPlayer(false);
+			player.GetComponent<Animator>().SetTrigger("skip");
+		}
+	}
+
+	private void EquipPlayer(bool playSfx) {
+			Animator playerAnimator = player.GetComponent<Animator>();
 			playerAnimator.runtimeAnimatorController = jemmyAnimatorController;
 			sr.forceRenderingOff = true;
-			AudioManager.instance.Play("pick-up");
+			if (playSfx)
+				AudioManager.instance.Play("pick-up");
+			SaveLoader.instance.SetCollectableCollected((int) Stage1Collectable.jemmy);
 
 			// Fazer "Damageable" reconhecer o novo script para desativá-lo ao tomar dano
-			damageable = collision.gameObject.GetComponent<Damageable>();
+			damageable = player.GetComponent<Damageable>();
 			newSize = damageable.movementScripts.Length + 1;
 			System.Array.Resize<MonoBehaviour>(ref damageable.movementScripts, newSize);
+	}
 
+	private void OnTriggerEnter2D(Collider2D collision) {
+		if (collision.gameObject.CompareTag("Player")) {
+			EquipPlayer(true);
 			StartCoroutine(FreezePlayer(delay));
 		}
 	}

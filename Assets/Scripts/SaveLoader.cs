@@ -3,6 +3,14 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+public enum Stage1Collectable {
+	paper0,
+	paper1,
+	paper2,
+	paper3,
+	jemmy
+}
+
 public class SaveLoader : MonoBehaviour {
 
 	public string[] ignoredScenes;
@@ -57,10 +65,14 @@ public class SaveLoader : MonoBehaviour {
 		return null;
 	}
 
+	public void SetCollectableCollected(int collIdx) => currentSave.SetCollectableCollected(collIdx);
+
+	public bool IsCollectableCollected(int collIdx) => currentSave.IsCollectableCollected(collIdx);
+
 	public void UpdateSave(float x, float y, int hp) {
-		currentSave.SetPlayerX(x);
-		currentSave.SetPlayerY(y);
-		currentSave.SetPlayerHp(hp);
+		currentSave.pX = x;
+		currentSave.pY = y;
+		currentSave.playerHp = hp;
 		string path = Path.Combine(Application.persistentDataPath, "save" + currentSaveIdx + ".bin");
 		BinaryFormatter formatter = new BinaryFormatter();
 		FileStream file = new FileStream(path, FileMode.OpenOrCreate);
@@ -69,12 +81,11 @@ public class SaveLoader : MonoBehaviour {
 	}
 
 	public Vector3 GetPlayerPosition() {
-		float x = currentSave.GetPlayerX();
-		float y = currentSave.GetPlayerY();
-		float z = currentSave.GetPlayerZ();
-		return new Vector3(x, y, z);
+		float x = currentSave.pX;
+		float y = currentSave.pY;
+		return new Vector3(x, y, 0f);
 	}
 
-	public int GetPlayerHp() => currentSave.GetPlayerHp();
+	public int GetPlayerHp() => currentSave.playerHp;
 
 }
