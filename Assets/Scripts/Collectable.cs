@@ -38,11 +38,13 @@ public class Collectable : MonoBehaviour {
 			if (playSfx)
 				AudioManager.instance.Play("pick-up");
 			SaveLoader.instance.SetCollectableCollected((int) Stage1Collectable.jemmy);
+			player.AddComponent(component.GetType());
 
 			// Fazer "Damageable" reconhecer o novo script para desativá-lo ao tomar dano
 			damageable = player.GetComponent<Damageable>();
 			newSize = damageable.movementScripts.Length + 1;
 			System.Array.Resize<MonoBehaviour>(ref damageable.movementScripts, newSize);
+			damageable.movementScripts[newSize - 1] = (MonoBehaviour) player.GetComponent(component.GetType());
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision) {
@@ -61,8 +63,6 @@ public class Collectable : MonoBehaviour {
 
 		yield return new WaitForSeconds(time);
 
-		player.AddComponent(component.GetType());
-		damageable.movementScripts[newSize - 1] = (MonoBehaviour) player.GetComponent(component.GetType());
 		foreach (MonoBehaviour script in scripts) {
 			script.enabled = true;
 		}

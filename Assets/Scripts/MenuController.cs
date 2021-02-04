@@ -1,7 +1,8 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
+
+	public Fader screenFader;
 
 	private MenuView view;
 	private ConfigsModel currentConfigs;
@@ -63,7 +64,7 @@ public class MenuController : MonoBehaviour {
 			Debug.LogError("Erro ao tentar entrar em jogo não salvo: slot " + (saveIdx + 1));
 		} else {
 			SaveLoader.instance.currentSaveIdx = saveIdx;
-			SceneManager.LoadScene(saves[saveIdx].levelId);
+			screenFader.FadeToScene(saves[saveIdx].levelId);
 		}
 	}
 
