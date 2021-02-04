@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	public float speed;
+	public float maxVerticalSpeed = 4.5f;
 
 	private Rigidbody2D rb;
 	private SpriteRenderer sr;
@@ -16,8 +17,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	void Start() {
-		transform.position = SaveLoader.instance.GetPlayerPosition();
 		GetComponent<Damageable>().hp = SaveLoader.instance.GetPlayerHp();
+		transform.position = SaveLoader.instance.GetPlayerPosition();
 	}
 
 	void Update() {
@@ -34,6 +35,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	void FixedUpdate() {
 		rb.velocity = new Vector2(xVelocity * speed, rb.velocity.y);
+		if (rb.velocity.y < -maxVerticalSpeed)
+			rb.velocity = new Vector2(rb.velocity.x, -maxVerticalSpeed);
 	}
 
 }
