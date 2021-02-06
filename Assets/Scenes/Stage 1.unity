@@ -2040,7 +2040,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1884341048}
   middleMinX: 34.3
-  UiLeftSquare: {fileID: 1052313652}
   UiMiddleSquare: {fileID: 203343272}
   UiRightSquare: {fileID: 1082002354}
 --- !u!1 &214366162
@@ -3912,9 +3911,9 @@ MonoBehaviour:
   healthPoint: {fileID: 4098382974038298111, guid: 0a77bdbf4a194cc419486cd248953eef,
     type: 3}
   distanceBetweenPoints: 41
-  healthPoints: []
   filledHealthPoint: {fileID: 21300000, guid: d117a73a127f47241bb401df58ab65e8, type: 3}
   emptyHealthPoint: {fileID: 21300000, guid: 4358413c5685bdd4c841506b40fe9464, type: 3}
+  healthPoints: []
 --- !u!1001 &529525799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7094,7 +7093,7 @@ PrefabInstance:
     - target: {fileID: 4928149178113383265, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.094
+      value: -27.192
       objectReference: {fileID: 0}
     - target: {fileID: 4928149178113383265, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
         type: 3}
@@ -103304,7 +103303,7 @@ PrefabInstance:
     - target: {fileID: 4928149178113383265, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.763
+      value: -26.908
       objectReference: {fileID: 0}
     - target: {fileID: 4928149178113383265, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
         type: 3}
@@ -105331,7 +105330,7 @@ PrefabInstance:
     - target: {fileID: 4928149178113383265, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.432
+      value: -27.479
       objectReference: {fileID: 0}
     - target: {fileID: 4928149178113383265, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
         type: 3}

@@ -1,10 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using System.Collections.Specialized;
-using System.Net.Sockets;
-using System.Security.Cryptography;
 
 public class MoleBehaviour : MonoBehaviour {
 
@@ -14,8 +10,8 @@ public class MoleBehaviour : MonoBehaviour {
 	[Range(0, 1)] public float moleAgility;
 	public int attackDamage;
 	public float delay;
-	public Vector2 attackSizeBox = new Vector2(0.5f, 0.35f);
-	public Vector2 attackOffsetBox = new Vector2(0f, 0.32f);
+	public Vector2 attackSizeBox = new Vector2(0.5f, 0.36f);
+	public Vector2 attackOffsetBox = new Vector2(0f, 0.30f);
 	public BoxCollider2D physicsCollider;
 	public BoxCollider2D triggerCollider;
 
@@ -70,6 +66,11 @@ public class MoleBehaviour : MonoBehaviour {
 		anim.SetBool("Run", attacking);
 
 	}
+	
+	public void SetHorizontalHitboxes() {
+		physicsCollider.size = attackSizeBox;
+		physicsCollider.offset = attackOffsetBox;
+	}
 
 	private void FixedUpdate() {
 		rb.velocity = new Vector2(speed, rb.velocity.y);
@@ -107,9 +108,8 @@ public class MoleBehaviour : MonoBehaviour {
 		sr.flipX = player.position.x < transf.position.x;
 		anim.speed = 0f;
 		yield return new WaitForSeconds(delay);
+		SetHorizontalHitboxes();
 		speed = regularSpeed * attackSpeedMultiplier;
-		physicsCollider.size = attackSizeBox;
-		physicsCollider.offset = attackOffsetBox;
 		anim.speed = 1f;
 		telegraphing = false;
 		attacking = true;
