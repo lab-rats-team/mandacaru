@@ -1,23 +1,14 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HPUIScript : MonoBehaviour {
 
 	public GameObject player;
 	public float middleMinX;
+	public GameObject UiMiddleSquare;
+	public GameObject UiRightSquare;
 
 	private Damageable damageScript;
 	private HpBar hpScript;
-
-	[SerializeField]
-	private GameObject UiLeftSquare;
-
-	[SerializeField]
-	private GameObject UiMiddleSquare;
-
-	[SerializeField]
-	private GameObject UiRightSquare;
 
 	void Start() {
 		hpScript = GetComponentInChildren<HpBar>();
