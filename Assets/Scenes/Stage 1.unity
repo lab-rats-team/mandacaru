@@ -101721,7 +101721,12 @@ PrefabInstance:
     - target: {fileID: 4928149178113383264, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
         type: 3}
       propertyPath: distanciaGeracao
-      value: 9
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928149178113383264, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
+        type: 3}
+      propertyPath: distanciaMaxima
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4928149178113383265, guid: 2d96d469a5b6dbf40a1c3080f2e9b609,
         type: 3}
