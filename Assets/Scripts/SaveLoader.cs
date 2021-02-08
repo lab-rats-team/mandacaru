@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public enum Stage1Collectable {
+public enum StageCollectable {
 	paper0,
 	paper1,
 	paper2,
@@ -38,6 +38,14 @@ public class SaveLoader : MonoBehaviour {
 		currentSave = LoadSave(currentSaveIdx);
 	}
 
+	public void Write() {
+		string path = Path.Combine(Application.persistentDataPath, "save" + currentSaveIdx + ".bin");
+		BinaryFormatter formatter = new BinaryFormatter();
+		FileStream file = new FileStream(path, FileMode.OpenOrCreate);
+		formatter.Serialize(file, currentSave);
+		file.Close();
+	}
+
 	public SaveModel CreateSave(int saveIdx) {
 		SaveModel save = new SaveModel();
 		string path = Path.Combine(Application.persistentDataPath, "save" + saveIdx + ".bin"); // Path.Combine coloca uma barra '/' ou contra-barra '\' entre as string dependendo da plataforma
@@ -65,19 +73,17 @@ public class SaveLoader : MonoBehaviour {
 		return null;
 	}
 
-	public void SetCollectableCollected(int collIdx) => currentSave.SetCollectableCollected(collIdx);
-
+	public void SetCollectableCollected(int collIdx) {
+		currentSave.SetCollectableCollected(collIdx);
+		Write();
+	}
 	public bool IsCollectableCollected(int collIdx) => currentSave.IsCollectableCollected(collIdx);
 
 	public void UpdateSave(float x, float y, int hp) {
 		currentSave.pX = x;
 		currentSave.pY = y;
 		currentSave.playerHp = hp;
-		string path = Path.Combine(Application.persistentDataPath, "save" + currentSaveIdx + ".bin");
-		BinaryFormatter formatter = new BinaryFormatter();
-		FileStream file = new FileStream(path, FileMode.OpenOrCreate);
-		formatter.Serialize(file, currentSave);
-		file.Close();
+		Write();
 	}
 
 	public Vector3 GetPlayerPosition() {

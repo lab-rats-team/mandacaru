@@ -16,7 +16,7 @@ public class HPUIScript : MonoBehaviour {
 			Debug.LogError("Erro: o script Hp Bar não foi encontrado nos filhos de " + gameObject.name);
 		damageScript = player.GetComponent<Damageable>();
 		UiHpBars();
-    }
+	}
 
 	public void UiHpBars() {
 

@@ -1,21 +1,20 @@
 using System.Collections;
 using UnityEngine;
 
-public class Collectable : MonoBehaviour {
+public class Weapon : Collectable {
 
-	public RuntimeAnimatorController jemmyAnimatorController;
+	public RuntimeAnimatorController weaponAnimatorController;
 	public MonoBehaviour component;
 	public float delay = 1f;
 
-	private SpriteRenderer sr;
 	private GameObject player;
 	private MonoBehaviour[] scripts;
 	private Rigidbody2D playerRb;
 	private Damageable damageable;
 	private int newSize;
 
-	void Awake() {
-		sr = GetComponent<SpriteRenderer>();
+	protected override void Awake() {
+		base.Awake();
 		component.enabled = false;
 		player = GameObject.FindGameObjectWithTag("Player");
 		scripts = new MonoBehaviour[3];
@@ -24,8 +23,9 @@ public class Collectable : MonoBehaviour {
 		scripts[2] = player.GetComponent<PlayerMovement>();
 	}
 
-	void Start() {
-		if (SaveLoader.instance.IsCollectableCollected((int) Stage1Collectable.jemmy)) {
+	protected override void Start() {
+		base.Start();
+		if (SaveLoader.instance.IsCollectableCollected((int) base.collectableId)) {
 			EquipPlayer(false);
 			player.GetComponent<Animator>().SetTrigger("skip");
 		}
@@ -33,11 +33,9 @@ public class Collectable : MonoBehaviour {
 
 	private void EquipPlayer(bool playSfx) {
 			Animator playerAnimator = player.GetComponent<Animator>();
-			playerAnimator.runtimeAnimatorController = jemmyAnimatorController;
-			sr.forceRenderingOff = true;
+			playerAnimator.runtimeAnimatorController = weaponAnimatorController;
 			if (playSfx)
 				AudioManager.instance.Play("pick-up");
-			SaveLoader.instance.SetCollectableCollected((int) Stage1Collectable.jemmy);
 			player.AddComponent(component.GetType());
 
 			// Fazer "Damageable" reconhecer o novo script para desativá-lo ao tomar dano
@@ -47,11 +45,10 @@ public class Collectable : MonoBehaviour {
 			damageable.movementScripts[newSize - 1] = (MonoBehaviour) player.GetComponent(component.GetType());
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.gameObject.CompareTag("Player")) {
-			EquipPlayer(true);
-			StartCoroutine(FreezePlayer(delay));
-		}
+	protected override void OnCollect(Collider2D collision) {
+		base.OnCollect(collision);
+		EquipPlayer(true);
+		StartCoroutine(FreezePlayer(delay));
 	}
 
 	private IEnumerator FreezePlayer(float time) {

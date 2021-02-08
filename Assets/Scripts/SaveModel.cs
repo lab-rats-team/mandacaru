@@ -9,7 +9,7 @@ public class SaveModel {
 	public SaveModel() {
 		levelId = 1;
 		levelData = 0;
-		playerHp = 20;
+		playerHp = 5;
 		pX = -30.32f;
 		pY = -5.296f;
 	}
