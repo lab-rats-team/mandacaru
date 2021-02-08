@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 362230486485518997}
   - component: {fileID: 8959707122208339982}
   - component: {fileID: 2113738715370888568}
+  - component: {fileID: 1801123099379241521}
   m_Layer: 16
   m_Name: Estalactite4
   m_TagString: Projectile
@@ -163,3 +164,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0600338, y: 0.1606667}
   m_EdgeRadius: 0
+--- !u!114 &1801123099379241521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5491202325367417920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5c9a27a0329174e97f416f7b3f7e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempoEspera: 0.6

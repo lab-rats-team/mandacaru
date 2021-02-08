@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2579769624132678870}
   - component: {fileID: 2579769624132678871}
   - component: {fileID: 2579769624132678868}
+  - component: {fileID: 760614651}
   m_Layer: 16
   m_Name: Estalactite1
   m_TagString: Projectile
@@ -134,7 +135,7 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
+  m_UseAutoMass: 1
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
@@ -163,3 +164,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &760614651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579769624132678869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d5c9a27a0329174e97f416f7b3f7e2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tempoEspera: 0
