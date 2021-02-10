@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,19 +7,14 @@ public class HpBar : MonoBehaviour {
 	public GameObject player;
 	public GameObject healthPoint;
 	public float distanceBetweenPoints;
+	public Sprite filledHealthPoint;
+	public Sprite emptyHealthPoint;
 	[HideInInspector]
 	public List<GameObject> healthPoints = new List<GameObject>();
 
 	private Damageable damageScript;
 	private int health;
 	private int startingHealth;
-
-	[SerializeField]
-	private Sprite filledHealthPoint;
-
-	[SerializeField]
-	private Sprite emptyHealthPoint;
-
     
 	public void Awake()	{
 		damageScript = player.GetComponent<Damageable>();

@@ -22,7 +22,9 @@ public class EnemySpawner : MonoBehaviour {
 	// Update is called once per frame
 	void Update(){
 
-		if (Vector3.Distance(transf.position, player.position) < distanciaGeracao && destroyed) {
+		if (Vector3.Distance(transf.position, player.position) < distanciaGeracao
+				&& Vector3.Distance(transf.position, player.position) > (distanciaGeracao - 0.2f) 
+				&& tempPrefab == null) {
 			tempPrefab = Instantiate (inimigoPrefab) as GameObject;
 			tempPrefab.transform.parent = transf;
 			tempPrefab.transform.position = new Vector3(transf.position.x, transf.position.y, transf.position.z);

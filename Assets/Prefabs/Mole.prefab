@@ -105,8 +105,8 @@ MonoBehaviour:
   moleAgility: 0.05
   attackDamage: 10
   delay: 2.05
-  attackSizeBox: {x: 0.5, y: 0.3}
-  attackOffsetBox: {x: 0, y: 0.32}
+  attackSizeBox: {x: 0.5, y: 0.31}
+  attackOffsetBox: {x: 0, y: 0.3}
   physicsCollider: {fileID: 6696587547483110769}
   triggerCollider: {fileID: 7818134370856991731}
 --- !u!114 &6851477381158155764
@@ -123,7 +123,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onTakeDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8707401998471510143}
+        m_MethodName: SetHorizontalHitboxes
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   hp: 1
   knockbackMultiplier: {x: 0.14, y: 0.3}
   dyingAnimDuration: 1
@@ -138,6 +149,7 @@ MonoBehaviour:
   blink: 0
   blinkDuration: 0
   fadeTime: 1
+  screenFader: {fileID: 0}
 --- !u!50 &8707401998471510142
 Rigidbody2D:
   serializedVersion: 4

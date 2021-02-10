@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
@@ -18,6 +17,7 @@ public class Damageable : MonoBehaviour {
 	public bool blink;
 	public float blinkDuration;
 	public float fadeTime;
+	public Fader screenFader;
 
 
 	private LayerMask playerLayer;
@@ -108,9 +108,12 @@ public class Damageable : MonoBehaviour {
 		}
 		StartCoroutine("FadeSprite");
 		yield return new WaitForSeconds(dyingAnimDuration);
-		if (gameObject.CompareTag("Player")) SceneManager.LoadScene("Stage 1");
-		Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, false);
-		Destroy(gameObject);
+		if (gameObject.CompareTag("Player")) {
+			screenFader.FadeToScene(SceneManager.GetActiveScene().buildIndex);
+		} else {
+			Physics2D.IgnoreLayerCollision(playerLayer, enemiesLayer, false);
+			Destroy(gameObject);
+		}
 	}
 
 	public IEnumerator FadeSprite() {

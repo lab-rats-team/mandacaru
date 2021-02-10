@@ -15,6 +15,7 @@ public class JumpScript : MonoBehaviour {
 
 	// Atributos que recebem valor dinamicamente
 	private LayerMask groundLayerIndex;
+	private LayerMask damgObjLayerIndex;
 	private Rigidbody2D rb;
 	private Animator animator;
 
@@ -29,6 +30,7 @@ public class JumpScript : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		groundLayerIndex = LayerMask.NameToLayer("Foreground");
+		damgObjLayerIndex = LayerMask.NameToLayer("DamageableObjects");
 	}
 	
 	// Chamado todo frame
@@ -81,7 +83,7 @@ public class JumpScript : MonoBehaviour {
 		Collider2D collider = Physics2D.OverlapArea(
 			playerCollider.bounds.min + new Vector3(0.01f, 0f, 0f),
 			new Vector2(playerCollider.bounds.max.x - 0.01f, playerCollider.bounds.min.y - EXTRA_HEIGHT),
-			1 << groundLayerIndex
+			(1 << groundLayerIndex) | (1 << damgObjLayerIndex)
 		);
 
 		return collider != null;

@@ -12,6 +12,7 @@ TagManager:
   - Projectile
   - Spikes
   - Collectable
+  - Shadow scenario
   layers:
   - Default
   - TransparentFX

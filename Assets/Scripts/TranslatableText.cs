@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -19,7 +17,9 @@ public class TranslatableText : MonoBehaviour {
 		try {
 			Translate();
 		} catch (System.NullReferenceException e) {
-			return;
+			//Debug.LogWarning("Há texto não traduzido em " + gameObject.name +
+			//		" sob " + gameObject.transform.parent.gameObject.name);
+			//Debug.LogWarning(e);
 		}
 	}
 

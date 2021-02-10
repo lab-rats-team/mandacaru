@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -51,7 +50,7 @@ public class LanguageManager : MonoBehaviour {
 
 		translateEvent.Invoke();
 	}
-
+	
 	public static string GetTraduction(string key) {
 		if (!fields.ContainsKey(key)) {
 			Debug.LogError("Não existe uma chave com nome: [" + key + "] nos arquivos de texto");

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeAttack : MonoBehaviour {
@@ -21,6 +19,7 @@ public class MeleeAttack : MonoBehaviour {
 	private SpriteRenderer sr;
 	private Rigidbody2D rb;
 	private MonoBehaviour movementScript;
+	private JumpScript jumpScript;
 	private new Collider2D collider;
 	private LayerMask enemyLayer;
 	private LayerMask damageableObjLayer;
@@ -45,12 +44,13 @@ public class MeleeAttack : MonoBehaviour {
 		rb = GetComponent<Rigidbody2D>();
 		collider = GetComponent<BoxCollider2D>();
 		movementScript = GetComponent<PlayerMovement>();
-		
+		jumpScript = GetComponent<JumpScript>();
+	
 		attackPoint = GameObject.Find("attack_point").transform;
 		upAttackPoint = GameObject.Find("up_attack_point").transform;
 		enemyLayer = LayerMask.NameToLayer("Enemies");
 		damageableObjLayer = LayerMask.NameToLayer("DamageableObjects");
-
+	
 		xDistance = attackPoint.position.x - player.position.x;
 		yDistance = attackPoint.position.y - player.position.y;
 		attackRequest = false;
@@ -67,7 +67,8 @@ public class MeleeAttack : MonoBehaviour {
 
 		if (remainingCooldown <= 0) {
 
-			if (Input.GetKeyDown(attackKey)) {
+			if (Input.GetKeyDown(attackKey) 
+					&& !anim.GetCurrentAnimatorClipInfo(0)[0].clip.name.Equals("pick-up")) {
 				if (anim.GetBool("lookingUp")) {
 					upAttackRequest = true;
 					upAttackRemainingDelay = attackDelay;
@@ -85,7 +86,7 @@ public class MeleeAttack : MonoBehaviour {
 				movementScript.enabled = movementEnabled = false;
 			}
 
-		} else {
+		} else if (jumpScript.IsGrounded()) {
 			remainingCooldown -= Time.deltaTime;
 		}
 
