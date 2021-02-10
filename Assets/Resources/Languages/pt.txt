@@ -40,3 +40,7 @@ PAUSE_SETTINGS=configurações
 PAUSE_MAINMENU=menu principal
 PAUSE_EXIT=sair do jogo
 MAIN_TEXT=Tem certeza que deseja voltar ao menu principal? O progresso não salvo será perdido.
+# Jornal
+NEWS_1=Número de mortos na América Latina aumentam a cada dia mais, reflexo do esgotamento dos recursos naturais do planeta, que atinge países mais pobres.
+NEWS_2=NASA X anuncia o sucesso de missões em marte e afirma que em alguns anos já será habitável. Será essa a salvação para a humanidade?
+NEWS_DATE=24-02 2073

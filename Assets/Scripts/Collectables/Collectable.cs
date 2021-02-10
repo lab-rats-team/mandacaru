@@ -4,17 +4,25 @@ public class Collectable : MonoBehaviour {
 
 	public StageCollectable collectableId;
 
-	protected SpriteRenderer sr;
+	private static readonly float fluctuationSpeed = 2f;
+	private static readonly float yVariation = .2f;
+	private SpriteRenderer sr;
+	private float startY;
 
 	protected virtual void Awake() {
 		sr = GetComponent<SpriteRenderer>();
+		startY = transform.position.y;
 	}
 
 	protected virtual void Start() {
-		Debug.Log(gameObject.name);
 		if (SaveLoader.instance.IsCollectableCollected((int) collectableId))
 			Destroy(gameObject, .5f);
-		Debug.Log(gameObject.name);
+	}
+
+	protected virtual void Update() {
+		float y = Mathf.Sin(Time.time * fluctuationSpeed) * yVariation;
+		Vector3 p = transform.position;
+		transform.position = new Vector3(p.x, startY + y, p.z);
 	}
 
 	void OnTriggerEnter2D(Collider2D coll) {

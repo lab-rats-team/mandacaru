@@ -2877,6 +2877,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ignoredScenes:
   - Main Menu
+  - Newspaper
   - Credits
   currentSaveIdx: 0
 --- !u!4 &517076073
