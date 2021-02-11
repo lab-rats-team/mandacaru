@@ -13,7 +13,8 @@ public class Fader : MonoBehaviour {
 
 	IEnumerator Fade(int sceneIdx) {
 		anim.SetTrigger("fade_out");
-		yield return new WaitForSeconds(fadeOutClip.length);
+		yield return new WaitForSecondsRealtime(fadeOutClip.length);
+		Time.timeScale = 1f;
 		SceneManager.LoadScene(sceneIdx);
 	}
 

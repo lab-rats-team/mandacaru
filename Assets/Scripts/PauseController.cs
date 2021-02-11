@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PauseController : MonoBehaviour {
@@ -23,6 +22,7 @@ public class PauseController : MonoBehaviour {
 	public Slider sfxSlider;
 
 	public PaperPieceManager piecesManager;
+	public Fader screenFader;
 	
 	private ConfigsModel currentConfigs;
 	
@@ -100,7 +100,7 @@ public class PauseController : MonoBehaviour {
 	
 	public void Exit() => Application.Quit();
 	
-	public void ReturnToMainMenu() => SceneManager.LoadScene(0);
+	public void ReturnToMainMenu() => screenFader.FadeToScene(0);
 	
 	private void ApplyFullScreen(bool fullScreen) {
 		Resolution maxResol = Screen.resolutions[Screen.resolutions.Length - 1];

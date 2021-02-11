@@ -7495,6 +7495,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4793039926687446830, guid: b99c77561ea934b44a7b6cea72039586,
+        type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4793039926687446865, guid: b99c77561ea934b44a7b6cea72039586,
         type: 3}
       propertyPath: m_Name
@@ -140356,7 +140361,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1365282046}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1714516243}
+        m_MethodName: ReturnToMainMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1365282046
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144103,6 +144119,7 @@ MonoBehaviour:
   mscSlider: {fileID: 1854034974}
   sfxSlider: {fileID: 1294360626}
   piecesManager: {fileID: 281898066}
+  screenFader: {fileID: 647688486}
 --- !u!1 &1719852905
 GameObject:
   m_ObjectHideFlags: 0
