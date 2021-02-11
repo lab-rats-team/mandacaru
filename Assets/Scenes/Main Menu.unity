@@ -8577,6 +8577,12 @@ MonoBehaviour:
     source: {fileID: 0}
     volume: 0.065
     loop: 0
+  - name: news
+    clip: {fileID: 8300000, guid: d5f23d46105e54e49951a9bf387fd692, type: 3}
+    type: 0
+    source: {fileID: 0}
+    volume: 0.833
+    loop: 0
   - name: credits
     clip: {fileID: 8300000, guid: 313c2bc3a9782a144b4335538aba45ef, type: 3}
     type: 0
