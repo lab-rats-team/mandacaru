@@ -27,20 +27,20 @@ public class PaperPieceManager : MonoBehaviour {
 		}
 	}
 
-	void SlideOff() {
-		startTime = Time.time;
+	public void SlideOff() {
+		startTime = Time.unscaledTime;
 		slidingOff = true;
 		slidingIn = false;
 	}
 
-	void SlideIn() {
-		startTime = Time.time;
+	public void SlideIn() {
+		startTime = Time.unscaledTime;
 		slidingOff = false;
 		slidingIn = true;
 	}
 
 	void Update() {
-		float timePassed = (Time.time - startTime);
+		float timePassed = (Time.unscaledTime - startTime);
 		if (startTime == -1f || timePassed > animationTime) return;
 
 		float x = 0f;
@@ -58,6 +58,14 @@ public class PaperPieceManager : MonoBehaviour {
 		papers[idx].SetActive(true);
 		SlideIn();
 		StartCoroutine("HideAgain");
+	}
+
+	public bool IsCompleted() {
+			foreach (var paper in papers) {
+				if (!paper.activeSelf)
+					return false;
+			}
+			return true;
 	}
 
 	private IEnumerator HideAgain() {

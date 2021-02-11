@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -23,6 +21,8 @@ public class PauseController : MonoBehaviour {
 
 	public Slider mscSlider;
 	public Slider sfxSlider;
+
+	public PaperPieceManager piecesManager;
 	
 	private ConfigsModel currentConfigs;
 	
@@ -40,9 +40,11 @@ public class PauseController : MonoBehaviour {
     void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
 			if (Time.timeScale == 1f) {
+				piecesManager.SlideIn();
 				Time.timeScale = 0f;
 				OpenPopUp("PausePopUp");
 			} else if (FindPopUp("PausePopUp").activeSelf) {
+				piecesManager.SlideOff();
 				Resume();
 			} else {
 				OpenPopUp("PausePopUp");

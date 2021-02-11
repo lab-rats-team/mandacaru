@@ -44,5 +44,7 @@ public class Tutorial : MonoBehaviour
 
 		if(Vector3.Distance(player.transform.position, transform.position) > 10f)
 			Destroy(gameObject);
+		else if (Input.GetKeyDown(KeyCode.R))
+			Debug.Log(Vector3.Distance(player.transform.position, transform.position) + " " + gameObject.name);
     } 
 }
