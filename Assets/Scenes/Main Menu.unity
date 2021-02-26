@@ -12113,7 +12113,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1052975027}
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -13013,7 +13013,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1052975025}
         m_MethodName: OpenPopUp
         m_Mode: 3
         m_Arguments:
