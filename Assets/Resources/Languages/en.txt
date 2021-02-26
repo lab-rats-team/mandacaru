@@ -1,0 +1,46 @@
+﻿# Raiz do menu principal
+ROOT_CONTINUE=continue
+ROOT_NEW=new game
+# Pop-up para sair do jogo
+EXIT_TITLE=confirmation
+EXIT_TEXT=are you sure you want to quit the game?
+EXIT_CANCEL=cancel
+EXIT_QUIT=quit
+# Pop-up de configurações
+SETT_TITLE=settings
+SETT_LANGUAGE=language
+SETT_SCREEN=screen
+SETT_FULL=full
+SETT_WINDOW=window
+SETT_MUSIC=music
+SETT_SFX=sfx
+SETT_CANCEL=cancel
+SETT_SAVE=save
+# Pop-up de novo jogo
+NEWG_TITLE=new game
+NEWG_BACK=back
+NEWG_DELETE=delete
+# Pop-up de continuar
+CONT_TITLE=continue
+CONT_BACK=back
+CONT_DELETE=delete
+# Pop-up de deletar
+DELETE_TITLE=delete
+DELETE_CANCEL=cancel
+# Créditos
+PROG_TITLE=programmers
+ART_TITLE=art
+AUDIO_TITLE=audio
+ADVISOR_TITLE=advisor
+THANKS_TITLE=special thanks
+# Menu de pausa
+PAUSE_TITLE=pause menu
+PAUSE_RESUME=resume
+PAUSE_SETTINGS=settings
+PAUSE_MAINMENU=main menu
+PAUSE_EXIT=exit game
+MAIN_TEXT=are you sure you want to return to the main menu? Unsaved progress will be lost.
+# Jornal
+NEWS_1=The number of deaths in Latin America keep rising each day as a response to the depletion of natural resources that's been threating the poorest countries.
+NEWS_2=NASA X announces successful missions in Mars, the company states that the planet will be inhabitable in some years. Would that be the last salvation for human kind?
+NEWS_DATE=2073 02-24

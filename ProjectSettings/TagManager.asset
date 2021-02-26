@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Mole
+  - Weapon
+  - Virtual Camera
+  - Ground
+  - Projectile
+  - Spikes
+  - Collectable
+  - Shadow scenario
   layers:
   - Default
   - TransparentFX
@@ -15,19 +24,19 @@ TagManager:
   - 
   - 
   - 
+  - Background
   - 
   - 
+  - Foreground
+  - Objects
+  - DamageableObjects
+  - Enemies
   - 
   - 
+  - Player
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Spikes
   - 
   - 
   - 
@@ -40,4 +49,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3324975779
+    locked: 0
+  - name: Foreground
+    uniqueID: 735178781
+    locked: 0
+  - name: Objects
+    uniqueID: 1093415851
+    locked: 0
+  - name: Enemies
+    uniqueID: 1034019497
+    locked: 0
+  - name: Player
+    uniqueID: 1713754385
+    locked: 0
+  - name: Spikes
+    uniqueID: 1272683805
+    locked: 0
+  - name: UI
+    uniqueID: 2299795593
     locked: 0
