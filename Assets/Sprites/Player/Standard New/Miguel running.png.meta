@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 42df9d3805c72b948b5e9df1d939ca85
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 41377430080001374
+    second: Miguel running_0
+  - first:
+      213: 4946820189460234516
+    second: Miguel running_1
+  - first:
+      213: 7547393509410165025
+    second: Miguel running_2
+  - first:
+      213: 5760543603251266033
+    second: Miguel running_3
+  - first:
+      213: 7610456908652188377
+    second: Miguel running_4
+  - first:
+      213: -17920050090070345
+    second: Miguel running_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +103,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Miguel running_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 66
+        width: 29
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5513adad80039000800000000000000
+      internalID: 41377430080001374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel running_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 66
+        width: 34
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4110280c0c2a6a440800000000000000
+      internalID: 4946820189460234516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel running_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 66
+        width: 43
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1215b74b86abdb860800000000000000
+      internalID: 7547393509410165025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel running_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 0
+        width: 34
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f1c0f0f2ef81ff40800000000000000
+      internalID: 5760543603251266033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel running_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 0
+        width: 31
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d291aa8c36cd9960800000000000000
+      internalID: 7610456908652188377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel running_5
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1
+        width: 45
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be26043fc550cff0800000000000000
+      internalID: -17920050090070345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

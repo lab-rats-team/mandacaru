@@ -1,7 +1,19 @@
 fileFormatVersion: 2
 guid: f1f089a8863226944aa2ebbab5b809be
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -145051345169882119
+    second: Miguel_jemmy jump_0
+  - first:
+      213: 7955132907043695326
+    second: Miguel_jemmy jump_1
+  - first:
+      213: 5011552032681389023
+    second: Miguel_jemmy jump_2
+  - first:
+      213: 6527080791504264137
+    second: Miguel_jemmy jump_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +97,91 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Miguel_jemmy jump_0
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 158
+        width: 36
+        height: 61
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f3e4f0f19cacfdf0800000000000000
+      internalID: -145051345169882119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy jump_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 160
+        width: 37
+        height: 72
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eda2c591b3f466e60800000000000000
+      internalID: 7955132907043695326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy jump_2
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 47
+        width: 38
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb6c59750c9c8540800000000000000
+      internalID: 5011552032681389023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy jump_3
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 41
+        width: 44
+        height: 70
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb13edd569d49a50800000000000000
+      internalID: 6527080791504264137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

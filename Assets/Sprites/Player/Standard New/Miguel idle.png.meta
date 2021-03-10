@@ -1,7 +1,55 @@
 fileFormatVersion: 2
 guid: 8c3e3bfa6a78b3e4b94fdaa053f62867
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3954621638181150302
+    second: Miguel idle_0
+  - first:
+      213: -342695723114720122
+    second: Miguel idle_1
+  - first:
+      213: 8295933612265707147
+    second: Miguel idle_2
+  - first:
+      213: -604613406645609803
+    second: Miguel idle_3
+  - first:
+      213: 5646666977508124608
+    second: Miguel idle_4
+  - first:
+      213: -2547914962207419112
+    second: Miguel idle_5
+  - first:
+      213: 8949661235695186100
+    second: Miguel idle_6
+  - first:
+      213: 2362634724001049719
+    second: Miguel idle_7
+  - first:
+      213: 6641081091321610369
+    second: Miguel idle_0
+  - first:
+      213: -1734063389186341233
+    second: Miguel idle_1
+  - first:
+      213: -7073052209273912093
+    second: Miguel idle_2
+  - first:
+      213: 7049638131472479177
+    second: Miguel idle_3
+  - first:
+      213: 1752751853343987418
+    second: Miguel idle_4
+  - first:
+      213: -672933719724108652
+    second: Miguel idle_5
+  - first:
+      213: -7367457282017291216
+    second: Miguel idle_6
+  - first:
+      213: 1275514249838222407
+    second: Miguel idle_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +88,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +133,175 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Miguel idle_0
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 286
+        width: 32
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 180c9cc011cd92c50800000000000000
+      internalID: 6641081091321610369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel idle_1
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 286
+        width: 32
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86c985f88e5fe7e0800000000000000
+      internalID: -1734063389186341233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel idle_2
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 286
+        width: 32
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e4cf648d7877dd90800000000000000
+      internalID: -7073052209273912093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel idle_3
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 158
+        width: 32
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c3377da78855d160800000000000000
+      internalID: 7049638131472479177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel idle_4
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 158
+        width: 32
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad6d9fd2686035810800000000000000
+      internalID: 1752751853343987418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel idle_5
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 158
+        width: 32
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4945676e85249a6f0800000000000000
+      internalID: -672933719724108652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel idle_6
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 30
+        width: 32
+        height: 67
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0349e7fe2a881c990800000000000000
+      internalID: -7367457282017291216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel idle_7
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 30
+        width: 32
+        height: 68
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74c5e87c37983b110800000000000000
+      internalID: 1275514249838222407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

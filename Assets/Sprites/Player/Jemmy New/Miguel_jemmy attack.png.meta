@@ -1,7 +1,28 @@
 fileFormatVersion: 2
 guid: 8d08d1db55cb88544b3e39199ad34bac
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 7198211920311377376
+    second: Miguel_jemmy attack_0
+  - first:
+      213: -6497283999683043437
+    second: Miguel_jemmy attack_1
+  - first:
+      213: -6379138295007944744
+    second: Miguel_jemmy attack_2
+  - first:
+      213: 3642733656574447364
+    second: Miguel_jemmy attack_3
+  - first:
+      213: -2028369448075724025
+    second: Miguel_jemmy attack_4
+  - first:
+      213: 5683912442937368153
+    second: Miguel_jemmy attack_5
+  - first:
+      213: -8120605502305775200
+    second: Miguel_jemmy attack_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +61,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +106,154 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Miguel_jemmy attack_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 286
+        width: 47
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ed54209a9f25e360800000000000000
+      internalID: 7198211920311377376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy attack_1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 286
+        width: 37
+        height: 78
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39f101a50a205d5a0800000000000000
+      internalID: -6497283999683043437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy attack_2
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 286
+        width: 39
+        height: 85
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8dfd5f0d48fb877a0800000000000000
+      internalID: -6379138295007944744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy attack_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 158
+        width: 77
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40fca7be5f69d8230800000000000000
+      internalID: 3642733656574447364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy attack_4
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 158
+        width: 77
+        height: 87
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70bf036dbb8c9d3e0800000000000000
+      internalID: -2028369448075724025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy attack_5
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 158
+        width: 77
+        height: 75
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95e54bf804051ee40800000000000000
+      internalID: 5683912442937368153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy attack_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 30
+        width: 68
+        height: 69
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a15bf90250dd4f80800000000000000
+      internalID: -8120605502305775200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

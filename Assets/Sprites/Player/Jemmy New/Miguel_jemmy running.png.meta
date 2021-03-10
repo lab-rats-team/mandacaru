@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 2602400ef54166a47a9cd3015d7d77ea
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 1187466172482222709
+    second: Miguel_jemmy running_0
+  - first:
+      213: -8263468892722330327
+    second: Miguel_jemmy running_1
+  - first:
+      213: 7466551253046113491
+    second: Miguel_jemmy running_2
+  - first:
+      213: 3676496704606106086
+    second: Miguel_jemmy running_3
+  - first:
+      213: -780771145315678399
+    second: Miguel_jemmy running_4
+  - first:
+      213: -5852260912686185202
+    second: Miguel_jemmy running_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +103,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Miguel_jemmy running_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 66
+        width: 37
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57a7891413aba7010800000000000000
+      internalID: 1187466172482222709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy running_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 66
+        width: 40
+        height: 66
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9258bc4e2d2425d80800000000000000
+      internalID: -8263468892722330327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy running_2
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 66
+        width: 46
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d4bf0f1ec48e9760800000000000000
+      internalID: 7466551253046113491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy running_3
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 1
+        width: 40
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e1f0ff164a850330800000000000000
+      internalID: 3676496704606106086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy running_4
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 0
+        width: 41
+        height: 65
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1478590b7c42a25f0800000000000000
+      internalID: -780771145315678399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Miguel_jemmy running_5
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1
+        width: 52
+        height: 64
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e05cf6ed4b798cea0800000000000000
+      internalID: -5852260912686185202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
