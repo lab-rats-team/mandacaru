@@ -44,3 +44,9 @@ MAIN_TEXT=are you sure you want to return to the main menu? Unsaved progress wil
 NEWS_1=The number of deaths in Latin America keep rising each day as a response to the depletion of natural resources that's been threating the poorest countries.
 NEWS_2=NASA X announces successful missions in Mars, the company states that the planet will be inhabitable in some years. Would that be the last salvation for human kind?
 NEWS_DATE=2073 02-24
+# Login
+LOGIN_TITLE=login
+LOGIN_LOGIN=login
+LOGIN_SIGNIN=sign in
+LOGIN_EMAIL=email
+LOGIN_PASS=password
