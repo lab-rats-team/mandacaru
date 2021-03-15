@@ -50,3 +50,7 @@ LOGIN_LOGIN=entrar
 LOGIN_SIGNIN=cadastrar
 LOGIN_EMAIL=email
 LOGIN_PASS=senha
+LOGIN_INVALIDUSER=Usuário não registrado. Impossível fazer login.
+LOGIN_INVALIDPASS=Senha para login incorreta
+LOGIN_ALREADYREGISTERED=Este email já está cadastrado
+LOGIN_TIMEOUT=Conexão expirou. Por favor, tente novamente.
