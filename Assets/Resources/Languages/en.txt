@@ -50,7 +50,3 @@ LOGIN_LOGIN=login
 LOGIN_SIGNIN=sign in
 LOGIN_EMAIL=email
 LOGIN_PASS=password
-LOGIN_INVALIDUSER=Username not registered. Can't login.
-LOGIN_INVALIDPASS=Incorrect password to login.
-LOGIN_ALREADYREGISTERED=This email is already registered.
-LOGIN_TIMEOUT=Connection timed out. Please try again.
