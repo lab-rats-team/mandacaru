@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuView : MonoBehaviour {
 
@@ -16,26 +17,15 @@ public class MenuView : MonoBehaviour {
 	public GameObject fsCircle;
 	public GameObject winCircle;
 
+	public TMP_InputField emailInput;
+	public TMP_InputField passInput;
+	public TMP_Text authMsgLabel;
+
 	public Sprite emptyCircle;
 	public Sprite filledCircle;
 
 	public Slider mscSlider;
 	public Slider sfxSlider;
-
-	public void OpenPopUp(int popUpIdx) {
-		CloseAllPopUps();
-		try {
-			popUps[popUpIdx].SetActive(true);
-		} catch (IndexOutOfRangeException e) {
-			Debug.LogError("Falha ao tentar abrir pop-up com index inválido: " + e.Message);
-		}
-	}
-
-	public void CloseAllPopUps() {
-		foreach (GameObject popUp in popUps) {
-			popUp.SetActive(false);
-		}
-	}
 
 	public void SetEnglishUI(bool english) {
 		ptCircle.GetComponent<Image>().sprite =  english ? emptyCircle : filledCircle;
@@ -45,6 +35,16 @@ public class MenuView : MonoBehaviour {
 	public void SetFullscreenUI(bool fullscreen) {
 		winCircle.GetComponent<Image>().sprite = fullscreen ? emptyCircle : filledCircle;
 		fsCircle.GetComponent<Image>().sprite = !fullscreen ? emptyCircle : filledCircle;
+	}
+
+	public CredentialsModel GetCredentials() {
+		string e = emailInput.text;
+		string p = passInput.text;
+		return new CredentialsModel(e, p);
+	}
+
+	public void SetAuthMessage(string msg) {
+		authMsgLabel.text = msg;
 	}
 
 	public ConfigsModel GetConfigs() {
@@ -98,6 +98,21 @@ public class MenuView : MonoBehaviour {
 			if (popUp.name == name) return popUp;
 
 		return null;
+	}
+
+	public void OpenPopUp(int idx) {
+		CloseAllPopUps();
+		try {
+			popUps[idx].SetActive(true);
+		} catch (IndexOutOfRangeException e) {
+			Debug.LogError("Falha ao tentar abrir objeto com index inválido: " + e.Message);
+		}
+	}
+
+	public void CloseAllPopUps() {
+		foreach (GameObject popUp in popUps) {
+			popUp.SetActive(false);
+		}
 	}
 
 }
